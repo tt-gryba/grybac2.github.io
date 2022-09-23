@@ -1,0 +1,25 @@
+{
+	
+	"categories":[
+		{
+		"id":"overview",
+		"name":"MPLS Overview"
+		},
+		{
+		"id":"using-tt-score",
+		"name":"Using MPLS"
+		},
+		{
+		"id":"views",
+		"name":"MPLS Configuration Examples"
+		},
+		{
+		"id":"problematic-trading-models",
+		"name":"MPLS Use Cases"
+		},
+		{
+			"id": "reference",
+			"name": "MPLS Reference"
+		}
+	]
+}

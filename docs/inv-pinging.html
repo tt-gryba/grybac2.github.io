@@ -1,0 +1,40 @@
+---
+layout: default
+title: Pinging
+---
+
+
+
+
+<p>Pinging involves entering small orders to discover hidden book depth followed by a series of order actions designed to force the large order to trade at less desirable prices.</p>
+
+<h2>Scoring methodology</h2>
+<p>To detect potential pinging, TT Score looks for one or more series of small FOK (Fill Or Kill) orders (pings). After identifying a fill for a small quantity FOK order, TT Score looks for a large order on opposite side of market that executes at a worse price than the ping FOK, which is then followed by an even larger execution on the original ping order side to take advantage of the market move.
+</p>
+
+<h3>Score interpretation</h3>
+<p>At a high level, the risk score for pinging is determined on a sliding scale of 0-100, based on the following factors:</p>
+<ul>
+	<li>The number of pings increases the risk score.</li>
+	<li>Larger sums of order quantities, excluding FOK orders and Place orders, increases the risk score.</li>
+	<li>Higher totals of fill quantities for FOK orders reduces the risk score.</li>
+</ul>
+
+<h3>Scorecard metrics</h3>
+The Scorecard Metrics section measures the following statistics related to pinging:
+
+	<ul>
+		<li>Number of pings: Number of small (or ping) orders in the cluster.</li>
+		<li>Pings Quantity: Size of the ping orders used.</li>
+		<li>Opposite side quantity: Quantity of the order that followed the executed ping order on the opposite side of the market.</li> 
+	</ul>
+
+<h2>Identifying pinging</h2> <!-- proof-read -->
+<p>Use the Cluster Scorecard to get a closer look at the activity that triggered the pinging score, focusing on the audit trail:</p>
+
+<ul>
+	<li>Review the audit trail for the creation of a series of small new orders at various price levels followed by almost immediately by cancel events.</li>
+	<li>Look for a change in trader behavior once the small orders begin to fill immediately after order entry. Specifically, look for larger aggressively priced orders being entered on the opposite side of the market (as the small orders) as soon as the small orders get filled.  The use of a hyper-marketable limit order or a market order could be indicative of aggressive orders.</li>
+	<li>Look in the audit trail to see if that aggressive order was filled and was followed by an even larger order on the same side of the market as the original small orders were placed.</li>
+	<li>Compare the fill price of the final large order to that of the fill of the last small ping order.  If the final large order filled at a better price than the original small ping orders, then it is more likely that an abusive pinging occurred.</li>
+</ul>

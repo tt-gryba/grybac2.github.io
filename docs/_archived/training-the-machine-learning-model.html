@@ -1,0 +1,32 @@
+---
+layout: default
+title: training-the-machine-learning-model
+---
+
+<p>TT Score divides audit log data into sections called <a href="ovw-how-tt-score-works.html" >clusters</a>. TT Score's machine learning algorithm compares these clusters to models of known problematic trading activity called cortices and generates a numeric score to indicate that cluster's similarity to a particular cortex.</p> 
+
+<ul>
+	<li>A <a href="#what-is-a-cortex">cortex</a> is a computer-generated model of a particular type of problematic trading pattern.</li>
+	<li>Each cortex is '<a href="#training-a-cortex">trained</a>' against test data to evaluate and calibrate accuracy.</li>
+	<li>TT Score currently analyzes trading data for the following <a href="#problematic-trading-patterns">problematic trading patterns</a>:</li>
+</ul>
+
+<h2 id="what-is-a-cortex">What is a cortex?</h2>
+
+<p>A neural cortex is a -descriptor- model of a specific problematic trading pattern to which a trader's activity is compared and evaluated for similarity. TT Score uses a number of models, each representing a different trading pattern that may draw regulatory attention. Each cortex uses its own<a href="ovw-how-tt-score-works.html" >clustering algorithm</a> to divide a trader's audit log into chunks of related trading activity. These clusters are compared to the cortex and each given an individual score.</p>
+
+<h3 id="training-a-cortex">Machine learning: training a cortex</h2>
+
+<p>Each cortex is created using training data which provides the seed patterns that each model utilizes to identify similar disruptive or manipulative trading behavior. This training data is taken from real-world regulatory data from successfully prosecuted cases. When regulatory data is unavailable for a particular type of manipulative or disruptive trading activity, we train the models utilizing customized training data developed by several domain experts with backgrounds in both the business and regulatory sides of the financial industry.</p>
+
+<h2 id="problematic-trading-patterns">Problematic trading patterns</h2>
+
+<p>TT Score analyzes data for the following problematic trading patterns:</p>
+
+	<ul>
+		<li><strong>Spoofing</strong>: Spoofing is...</li>
+		<li><strong>Wash Trading</strong>:</li>
+		<li><strong>Momentum Ignition</strong>:</li>
+		<li><strong>Type</strong>:</li>
+		<li><strong>Type</strong>:</li>
+	</ul>

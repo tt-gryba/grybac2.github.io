@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Component&colon; Instrument block | TT Score Help and Tutorials</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet"> <!-- need for tech indicators. also need mathjax script-->
+    <link rel="shortcut icon" href="Content/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29111405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>-->
+
+ <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+ <!--<script src="js/bootstrap.min.js"></script> at bottom but might need for videos-->
+  </head>
+  <body class="pagination-centered">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top ttdoc-navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav nav-tabs" role="tablist">
+          
+          <li><a class="ttdoc-main-nav__brand" target="_blank" href="https://www.tradingtechnologies.com/">Trading Technologies Help Library</a>
+          </li>
+        </ul>
+        <ul class="main-nav__secondary">
+          <li>
+              <form class="main-nav__search" action="Search.html">
+                <input class="main-nav__search-input" placeholder="Search" type="search" name="q" id="search" value="" autocomplete="off">
+                <input class="main-nav__search-button" type="submit" value="">
+              </form>
+          </li>
+        </ul>
+        <!-- Brand and toggle get grouped for better mobile display
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        Brand and toggle get grouped for better mobile display -->
+      </div><!-- ./navbar-inner -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+<div class="container-fluid">
+<section>
+
+<div class="ttdoc-hero row ttdoc-article-hero">
+  <div class="vert-wrapper">
+    <h1 class="ttdoc-hero-headline">TT Score</h1>
+    
+  </div>
+</div> 
+
+<div class="breadcrumb ttdoc-breadcrumb">
+<ul>
+	<!-- Library Home link -->
+    <li><a href="../tthelp.html">Help Library</a></li><!--Library home - displays platforms-->
+    
+	    <!-- ADL Home link -->
+	    
+	    	<li><a href="index.html">TT Score</a></li>
+			
+			 	
+			 		<li class="active">Component&colon; Instrument block</li>
+			 	
+		
+</ul>
+</div>
+ 
+
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+  
+
+
+  
+  
+  
+  
+    <a href="#overview" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Overview</a>
+    <div class="collapse nav-indiv-article" id="overview">
+  
+
+  
+    
+    
+      
+      
+
+          <a href="ovw-introduction-c.html" class="list-group-item list-group-subitem">MPLS Introduction</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-how-tt-score-works-c.html" class="list-group-item list-group-subitem">How MPLS Works</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-accessing-tt-score-c.html" class="list-group-item list-group-subitem">Configuring MPLS</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Using MPLS</a>
+    <div class="collapse nav-indiv-article" id="using-tt-score">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="us-using-overview.html" class="list-group-item list-group-subitem">Workflow Summary</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-selecting-data.html" class="list-group-item list-group-subitem">Selecting Data</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-analyzing-data.html" class="list-group-item list-group-subitem">Analyzing trading activity using data visualizations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-reporting-recording-findings.html" class="list-group-item list-group-subitem">Recording reviews and opening investigations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-creating-custom-alerts-in-tt-score.html" class="list-group-item list-group-subitem">Creating custom alerts in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-generating-reports-in-tt-score.html" class="list-group-item list-group-subitem">Generating Reports in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Configuration Examples</a>
+    <div class="collapse nav-indiv-article" id="views">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-outlier-chart.html" class="list-group-item list-group-subitem">Cluster Group View - Outlier Chart</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-heat-map.html" class="list-group-item list-group-subitem">Cluster Group View - Heat Map</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-daily-cluster-group.html" class="list-group-item list-group-subitem">Cluster Group View - Daily Cluster Groups</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-list-view.html" class="list-group-item list-group-subitem">Cluster List View</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-cluster-view-cluster-scorecard.html" class="list-group-item list-group-subitem">Cluster Scorecard</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-identifying-problematic-activity.html" class="list-group-item list-group-subitem">Reviewing Clusters Using Cluster Views</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Use Cases</a>
+    <div class="collapse nav-indiv-article" id="problematic-trading-models">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-abusive-messaging.html" class="list-group-item list-group-subitem">Abusive Messaging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-cross-trading.html" class="list-group-item list-group-subitem">Cross Trading</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-exchange-messaging-rate-limit.html" class="list-group-item list-group-subitem">Exchange Messaging Rate Limit</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-marking-the-close.html" class="list-group-item list-group-subitem">Marking the Close</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-momentum-ignition.html" class="list-group-item list-group-subitem">Momentum Ignition</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-pinging.html" class="list-group-item list-group-subitem">Pinging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-spoofing.html" class="list-group-item list-group-subitem">Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-spoofing.html" class="list-group-item list-group-subitem">Automated Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-collusive-spoofing.html" class="list-group-item list-group-subitem">Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-collusive-spoofing.html" class="list-group-item list-group-subitem">Automated Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-wash-trading.html" class="list-group-item list-group-subitem">Wash Trading</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Reference</a>
+    <div class="collapse nav-indiv-article" id="reference">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-import.html" class="list-group-item list-group-subitem">Importing data using TT FIX</a>
+                        
+      
+
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>Component&colon; Instrument block</span>
+      </div>
+
+      <h1>Component&colon; Instrument block</h1>
+
+          
+      
+
+
+
+
+ 
+
+<h2>Overview</h2>
+<p>When sending the instrument component block in a FIX execution report, you can specify the instrument in any of the following methods:</p>
+<ul>
+	<li>
+		<a href="#by-id">By security ID</a>
+	</li>
+	<li>
+		<a href="#by-name">By security name</a>
+	</li>
+</ul>
+
+<p>These methods can be used as follows:</p>
+<ul>
+	<li>
+		You can use the security ID method for all cases.
+	</li>
+	<li>
+		You can use the security name method for all contracts on all exchanges except for ICE contracts that use daily, weekly, variable, and undefined delivery terms.
+	</li>
+</ul>
+
+<h2 id="by-id">When specifying by security ID</h2>
+<table class="table table-striped table-bordered" border="1">
+	<thead>
+		<tr>
+			<th>Tag #</th>
+			<th>Field Name</th>
+			<th>Req&#8217;d</th>
+			<th>Data type</th>
+			<th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="text-right" id="tag48">48</td>
+			<td>SecurityID</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>ID of the instrument</p>
+				<p><strong>Note</strong>: The combination of this tag and tag 22 (IDSource) must uniquely identify an instrument in the TT platform.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag22">22</td>
+			<td>IDSource</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Source for the value of tag 48 (SecurityID).</p>
+				<p>Possible values include:</p>
+				<ul>
+					<li><strong>5</strong>: RIC code</li>
+					<li><strong>8</strong>: Exchange symbol</li>
+					<li><strong>96</strong>: TT security ID</li>
+					<li><strong>97</strong>: Alias</li>
+					<li><strong>98</strong>: Name</li>
+					<li><strong>X</strong>: Series key</li>
+				</ul>
+				<p><strong>Note</strong>: The following markets support RIC codes (22=5) for identifying futures, spreads and options instruments in tag 48 (SecurityID):</p>
+				<ul>
+  <li>ASX</li>
+  <li>DGCX</li>
+  <li>CFE</li>
+  <li>CME</li>
+  <li>EEX</li>
+  <li>EUREX</li>
+  <li>Euronext</li>
+  <li>Hkex</li>
+  <li>ICE</li>
+  <LI>ICE_L</LI>
+  <li>LME</li>
+  <LI>MEFF</LI>
+  <li>MX</li>
+  <li>OSE</li>
+  <li>SGX</li>
+  <li>TFX</li>
+  <li>TOCOM</li>
+</ul>
+				<p><strong>Note</strong>: The combination of this tag and tag 48 (SecurityID) must uniquely identify an instrument in the TT platform.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag207">207</td>
+			<td>SecurityExchange</td>
+			<td class="text-center">C</td>
+			<td>Exchange</td>
+			<td>
+				<p>Name of the market where the instrument trades.</p>
+				<p>TT FIX uses this value to identify the exchange that offers the security.</p>
+				<p>Possible values include:</p>
+
+<ul>
+<li>AGGREGATOR</li>
+<li>ALGO</li>
+<li>ASE</li>
+<li>SX</li>
+<li>B3</li>
+<li>BitMEX</li>
+<li>BrokerTec</li>
+<li>CBOT</li>
+<li>CFE</li>
+<li>CME</li>
+<li>Coinbase</li>
+<li>CoinFLEX</li>
+<li>CurveGlobal</li>
+<li>CZCE</li>
+<li>DCE</li>
+<li>DGCX</li>
+<li>EEX</li>
+<li>Eurex</li>
+<li>Euronext</li>
+<li>Fenics</li>
+<li>FEX</li>
+<li>HKEX</li>
+<li>ICE</li>
+<li>ICE_L</li>
+<li>IDEM</li>
+<li>INE</li>
+<li>KCG</li>
+<li>LME</li>
+<li>LSE</li>
+<li>MEFF</li>
+<li>MOEX</li>
+<li>MX</li>
+<li>MX</li>
+<li>NDAQ_EU</li>
+<li>NFI</li>
+<li>NFX</li>
+<li>OSE</li>
+<li>SGX</li>
+<li>TFX</li>
+<li>TOCOM</li>
+</ul>
+
+				<p>Condition: Required when Tag 100 (ExtDestination) is absent and when tag 22 (IDSource) is 8 (Exchange symbol), 97 (Alias) or 9 (Name).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><em>OR</em></td>
+			<td colspan="5"></td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag100">100</td>
+			<td>ExDestination</td>
+			<td class="text-center">C</td>
+			<td>Exchange</td>
+			<td>
+				<p>Market Identifier Code (MIC) of the sub-market where the instrument trades.</p>
+				<p>Execution destination for the order as defined by the institution</p>
+				<p>Some traders use this tag in place of Tag 207 (SecurityExchange) to identify the exchange.</p>
+				<p>ISO 10383 defines a comprehensive list of <a href="http://www.iso15022.org/MIC/homepageMIC.htm">MIC codes</a>.</p>
+
+				<p>Condition: Required when Tag 207 (SecurityExchange) is absent and when tag 22 (IDSource) is 8 (Exchange symbol), 97 (Alias) or 9 (Name).</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag55">55</td>
+			<td>Symbol</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Exchange-provided product symbol for the tradable product.</p>
+				<p>When specifying instruments for <a href="Msg_NewOrderMultileg_AB.html">NewOrderMultileg (AB)</a> and <a href="Msg_MultilegOrderCancelReplace_AC.html">MultilegOrderCancelReplace (AC)</a>:</p>
+				<ul>
+					<li>
+						When submitting multi-leg instrument, set tag 55 to "[NA]".
+					</li>
+					<li>
+						When tag 54 (Side) is B or C, the value in tag 55 is ignored; the values in tag 600 (LegSymbol) and tag 624 (LegSide) in the <a href="Group_LegInstrumentGrp.html">LegInstrument</a> group are used instead.
+					</li>
+				</ul>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<h2 id="by-name">When specifying by security name</h2>
+<p>You can also identify instruments by specifying its name and characteristics. You might use this method if your application or business practices do not use security IDs.</p>
+
+<table class="table table-striped table-bordered" border="1">
+	<thead>
+		<tr>
+			<th>Tag #</th>
+			<th>Field Name</th>
+			<th>Req&#8217;d</th>
+			<th>Data type</th>
+			<th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="text-right" id="tag207">207</td>
+			<td>SecurityExchange</td>
+			<td class="text-center">C</td>
+			<td>Exchange</td>
+			<td>
+				<p>Name of the market where the instrument trades.</p>
+				<p>TT FIX uses this value to identify the exchange that offers the security.</p>
+				<p>Possible values include:</p>
+
+<ul>
+<li>AGGREGATOR</li>
+<li>ALGO</li>
+<li>ASE</li>
+<li>SX</li>
+<li>B3</li>
+<li>BitMEX</li>
+<li>BrokerTec</li>
+<li>CBOT</li>
+<li>CFE</li>
+<li>CME</li>
+<li>Coinbase</li>
+<li>CoinFLEX</li>
+<li>CurveGlobal</li>
+<li>CZCE</li>
+<li>DCE</li>
+<li>DGCX</li>
+<li>EEX</li>
+<li>Eurex</li>
+<li>Euronext</li>
+<li>Fenics</li>
+<li>FEX</li>
+<li>HKEX</li>
+<li>ICE</li>
+<li>ICE_L</li>
+<li>IDEM</li>
+<li>INE</li>
+<li>KCG</li>
+<li>LME</li>
+<li>LSE</li>
+<li>MEFF</li>
+<li>MOEX</li>
+<li>MX</li>
+<li>MX</li>
+<li>NDAQ_EU</li>
+<li>NFI</li>
+<li>NFX</li>
+<li>OSE</li>
+<li>SGX</li>
+<li>TFX</li>
+<li>TOCOM</li>
+</ul>
+
+				<p>Condition: Required when Tag 100 (ExtDestination) is absent and when tag 22 (IDSource) is 8 (Exchange symbol), 97 (Alias) or 9 (Name).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><em>OR</em></td>
+			<td colspan="5"></td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag100">100</td>
+			<td>ExDestination</td>
+			<td class="text-center">C</td>
+			<td>Exchange</td>
+			<td>
+				<p>Market Identifier Code (MIC) of the sub-market where the instrument trades.</p>
+				<p>Execution destination for the order as defined by the institution</p>
+				<p>Some traders use this tag in place of Tag 207 (SecurityExchange) to identify the exchange.</p>
+				<p>ISO 10383 defines a comprehensive list of <a href="http://www.iso15022.org/MIC/homepageMIC.htm">MIC codes</a>.</p>
+
+				<p>Condition: Required when Tag 207 (SecurityExchange) is absent and when tag 22 (IDSource) is 8 (Exchange symbol), 97 (Alias) or 9 (Name).</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag55">55</td>
+			<td>Symbol</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Exchange-provided product symbol for the tradable product.</p>
+				<p>When specifying instruments for <a href="Msg_NewOrderMultileg_AB.html">NewOrderMultileg (AB)</a> and <a href="Msg_MultilegOrderCancelReplace_AC.html">MultilegOrderCancelReplace (AC)</a>:</p>
+				<ul>
+					<li>
+						When submitting multi-leg instrument, set tag 55 to "[NA]".
+					</li>
+					<li>
+						When tag 54 (Side) is B or C, the value in tag 55 is ignored; the values in tag 600 (LegSymbol) and tag 624 (LegSide) in the <a href="Group_LegInstrumentGrp.html">LegInstrument</a> group are used instead.
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag167">167</td>
+			<td>SecurityType</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Asset class of the instrument.</p>
+				<p>Possible values include:</p>
+<ul>
+  <li><strong>FUT</strong>: future</li>
+  <li><strong>MLEG</strong>: multi-leg</li>
+  <li><strong>OPT</strong>: option</li>
+  <li><strong>SPOT</strong>: EEX spot products</li>
+  <li><strong>CUR</strong>: currency</li>
+  <li><strong>TBOND</strong>: treasury bond</li>
+  <li><strong>CS</strong>: common stock</li>
+  <li><strong>NONE</strong>: No security type (Not valid for 35=c, e or V)</li>
+  <!--
+  <li><strong>STRA</strong>: strategy</li>
+  <li><strong>GOVT</strong>: sovereign debt</li>
+  <li><strong>NRG</strong>: energy</li>
+  -->
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag55">55</td>
+			<td>Symbol</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Exchange-provided product symbol for the tradable product.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag200">200</td>
+			<td>MaturityMonthYear</td>
+			<td class="text-center">Y</td>
+			<td>MonthYear</td>
+			<td>
+				<p>Month and year the instrument reaches maturity in the format <i>YYYYMM</i>.</p>
+				<p><strong>Note</strong>: If included, tag 541 (MaturityDate) will override this tag.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag205">205</td>
+			<td>MaturityDay</td>
+			<td class="text-center">C</td>
+			<td>DayOfMonth</td>
+			<td>
+				<p>Day of expiration for the instrument.</p>
+				<p>TT FIX uses this value and Tag 200 (MaturityMonthYear) to specify the maturity date when Tag 167 (SecurityType) is not <strong>MLEG</strong>.</p>
+				<p>Range: 1-31</p>
+				<p><strong>Note</strong>: If included, tag 541 (MaturityDate) will override this tag.</p>
+				<p>Condition: Required when multiple contracts exist for the same month</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag201">201</td>
+			<td>PutOrCall</td>
+			<td class="text-center">C</td>
+			<td>int</td>
+			<td>
+				<p>Whether the option represents a put or call</p>
+				<p>Possible values include:</p>
+				<ul>
+					<li><strong>0</strong>: Put</li>
+					<li><strong>1</strong>: Call</li>
+				</ul>
+				<p>Condition: Required when Tag 167 (SecurityType) is <strong>OPT</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag202">202</td>
+			<td>StrikePrice</td>
+			<td class="text-center">C</td>
+			<td>Price</td>
+			<td>
+				<p>Strike price for an option</p>
+				<p>Condition: Required when Tag 167 (SecurityType) is <strong>OPT</strong></p>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+	</div> <!--- /fullarticle ttdoc-article-wrapper-->
+  </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
+
+
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			
+			<a href=".html">
+				<div class="lower-nav-arrow-left">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Previous:</h1>
+	  				<h2></h2>
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->
+
+</section>
+</div><!--/.container-fluid -->
+
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/imp-instrument-block.html" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+           
+           
+          <p class="footer__copyright">Copyright © 2022 Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

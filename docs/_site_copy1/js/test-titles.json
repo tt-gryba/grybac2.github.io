@@ -1,0 +1,255 @@
+data = {	
+	"as":{
+		"pagetitle":"Autospreader",
+		"DescAccordions":[
+		{
+			"ID":"as-introduction-to-autospreader",
+			"accordiontitle":"Introduction to Autospreader"
+			},
+		{
+			"ID":"as-autospreader-manager",
+			"accordiontitle":"Autospreader Manager"
+			},
+		{
+			"ID":"as-autospreader-configuration-interface",
+			"accordiontitle":"Autospreader Configuration Interface"
+			},
+		{
+			"ID":"as-spread-configuration",
+			"accordiontitle":"Spread Configuration"
+			},
+		{
+			"ID":"as-spread-configuration-order-execution",
+			"accordiontitle":"Spread Configuration: Order Execution"
+			},
+		{
+			"ID":"as-spread-configuration-rules",
+			"accordiontitle":"Spread Configuration: Rules"
+			},
+		{
+			"ID":"as-spread-configuration-spread-review",
+			"accordiontitle":"Spread Configuration: Spread Review"
+			},
+		{
+			"ID":"as-autospreader-orders",
+			"accordiontitle":"Autospreader Orders"
+			}
+
+		],
+		"TaskAccordions" : [
+		{
+			"ID":"as-creating-a-synthetic-spread",
+			"accordiontitle":"Creating a synthetic spread"
+			},
+		{
+			"ID":"as-editing-a-synthetic-spread",
+			"accordiontitle":"Editing a synthetic spread"
+			},
+		{
+			"ID":"as-duplicating-a-synthetic-spread",
+			"accordiontitle":"Duplicating a synthetic spread"
+			},
+		{
+			"ID":"as-deleting-a-synthetic-spread",
+			"accordiontitle":"Deleting a synthetic spread"
+			},
+		{
+			"ID":"as-launching-a-synthetic-spread",
+			"accordiontitle":"Launching a synthetic spread"
+			},
+		{
+			"ID":"as-submitting-an-autospreader-order",
+			"accordiontitle":"Submitting an Autospreader order"
+			},
+		{
+			"ID":"as-submitting-a-reload-order",
+			"accordiontitle":"Submitting a Reload order"
+			},
+		{
+			"ID":"as-submitting-a-queue-holder-order",
+			"accordiontitle":"Submitting a Queue Holder order"
+			}
+		],
+		"UseCaseTab":true,
+		"ReferenceTab":true,
+		"VideoTab":true
+
+	},
+	"mdt":{
+		"pagetitle":"MD Trader<sup>®</sup>",
+		"DescAccordions" : [		
+			{
+			"ID":"mdt-overview",
+			"accordiontitle":"MD Trader overview"
+			},
+			{
+			"ID":"mdt-market-data-in-mdtrader",
+			"accordiontitle":"Market Data in MD Trader"
+			},
+			{
+			"ID":"mdt-order-entry-in-mdtrader",
+			"accordiontitle":"Order Entry in MD Trader"
+			}
+		],
+		"TaskAccordions" : [
+			{
+			"ID":"mdt-viewing-market-data-in-mdtrader",
+			"accordiontitle":"Viewing market data in MD Trader"
+			},
+			{
+			"ID":"mdt-entering-orders-in-mdtrader",
+			"accordiontitle":"Entering orders in MD Trader"
+			},
+			{
+			"ID":"mdt-managing-orders-in-mdtrader",
+			"accordiontitle":"Managing orders in MD Trader"
+			},
+			{
+			"ID":"mdt-using-tabs-in-mdtrader",
+			"accordiontitle":"Using tabs in MD Trader"
+			}
+		],
+		"UseCaseTab":true,
+		"ReferenceTab":true,
+		"VideoTab":true
+	},
+	"mg":{
+		"pagetitle":"Market Grid",
+		"DescAccordions" : [		
+			{
+			"ID":"mg-introduction-to-market-grid",
+			"accordiontitle":"Market Grid overview"
+			},
+			{
+			"ID":"mg-market-data-in-market-grid",
+			"accordiontitle":"Market data in Market Grid"
+			},
+			{
+			"ID":"mg-trading-from-market-grid",
+			"accordiontitle":"Trading from Market Grid"
+			}
+		],
+		"TaskAccordions" : [
+			{
+			"ID":"mg-populating-market-grid",
+			"accordiontitle":"Populating Market Grid"
+			},
+			{
+			"ID":"mg-customizing-the-market-grid-display",
+			"accordiontitle":"Customizing the Market Grid display"
+			},
+			{
+			"ID":"mg-using-tabs",
+			"accordiontitle":"Using tabs"
+			},
+			{
+			"ID":"mg-launching-widgets",
+			"accordiontitle":"Launching widgets from Market Grid"
+			},
+			{
+			"ID":"mg-submitting-orders-with-a-floating-order-entry-widget",
+			"accordiontitle":"Submitting Orders with a Floating Order Entry widget"
+			},
+			{
+			"ID":"mg-creating-common-widget-groups",
+			"accordiontitle":"Creating common Market Grid widget groups"
+			}
+		],
+		"UseCaseTab":true,
+		"ReferenceTab":true,
+		"VideoTab":true
+	},
+	"ot":{
+		"pagetitle":"Order Ticket",
+		"DescAccordions" : [		
+			{
+			"ID":"ot-order-ticket-overview",
+			"accordiontitle":"Order Ticket overview"
+			},
+			{
+			"ID":"ot-types-of-order-tickets",
+			"accordiontitle":"Types of order tickets"
+			},
+			{
+			"ID":"ot-order-entry-from-order-ticket",
+			"accordiontitle":"Order entry from Order Ticket"
+			},
+			{
+			"ID":"ot-exchange-specific-order-entry-features",
+			"accordiontitle":"Exchange-specific order entry features"
+			}
+		],
+		"TaskAccordions" : [
+			{
+			"ID":"ot-launching-a-floating-order-ticket-from-mg",
+			"accordiontitle":"Launching a floating Order Ticket"
+			},
+			{
+			"ID":"ot-launching-a-linked-order-ticket-from-a-contract-row",
+			"accordiontitle":"Launching a linked Order Ticket from a contract row"
+			},
+			{
+			"ID":"ot-launching-an-unlinked-order-ticket",
+			"accordiontitle":"Launching an unlinked Order Ticket"
+			},
+			{
+			"ID":"ot-launching-a-floating-order-ticket-in-broker-mode",
+			"accordiontitle":"Launching a floating Order Ticket in Broker Mode"
+			},
+			{
+			"ID":"ot-submitting-an-order",
+			"accordiontitle":"Submitting an order"
+			}
+		],
+		"UseCaseTab":true,
+		"ReferenceTab":true,
+		"VideoTab":true
+	},
+	"sm":{
+		"pagetitle":"Spread Matrix",
+		"DescAccordions" : [		
+			{
+			"ID":"sm-overview",
+			"accordiontitle":"Spread Matrix overview"
+			},
+			{
+			"ID":"sm-spread-matrix-tab-options",
+			"accordiontitle":"Spread Matrix tab options"
+			},
+			{
+			"ID":"sm-market-data-in-spread-matrix",
+			"accordiontitle":"Market data in Spread Matrix"
+			},
+			{
+			"ID":"sm-order-entry-in-spread-matrix",
+			"accordiontitle":"Order entry in Spread Matrix"
+			},
+			{
+			"ID":"sm-autospreader-in-spread-matrix",
+			"accordiontitle":"Autospreader® in Spread Matrix"
+			}
+		],
+		"TaskAccordions" : [
+			{
+			"ID":"sm-opening-spread-matrix",
+			"accordiontitle":"Opening Spread Matrix"
+			},
+			{
+			"ID":"sm-displaying-market-data-in-spread-matrix",
+			"accordiontitle":"Displaying market data in Spread Matrix"
+			},
+			{
+			"ID":"sm-entering-orders-in-spread-matrix",
+			"accordiontitle":"Entering orders in Spread Matrix"
+			},
+			{
+			"ID":"sm-creating-spreads-in-spread-matrix",
+			"accordiontitle":"Creating spreads in Spread Matrix"
+			}
+		],
+		"UseCaseTab":true,
+		"ReferenceTab":true,
+		"VideoTab":true
+	}
+
+}

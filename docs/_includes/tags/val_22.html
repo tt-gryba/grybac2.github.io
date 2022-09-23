@@ -1,0 +1,25 @@
+<p>Possible values include:</p>
+<ul>
+<!--
+  <li><strong>1</strong>: CUSIP</li>
+  <li><strong>2</strong>: SEDOL</li>
+  <li><strong>3</strong>: QUIK</li>
+  <li><strong>4</strong>: ISIN number</li>
+  -->
+  <li><strong>5</strong>: RIC code</li>
+  <!--
+  <li><strong>6</strong>: ISO currency code</li>
+  <li><strong>7</strong>: ISO country code</li>
+  -->
+  <li><strong>8</strong>: Exchange symbol</li>
+  <!--
+  <li><strong>9</strong>: Consolidated tape association</li>
+  <li><strong>95</strong>: Clearport</li>
+  -->
+  <li><strong>96</strong>: TT security ID</li>
+  <li><strong>97</strong>: Alias</li>
+  <li><strong>98</strong>: Name</li>
+  <li><strong>X</strong>: Series key</li>
+</ul>
+<p><strong>Note</strong>: The following markets support RIC codes (22=5) for identifying futures, spreads and options instruments in tag 48 (SecurityID):</p>
+{% include tags/ric_code_markets.html %}

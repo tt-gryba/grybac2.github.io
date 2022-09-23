@@ -1,0 +1,301 @@
+---
+layout: default
+title: Cluster List View
+---
+
+<p>The Cluster List view shows individual clusters created from the selected dates. Each row of this sortable list is highlighted with a color to indicate the severity of that cluster's risk score.</p>
+
+
+<h2 id="display">Cluster List display</h2>
+<p><img class="img-responsive" src="Content/cluster-list-display.png" alt=""></p>
+
+<p>The Cluster List display is organized into the following sections:</p>
+<ol>
+	<li><a href="#interpret">Cluster List</a>: Displays the Cluster List view of the selected dates' data as well as filtering and navigation tools.</li>
+		<!-- <li><a href="#statistical-summary">Summary Statistics Panel</a>: Shows metrics about the selected data in the current view.
+		</li> -->
+		<li><a href="#data-selection-panel">Data Selection Panel</a>: Manages the dates available to TT Score and specifies the criteria to use when populating the list.</li>
+</ol>
+
+
+
+<h2 id="interpret">Interpreting the Cluster List</h2>
+
+<p>The Cluster List is used to conduct a cluster list review. Once a problematic cluster group is identified, you can inspect the individual clusters contained in that group using the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a>. This <strong>Score</strong> column is color coded using a graduated scale tied to the risk score, transitioning from red through yellow to green and pale green as scores decrease.</p>
+
+<p>While conducting a cluster list review, it can be helpful to:<p>
+
+<ul>
+	<li>Filter out lower scoring clusters using the <strong>Score</strong> filter to make larger datasets more navigable.</li>
+	<li>Sort the list by <strong>Start Time</strong> to see if higher scoring clusters bunch up at particular times of day.</li>
+</ul>
+
+<p><img class="img-responsive" src="Content/cluster-list-example.png" alt=""></p>
+
+<p>The Cluster List displays the following:</p>
+<ul>
+    <li>
+    	<strong>Score</strong>: Risk score calculated for the cluster.
+    </li>
+    <li>
+    	<strong>Model</strong>: Type of risk highlighted in the cluster.
+    </li>
+    <li>
+    	<strong>Trader</strong>: Trader ID used for the cluster's trading activity.
+    </li>
+    <li>
+    	<strong>Account</strong>: Account used for the cluster's trading activity.
+    </li>
+     <li>
+    	<strong>Instrument</strong>: ID of the instrument whose activity is contained in the cluster.
+    </li> 
+    <li>
+    	<strong>Exchange</strong>: Exchange where the instrument was traded.
+    </li>
+    <li>
+    	<strong>Cluster Start Time</strong>: Cluster start time with microsecond precision.
+    </li>
+   
+    
+    <li>
+    	<strong>Reviewed</strong>: Shows whether the cluster has been reviewed by compliance officers (Yes or No).
+    </li> 
+    <li>
+    	<strong>Actions</strong>: Allows you to inspect and review the cluster details.
+    </li>
+
+</ul>
+
+
+<!-- <h3 id="cluster-details">Cluster details</h3>
+<p>Clicking on row in the Cluster List displays detailed information about that cluster. </p>
+<p><img class="img-responsive" src="Content/rpt-rainbow-list-cluster-summary.png" alt=""></p>
+<table class="table table-striped table-bordered" border="1">
+	<thead>
+		<tr>
+			<th>Field</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Cortex</td>
+			<td>Type of potential risk</td>
+		</tr>
+		<tr>
+			<td>Score</td>
+			<td>Score indidicated the level of potential risk</td>
+		</tr>
+		<tr>
+			<td>Time range</td>
+			<td>Start/End time, with UTC offset, for the cluster</td>
+		</tr>
+		<tr>
+			<td>Trader</td>
+			<td>Trader ID that generated the trading activity</td>
+		</tr>
+		<tr>
+			<td>Instrument</td>
+			<td>Instrument being traded</td>
+		</tr>
+		<tr>
+			<td>Position</td>
+			<td>Position in the instrument at the time of the transaction</td>
+		</tr>
+		<tr>
+			<td>Account</td>
+			<td>Account ID associated with the transactions</td>
+		</tr>
+	
+		<tr>
+			<td>Reviewed</td>
+			<td>Whether the cluster has been reviewed</td>
+		</tr>
+		<tr>
+			<td>Exchange</td>
+			<td>Exchange on which the transaction occurred</td>
+		</tr>
+		<tr>
+			<td>Cluster Index</td>
+			<td>ID of the cluster</td>
+		</tr>
+		<tr>
+			<td>Cluster Notes</td>
+			<td>Notes left by a compliance review, if provided</td>
+		</tr>
+	</tbody>
+</table> -->
+
+{% include cluster-filters.html %}
+
+
+		<!--	<table class="table table-striped table-bordered" border="1">
+				<tbody>
+					<tr>
+						<th>Filter</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td>TBD</td>
+						<td>TBD</td>
+					</tr>
+					<tr>
+						<td>TBD</td>
+						<td>TBD</td>
+					</tr>
+				</tbody>
+			</table> -->
+
+<!-- <h2 id="statistical-summary">Summary Statistics</h2>
+	<p>On the right side of the display is the <strong>Summary Statistics</strong> pane, which contains  charts and data summarizing the data selected.</p>
+	<img class="img-responsive" src="Content/rpt-summary-statistics.png" />
+
+	<ol>
+		<li>A bar chart summarizing the number of clusters for each category of problematic trading activity. </li>
+		<li>Scores for the current data selected. (See table below for parameter descriptions)</li>
+		<li>A pie chart illustrating the number of clusters for each group. The type of group is defined by the "Group by" drop down menu. (by Trader in this example)</li>
+		<li>A table showing the number of clusters for each group .</li>
+	</ol>
+
+	<p>Scores are described in the following table.</p>
+
+
+<table class="table table-striped table-bordered" border="1">
+	<tbody>
+		<tr>
+			<th>Field</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>Min Risk</td>
+			<td>The minimum individual cluster risk score.</td>
+		</tr>
+		<tr>
+			<td>Mean Risk</td>
+			<td>The average risk score of all clusters contained in the current data selection.</td>
+		</tr>
+		<tr>
+			<td>Median Risk</td>
+			<td>The median individual cluster risk score.</td>
+		</tr>
+		<tr>
+			<td>Max Risk</td>
+			<td>The highest individual risk score seen the the currently viewed data.</td>
+		</tr>
+		<tr>
+			<td>#_clusters</td>
+			<td>Total number of clusters.</td>
+		</tr>
+	</tbody>
+</table>
+
+ -->
+
+ <h2 id="data-selection-panel">Data Selection Panel</h2>
+
+{% include content/data-selection-panel.html %}
+
+<!-- target article structure:
+<ul>
+			<li>What this report tells you and how.</li>
+			<li>Report Interface - section by section breakdown</li>
+			<li>Example with interpretation</li>
+			<li>Table of definitions: Reference</li>
+</ul>
+<p>Clicking on a square on the heat map will display all the scored results for that trader, when the event happened, the score and the model that the event refers to. The list is sorted in decreasing score so the most important clusters are at the top of the list. This view is color coded using a graduated scale tied to the risk score, transitioning from red through yellow to green and pale green as scores decrease.</p>
+<p>The Rainbow List View is also available via the Treemap/List Toggle described earlier.</p>
+
+<p>[[[[[[[ Rainbow overview screenshot here ]]]]]]]</p>
+<p>To show more detail, click on one of the rows. This will show summary information about this cluster, including any notes that have previously been recorded.</p>
+
+<h3>Applying filters</h3>
+<p>TBD</p>
+
+<h3>Sorting the list</h3>
+<p>TBD</p>
+
+<h2>Cluster summary</h2>
+<p>[[[[[[[ Summary cluster screenshot here ]]]]]]]</p>
+<table class="table table-striped table-bordered" border="1">
+		<thead>
+				<tr>
+						<th>Field</th>
+						<th>Description</th>
+				</tr>
+		</thead>
+		<tbody>
+				<tr>
+						<td>Cortex</td>
+						<td>Type of potential risk</td>
+				</tr>
+				<tr>
+						<td>Score</td>
+						<td>TBD</td>
+				</tr>
+				<tr>
+						<td>Time range</td>
+						<td>Start/End time, with UTC offset, for the cluster</td>
+				</tr>
+				<tr>
+						<td>Instrument</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Position</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Account</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Reviewed</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Filename</td>
+						<td>(will this still be valid?)</td>
+				</tr>
+				<tr>
+						<td>Exchange</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Cluster Index</td>
+						<td></td>
+				</tr>
+				<tr>
+						<td>Cluster Notes</td>
+						<td></td>
+				</tr>
+		</tbody>
+</table>
+
+<h2>Inspecting a cluster</h2>
+<p>High-level summary</p>
+<p>!! Add pic of cluster page !!</p>
+<p>Text with link to Cluster page</p>
+
+
+<h2>Examining blocks</h2>
+<p>Clicking a block displays the list view of event clusters in that block group. The clusters are ordered by the score, from highest to lowest, so the most noteworthy clusters are listed first. Each cluster is also color-coded to reflect the event score.</p>
+<p>Add image</p>
+<p>The list view displays the following information for each cluster:</p>
+<ul>
+	<li>Score</li>
+	<li>Cortex</li>
+	<li>Start time</li>
+	<li>Instrument</li>
+	<li>Trader</li>
+	<li>Account</li>
+	<li>Reviewed</li>
+</ul>
+
+<h3>Examining cluster details</h3>
+<p>Clicking an individual event in the list view, displays more information about the event.</p>
+<p>Add image</p>
+<p>Explain what is shown in the section</p>
+
+<h2>Evaluating regulatory risk</h2>
+<p>Maybe some high-level guidelines to determining when the risk score indicates that some action is required.</p>
+-->

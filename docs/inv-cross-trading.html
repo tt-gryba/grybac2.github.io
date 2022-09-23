@@ -1,0 +1,68 @@
+---
+layout: default
+title: Cross Trading
+---
+<p>A cross trade occurs when a buy order and a sell order for the same instrument are entered for different accounts under the same management, such as a broker or portfolio manager. To ensure that all market participants have a fair chance to trade at a price, exchanges impose minimum delays between such transactions. A cross trade is potentially illegal when both sides of the trade occur within the delay period.</p>
+
+
+<p><b>Note</b>: The “resting period” (delay period) for Cross Trades is 5 seconds.</p>
+
+
+
+<h2>Scoring methodology</h2>
+
+<p>TT Score identifies opposing buy and sell orders placed for the same instrument at the same price. When it finds a matching set of orders, TT Score determines the length of time between the orders.</p>
+
+<h2>Score interpretation</h2>
+
+<p>TT Score assigns the following risk scores for cross trades:</p>
+<ul>
+  <li>62 &mdash; The delay time is sufficient.</li>
+  <li>95 &mdash; The delay is insufficient and the trades were made with the same trader ID and different accounts.</li>
+  <li>87 &mdash; The delay is insufficient and the trades were made with different trader IDs and accounts.
+  </li>
+</ul>
+
+<h2>Identifying cross trading</h2>
+<p>The Cluster Scorecard shows activity that could indicate a cross trade. Use this scorecard to get a closer look at the activity that triggered the cross trading score. The following image shows results from inspecting a cross trading cluster.</p>
+
+<p><img class="img-responsive" src="Content/score-cross-trade-example.png" alt="" /></p>
+
+
+<p>When reviewing <b>Audit Activity</b> for cross trading, check if:</p>
+<ol>
+  <li>
+    Fills were executed on opposite sides of the market for the same order quantity.
+  </li>
+  <li>
+    The two transactions were executed using different accounts.
+  </li>
+  <li>
+    The two transactions were executed within the same millisecond.
+  </li>
+
+  <li>
+    The two transactions were executed with different trader IDs or the same trader ID.
+  </li>
+
+</ol>
+
+
+
+
+<!--
+Scoring methodology -
+
+Clusters are created to capture only orders that trade against each other. Clusters include fills of the same product and price on opposite sides that occur simultaneously.
+Clusters include the last place or modify (for each unique order id in the set of fill/partial events) before the fills happened.  This allows us to detect when the order was placed, to check if there was enough delay between the order entry or not.
+We then check to see if the opposing trades are for different beneficial owners.
+We do so by checking if the trading accounts are the same or not.  If the trading accounts are the same, then they are the same beneficial owner and this is a wash trade, not a cross trade.  In this case it will get a 0 risk score for cross trading.
+If the trading accounts are different, we check to see if there was sufficient delay between orders being placed.
+We have hard-coded 5 seconds as the sufficient delay time, based on the CME rules for futures (not options, see way below).  In the future, this will have to be parameterized by exchange as the delay differs.
+
+Score interpretation -
+If the delay is sufficient, then this is a legal cross trade, and it gets a risk score of 0.
+If the delay is insufficient, then we still aren't sure whether these trades just happened to execute against each other by chance, or if there was a single trader or colluding traders making an intentional (and illegal) cross trade.  So we check the only other relevant information we currently have, Trader_id.
+If the opposing orders were traded by the same Trader_id, then we think this is an illegal cross trade and give it a risk score of 95.
+If the opposing orders were traded by different Trader_ids, then we know this is very possibly random executions within the same firm, and we give a risk score of 87.  It is still given a high risk score because it is possible that the two different traders are colluding.
+-->

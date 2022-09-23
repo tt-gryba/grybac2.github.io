@@ -1,0 +1,112 @@
+---
+layout: default
+title: Creating custom alerts in TT Score
+---
+
+<p>TT Score gives you the ability to create and manage custom alerts that are triggered when your criteria is met for 
+	specific models,<!-- accounts,--> products, or scores. For example, you can create an alert that sends a user an email whenever a model scores above a certain range.</p>
+
+
+<h2>TT Score alerts page</h2>
+
+<p>Alerts and notifications are viewable from the alerts page via the TT Score Dashboard. As a TT Score administrator, you can create, enable, edit, and delete alerts from this page. As a user, you can review notifications and navigate directly to the clusters that caused the alert to trigger.</p>
+
+<p><img class="img-responsive" src="Content/us-alert-display.png" alt="" /></p>
+
+<p>The alerts page includes the following:
+	<ol>
+		<li><b>Add Alert</b> &mdash; Opens the Alert Manager to create a new alert.
+			<li><b>Active</b> &mdash; Enables or disables an alert.
+			<li><b>Edit</b> &mdash; Opens the Alert Manager to modify an alert.
+				<li><b>Notifications</b> &mdash; Displays notifications sent via email when the alert was triggered. In each notification, you can view the clusters that caused the alert to trigger.</li>
+			<li><b>Delete</b> &mdash; Deletes the alert.
+			</ol>
+
+
+
+
+<h2>Adding an alert in TT Score</h2>
+
+<ol>
+	<li>Click the <b>Alerts</b> tab on the Dashboard and click <b>Add Alert</b>.
+
+<p><img class="img-responsive" src="Content/us-alert-step1.png" alt="" /></p>
+
+
+<li>Configure the alert using the <b>Alert Manager</b>.
+<!-- <p><img class="img-responsive" src="Content/us-alert-manager1.png" alt="" /></p> -->
+<p><img class="img-responsive" src="Content/us-alert-manager1-no-accounts.png" alt="" /></p>
+
+<p>Enter data for the following required fields:</p>
+<ul>
+		<li><b>Alert Name</b> &mdash; Custom name for the alert.
+			<li><b>Alert Description</b> &mdash; Purpose of the alert.
+			<li><b>Send email to</b> &mdash; Sets where notifications are sent after the alert is triggered. Enter a valid email address.
+			<li><b>Conditions</b> &mdash; Select one of the following criteria: 
+				<ul>
+					<li><b>Alert me when ALL of the following conditions are met</b>: All conditions must be me before the alert is triggered.
+						<li><b>Alert me when ANY of the following conditions are met</b>: One or more of the conditions must be met to trigger the alert.
+						</ul>
+			</li>
+			 <li><b>Add Condition</b> &mdash; Select one or more of the following alert conditions and operators:
+			 	<ul>
+		<!-- <Li><b>Account</b> &mdash; Creates an alert based on an account in your company. Choose an operator (e.g., "equals" or "not equals") then select one or more accounts from the list.</li> -->
+			<li><b>Model</b> &mdash; Creates an alert based on problematic trading model. Choose an operator and select one or more models.</li>
+			<li><b>Product Type</b> &mdash; Creates an alert based on one or more of the following product types: Options, Outrights, Spreads, Common Stock, Index, or Bond.</li>
+			<li><b>Score</b> &mdash; Creates an alert based on cluster score. Use the slider to set the score value.
+			</li>
+
+</ul>
+</ul>
+</li>
+			<li>Click <b>Save</b>.
+
+				<p>The status message appears in the upper right corner of the screen and the new alert is displayed at the top of the data grid.</p>
+
+					<p><img class="img-responsive" src="Content/us-alert-added.png" alt="" /></p>
+
+</li>
+</ol>
+
+
+
+
+<h2>Viewing an alert notification in TT Score</h2>
+
+<p>After an alert is triggered<!-- and you receive an email notification-->, you can view the notification on the alerts page and navigate directly to the clusters that caused the alert to trigger.</p>
+
+<ol>
+	<li>Click the <b>Alerts</b> tab on the dashboard.
+
+		<p><img class="img-responsive" src="Content/us-alert-tab.png" alt="" /></p>
+
+<li>Click <b>Notifcations</b> for the triggered alert.
+
+	<!-- <p>This is the same alert sent to you via email when the alert was triggered.</p> -->
+<p><b>Tip</b>: You can also click the arrow in the alert row to view notifications.</p>
+
+		<p><img class="img-responsive" src="Content/us-alert-click-notifications.png" alt="" /></p>
+
+
+
+<li>Click <b>View clusters</b> in the notification message.
+				<p>The clusters that meet the alert criteria are displayed.</p>
+
+		<p><img class="img-responsive" src="Content/us-alert-view-clusters.png" alt="" /></p>
+
+<p><b>Tip</b>: You can also click <b>View Clusters</b> in the notification sent to you via email to list the clusters that triggered the alert.</p>
+
+
+<li>To navigate to a cluster, select it in the data grid. 
+		<p><img class="img-responsive" src="Content/us-alert-select-cluster.png" alt="" /></p>
+
+<p>The Cluster Scorecard appears for the cluster you are reviewing.</p>
+
+</li>
+</ol>
+
+
+
+
+
+

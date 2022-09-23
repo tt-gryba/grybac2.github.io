@@ -1,0 +1,77 @@
+---
+layout: default
+title: Reviewing Trading Activity
+---
+
+
+<p>TT Score provides you the ability to identify potentially problematic trading activity, review that activity from a variety of perspectives and then record your review of that activity.</p>
+
+<p>Once you have selected your data, TT Score organizes this data into clusters. You then choose a grouping method for organizing these clusters into groups or select a view that groups your clusters automatically. With your clusters now grouped, you can use TT Score data visualizations to review the selected data at three different layers of depth:</p>
+
+<ul>
+	<li>Groups of clusters</li>
+	<li>List of clusters in a cluster group</li>
+	<li>Individual cluster</li>
+</ul>
+
+
+<h2>Cluster Group review</h2>
+
+<p>Using the cluster group views listed below, you examine each group of clusters to determine which of them require further review. Cluster Group reviews are conducted using the following views:</p>
+
+<ul>
+	<li><a href="glv-group-view-outlier-chart.html">Outlier chart</a></li>
+	<li><a href="glv-group-view-heat-map.html">Heat Map</a></li>
+	<li><a href="glv-group-view-alerts.html">Daily Cluster Groups</a></li>
+</ul>
+
+
+<h2>Cluster List review</h2>
+
+<p>After you have identified a problematic cluster group, you review the list of individual clusters within that group to determine which clusters require further examination. Cluster list reviews are performed using the <a href="glv-list-view.html">Cluster List</a>.</p>
+<p><img class="img-responsive" src="Content/new-rpt-rainbow-list-example.png" alt=""></p>
+
+<h2>Cluster review</h2>
+
+<p>You then examine an individual cluster and review the workflow actions taken by the trader in the context of the market conditions at the time. Cluster reviews are conducted using the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a>.
+	
+<p><img class="img-responsive" src="Content/new-rpt-wash-review.png" alt=""/></p>
+
+<p>The Cluster Scorecard provides detailed information about the cluster activity and score. From the scorecard, you can use the Market Ladder Replay <!--and Macro views--> to view the trader's activity in the context of market conditions.</p>
+
+
+<h2>Review workflow</h2>
+
+<p>Selected data is best reviewed by focusing on one problematic trading model at a time. You begin by filtering the data for an individual model.</p>
+
+<p><strong>Note</strong>: Selected filters are applied to the data only after you click the <strong>Apply Filters</strong> button.</p>
+
+<p><img class="img-responsive" src="Content/review-workflow.png" alt=""/></p>
+
+<ol>
+	<li>
+		Conduct a <strong>cluster group review</strong> to identify cluster groups that need further examination using one of the Cluster Group views. Use the links below for information on using these views to identify problematic cluster groups:
+		<ul>
+			<li><a href="glv-group-view-outlier-chart.html#outlier-chart">Outlier chart</a></li>
+			<li><a href="glv-group-view-heat-map.html#heat-map">Heat Map</a></li>
+			<li><a href="glv-group-view-alerts.html">Daily Cluster Groups</a></li>
+		</ul>
+	</li>
+	<li>Selecting a problematic cluster group will open the Cluster List with filters applied to to view only the clusters in this group. Conduct a <a href="glv-list-view.html#interpreting">cluster list review</a> to identify individual clusters to review.
+	</li>
+	<li>For each identified cluster, you conduct a <strong>cluster review</strong>.
+		<p></p>
+		Cluster review methods vary by problemattic trading model. Consult this <a href="cv-identifying-problematic-activity.html">summary of cluster review methods</a> for more information.
+	</li>
+	<li>
+		After completing a cluster review, you <a href="cv-cluster-view-cluster-scorecard.html#cluster-review">write your disposition for the cluster</a> using the Cluster Scorecard.
+	</li>
+	<li>
+		After all problematic clusters are reviewed, return to step 1, select a different Cluster Group view and repeat steps 2 through 4.
+		<p></p>
+		<strong>Note</strong>: Filtering out clusters that have already been reviewed makes it easier to differentiate cluster groups that have been reviewed from cluster groups that still require review.
+	</li>
+	<li>Finally, after you have used each cluster group view and reviewed the relevant clusters within each group, you <a href="glv-group-view-alerts.html#group-review">record your disposition for each group</a> in the Daily Cluster Groups view.</li>
+</ol>
+
+<p>You have completed your review for one of the models and can now move on to the next problematic trading model by adjusting your MODELS filter.</p>

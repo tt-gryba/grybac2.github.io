@@ -1,0 +1,74 @@
+---
+layout: default
+title: Exchange Messaging Rate Limit
+---
+
+
+<p>The Exchange Messaging Rate Limit model flags instances where a trader exceeds, or nearly exceeds, the <a href="https://www.cmegroup.com/confluence/display/EPICSANDBOX/Messaging+Controls">exchange's messaging rate limits</a>. By reviewing instances of excessive messaging rates in a TT Score cluster, compliance officers can identify potentially suspect trading activity on a per trader basis.
+</p>
+
+ <p><b>Note</b>: This model currently only covers exchanges supported on CME Globex.</p>
+
+<!--
+<p><img class="img-responsive" src="Content/exchange-messaging-rate-cluster-list.png" /></p> -->
+
+
+<h2>Scoring methodology</h2>
+
+
+<p>TT Score identifies where traders have exceeded the exchange-defined maximum messaging rate limit for at least a three second period throughout the trading day. If one or more three-second "bursts" are identified or if the messaging rate of the burst far exceeds the exchange maximum rate in a cluster, a higher score will be assigned to that Exchange Messaging Rate Limit cluster.
+</p>
+
+
+
+<h3>Score interpretation</h3>
+<p>The score assigned to a cluster is based on a sliding scale between 0-100 using a weighted calculation. A score of 75 and above is a good indication that the suspect trading activity occurred.</p>
+
+{% include score-method.html %}
+
+
+
+<h3 id="metrics">Scorecard metrics</h3>
+
+<p>The Exchange Messaging Rate Limits cluster scorecard includes metrics that help you identify where excessive messaging rates occurred on a per trader basis.</p>
+
+  <p><img class="img-responsive" src="Content/exchange-messaging-rate-metrics.png"></p>
+
+<p>Included metrics are:</p>
+
+<ul>
+<li><b>Burst number</b> &mdash; The three-second interval of data selected in the cluster scorecard chart.
+<li><b>Count</b>: The message rate per second during the interval.
+<li><b>StartTime</b>: Start time of the three-second burst interval.
+<li><b>StopTime</b>: End time of the three-second burst interval.
+<li><b>Type</b> &mdash; The type of high-level trading activity: "Cancels" or "Non-Cancels".
+</ul>
+
+
+
+
+
+<h2 id="id">Identifying excessive messaging rates</h2>
+
+<p>In addition to the scorecard metrics, the Exchange Messaging Rate Limits chart and Audit Trail can help identify intervals of excessive messaging rates.</p>
+
+<p><img class="img-responsive" src="Content/exchange-messaging-rate-example3.png" /></p>
+
+
+<p>To inspect an Exchange Messaging Rate Limits cluster in TT Score:</p>
+
+<ol>
+<li><p>Click on a burst displayed in the chart.</p>
+<p>The chart will only highlight instances when the messaging rate exceeded the exchange maximum rate limit for a period of three seconds.</p>
+<li><p>Review the burst metrics highlighted in the metrics scorecard.</p>
+<p>In this example, the second messaging rate burst is selected (Burst 2). The messaging rate per second for the interval is shown by the <b>Count</b> metric. The <b>Type</b> metric shows that the excessive messages were "non-cancel" order actions.</p>
+</li>
+
+<li><p>To further inspect the trading activity during the selected burst interval, click an order row in the Audit Trail.
+</p>
+<p>Only the order activity for the selected burst is displayed. In this example, the price was continuously requoted for the duration of the three-second interval.</p>
+</li>
+</ol>
+
+
+

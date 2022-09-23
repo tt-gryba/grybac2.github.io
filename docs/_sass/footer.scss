@@ -1,0 +1,81 @@
+.ttdoc-footer {
+	background: url(../images/footer.png) no-repeat right bottom $footer-gray;
+	z-index: 0;
+	position: relative;
+
+	.footer-inner {
+		padding-top:20px;
+	}
+
+	.footer-inner.constrain {
+		width:100%;
+    	max-width:1200px;
+    	margin: 0 auto;
+	}
+
+	.row {
+		margin: 0 auto;
+		text-align:center;
+		padding:8px 0px;
+	}
+
+	a:link, a:visited {
+	    padding-bottom: 8px;
+	    font: 16px/20px "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+	    letter-spacing: 2px;
+	    text-transform: uppercase;
+	    color:$footer-link-color;
+	    text-decoration: none;
+	    line-height: 1;
+	}
+
+	a:hover, a:active {
+		color:#000;
+		text-decoration:underline;
+	}
+
+	.footer__copyright {
+	    font: 14px/20px "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+	    color: $dark-gray;
+	    margin: 20px 0px;
+
+	    a:link, a:visited {
+	    	font: 14px "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+	    	color: $dark-gray;
+	    	text-transform:none;
+	    	letter-spacing: 0px;
+	    }
+
+	    a:hover, a:active {
+	    	text-decoration: underline;
+	    	letter-spacing: 0px;
+	    	color: $dark-gray;
+	    }
+	}
+
+	@media (max-width: 900px) {
+		.footer__copyright {
+    		font-size: 12px;
+    		line-height: 18px;
+    		text-align:center;
+    		color: $dark-gray;
+    	}
+	}
+
+	@media (max-width: 767px) {
+		.row {
+			padding:0px;
+		}
+	}
+
+	@media (min-width: 1px) and (max-width: 767px) {
+		a {
+			display:inline-block;
+			padding:10px 0px;
+		}
+
+		.footer__copyright a {
+			padding: 0px;
+		}
+	}
+}

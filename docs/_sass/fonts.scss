@@ -1,0 +1,34 @@
+
+@font-face {
+	font-family: 'Avenir Next Pro Condensed';
+	src: url('../fonts/AvenirNextCondensed-Regular.eot');
+	src: url('../fonts/AvenirNextCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/AvenirNextCondensed-Regular.woff') format('woff'),
+		 url('../fonts/AvenirNextCondensed-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir Next Pro Condensed Demi';
+	src: url('../fonts/AvenirNextCondensed-DemiBold.eot');
+	src: url('../fonts/AvenirNextCondensed-DemiBold.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/AvenirNextCondensed-DemiBold.woff') format('woff'),
+		 url('../fonts/AvenirNextCondensed-DemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir Next Pro';
+	src: url('../fonts/AvenirNext-Regular.eot');
+	src: url('../fonts/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/AvenirNext-Regular.woff') format('woff'),
+		 url('../fonts/AvenirNext-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+}

@@ -1,0 +1,18 @@
+
+		{% if  page.name == glv-group-view-alerts.html %}
+			<img class="img-responsive" src="Content/filters-and-navigation-with-review-filter.png" />
+		{% else %}
+			<img class="img-responsive" src="Content/new-rpt-heatmap-filters-and-navigation.png" />
+		{% endif %}
+			<ol>
+				<li><strong>Select View</strong>: Switch between Individual Clusters, Heat Map, Outlier Chart, and Daily Cluster Groups views.</li>
+				{% if  page.name != glv-group-view-alerts.html %}
+				<li><strong>Group By</strong>: Sort the view by trader, account, and instrument.</li>
+				{% endif %}
+				<li><strong>Cluster Filters</strong>: Filter the view by trader, account, and instrument.</li>
+				{% if  page.name == glv-group-view-alerts.html %}
+				<li><strong>Review Filters</strong>: Filter the cluster groups view by reviewed status.</li>
+				{% endif %}
+
+		
+			</ol>

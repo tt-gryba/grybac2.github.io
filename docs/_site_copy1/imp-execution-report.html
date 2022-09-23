@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>TT FIX Drop Copy Execution Report | TT Score Help and Tutorials</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet"> <!-- need for tech indicators. also need mathjax script-->
+    <link rel="shortcut icon" href="Content/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29111405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>-->
+
+ <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+ <!--<script src="js/bootstrap.min.js"></script> at bottom but might need for videos-->
+  </head>
+  <body class="pagination-centered">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top ttdoc-navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav nav-tabs" role="tablist">
+          
+          <li><a class="ttdoc-main-nav__brand" target="_blank" href="https://www.tradingtechnologies.com/">Trading Technologies Help Library</a>
+          </li>
+        </ul>
+        <ul class="main-nav__secondary">
+          <li>
+              <form class="main-nav__search" action="Search.html">
+                <input class="main-nav__search-input" placeholder="Search" type="search" name="q" id="search" value="" autocomplete="off">
+                <input class="main-nav__search-button" type="submit" value="">
+              </form>
+          </li>
+        </ul>
+        <!-- Brand and toggle get grouped for better mobile display
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        Brand and toggle get grouped for better mobile display -->
+      </div><!-- ./navbar-inner -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+<div class="container-fluid">
+<section>
+
+<div class="ttdoc-hero row ttdoc-article-hero">
+  <div class="vert-wrapper">
+    <h1 class="ttdoc-hero-headline">TT Score</h1>
+    
+  </div>
+</div> 
+
+<div class="breadcrumb ttdoc-breadcrumb">
+<ul>
+	<!-- Library Home link -->
+    <li><a href="../tthelp.html">Help Library</a></li><!--Library home - displays platforms-->
+    
+	    <!-- ADL Home link -->
+	    
+	    	<li><a href="index.html">TT Score</a></li>
+			
+			 	
+			 		<li class="active">TT FIX Drop Copy Execution Report</li>
+			 	
+		
+</ul>
+</div>
+ 
+
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+  
+
+
+  
+  
+  
+  
+    <a href="#overview" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Overview</a>
+    <div class="collapse nav-indiv-article" id="overview">
+  
+
+  
+    
+    
+      
+      
+
+          <a href="ovw-introduction-c.html" class="list-group-item list-group-subitem">MPLS Introduction</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-how-tt-score-works-c.html" class="list-group-item list-group-subitem">How MPLS Works</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-accessing-tt-score-c.html" class="list-group-item list-group-subitem">Configuring MPLS</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Using MPLS</a>
+    <div class="collapse nav-indiv-article" id="using-tt-score">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="us-using-overview.html" class="list-group-item list-group-subitem">Workflow Summary</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-selecting-data.html" class="list-group-item list-group-subitem">Selecting Data</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-analyzing-data.html" class="list-group-item list-group-subitem">Analyzing trading activity using data visualizations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-reporting-recording-findings.html" class="list-group-item list-group-subitem">Recording reviews and opening investigations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-creating-custom-alerts-in-tt-score.html" class="list-group-item list-group-subitem">Creating custom alerts in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-generating-reports-in-tt-score.html" class="list-group-item list-group-subitem">Generating Reports in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Configuration Examples</a>
+    <div class="collapse nav-indiv-article" id="views">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-outlier-chart.html" class="list-group-item list-group-subitem">Cluster Group View - Outlier Chart</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-heat-map.html" class="list-group-item list-group-subitem">Cluster Group View - Heat Map</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-daily-cluster-group.html" class="list-group-item list-group-subitem">Cluster Group View - Daily Cluster Groups</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-list-view.html" class="list-group-item list-group-subitem">Cluster List View</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-cluster-view-cluster-scorecard.html" class="list-group-item list-group-subitem">Cluster Scorecard</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-identifying-problematic-activity.html" class="list-group-item list-group-subitem">Reviewing Clusters Using Cluster Views</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Use Cases</a>
+    <div class="collapse nav-indiv-article" id="problematic-trading-models">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-abusive-messaging.html" class="list-group-item list-group-subitem">Abusive Messaging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-cross-trading.html" class="list-group-item list-group-subitem">Cross Trading</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-exchange-messaging-rate-limit.html" class="list-group-item list-group-subitem">Exchange Messaging Rate Limit</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-marking-the-close.html" class="list-group-item list-group-subitem">Marking the Close</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-momentum-ignition.html" class="list-group-item list-group-subitem">Momentum Ignition</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-pinging.html" class="list-group-item list-group-subitem">Pinging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-spoofing.html" class="list-group-item list-group-subitem">Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-spoofing.html" class="list-group-item list-group-subitem">Automated Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-collusive-spoofing.html" class="list-group-item list-group-subitem">Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-collusive-spoofing.html" class="list-group-item list-group-subitem">Automated Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-wash-trading.html" class="list-group-item list-group-subitem">Wash Trading</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Reference</a>
+    <div class="collapse nav-indiv-article" id="reference">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-import.html" class="list-group-item list-group-subitem">Importing data using TT FIX</a>
+                        
+      
+
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>TT FIX Drop Copy Execution Report</span>
+      </div>
+
+      <h1>TT FIX Drop Copy Execution Report</h1>
+
+          
+      
+
+
+
+
+ 
+
+<p>The Execution Report (8) message for TT FIX Drop Copy sessions is used to import order information into Score for processing, such as confirmations, fills, and unsolicited changes</p>
+
+<h3 class="LabelHead">Supported Tags</h3>
+<table class="table table-striped table-bordered" border="1">
+	<thead>
+		<tr>
+			<th>Tag #</th>
+			<th>Field Name</th>
+			<th>Req&#8217;d</th>
+			<th>Data type</th>
+			<th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="text-right" id="tag8">8</td>
+			<td>BeginString</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>FIX protocol version</p>
+				<P CLASS="p">The tag indicates the beginning of a new message. This tag must be the first tag in the message.</P>
+				<P CLASS="p">You must set the value to <strong>FIX.4.2</strong>.</P>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag9">9</td>
+			<td>BodyLength</td>
+			<td class="text-center">Y</td>
+			<td>int</td>
+			<td>
+				<p>Message length (in characters)</p>
+				<P CLASS="p">The value represents number of characters in the message following this tag up to, and including, the delimiter immediately preceding Tag 10 (CheckSum). This tag must be the second field in a message.</P>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag35">35</td>
+			<td>MsgType</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Type of message contained in the message body</p>
+				<P>This tag must appear third in the list of header tags.</P>
+				<p>Only 35=8 (Execution Report) is supported.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag49">49</td>
+			<td>SenderCompID</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<P CLASS="p">Assigned value used to identify firm sending message</P>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag56">56</td>
+			<td>TargetCompID</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<P>Assigned value used to identify the receiving firm</P>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag50">50</td>
+			<td>SenderSubID</td>
+			<td class="text-center">N</td>
+			<td>String</td>
+			<td>
+				<p>Unique ID for the message sender</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag34">34</td>
+			<td>MsgSeqNum</td>
+			<td class="text-center">Y</td>
+			<td>SeqNum</td>
+			<td>
+				<P CLASS="p">Message sequence number</P>
+			</td>
+		<tr>
+			<td class="text-right" id="tag52">52</td>
+			<td>SendingTime</td>
+			<td class="text-center">Y</td>
+			<td>UTCTimestamp</td>
+			<td>
+				<P CLASS="p">Time, in UTC, the message was sent.</P>
+				<p>Examples:</p>
+				<ul>
+					<li>
+						For millisecond precision: 60=20170509-22:34:56.881
+					</li>
+					<li>
+						For microsecond precision: 60=20170509-22:34:56.881321
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag1">1</td>
+			<td>Account</td>
+			<td class="text-center">C</td>
+			<td>String</td>
+			<td>
+				<p>Order-routing account</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag10553">10553</td>
+			<td>Username</td>
+			<td class="text-center">C</td>
+			<td>String</td>
+			<td>
+				<p>3rd party system username</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag20">20</td>
+			<td>ExecTransType</td>
+			<td class="text-center">N</td>
+			<td>char</td>
+			<td>
+				<p>Type of execution report</p>
+				<p>Only 20=3 (Status) is supported.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag37">37</td>
+			<td>OrderId</td>
+			<td class="text-center">Y</td>
+			<td>string</td>
+			<td>
+				<p>Unique identifier for an order that remains constant for the life of the order</p>
+			</td>
+		</tr>
+		<!--
+			Placeholder
+		-->
+		<tr>
+			<td colspan=2>Instrument block</td>
+			<td>Y</td>
+			<td>Component</td>
+			<td>For tags that you include in the Instrument Component and any restrictions in their use, refer to <a href="imp-instrument-block.html">Instrument block</a>.</td>
+		</tr>
+		<!--
+					End Placeholder
+				-->
+		<tr>
+			<td class="text-right" id="tag150">150</td>
+			<td>ExecType</td>
+			<td class="text-center">Y</td>
+			<td>char</td>
+			<td>
+				<p>Indicates the reason for sending this Execution Report</p>
+				<p>Possible values include:</p>
+<ul>
+  <li><strong>0</strong>: New</li>
+  <li><strong>1</strong>: Partially filled</li>
+  <li><strong>2</strong>: Filled</li>
+  <li><strong>3</strong>: Done for day</li>
+  <li><strong>4</strong>: Canceled</li>
+  <li><strong>5</strong>: Replaced</li>
+  <li><strong>6</strong>: Pending cancel</li>
+  <li><strong>7</strong>: Stopped</li>
+  <li><strong>8</strong>: Rejected</li>
+  <li><strong>9</strong>: Suspended (Held)</li>
+  <li><strong>A</strong>: Pending new</li>
+  <li><strong>B</strong>: Calculated</li>
+  <li><strong>C</strong>: Expired</li>
+  <li><strong>D</strong>: Restated</li>
+  <li><strong>E</strong>: Pending replace</li>
+  <li><strong>F</strong>: Trade</li>
+  <li><strong>G</strong>: Trade correction (same as 20=2 in FIX 4.2)</li>
+  <li><strong>H</strong>: Trade cancel (same as 20=1 in FIX 4.2)</li>
+  <li><strong>I</strong>: Order status (same as 20=3 in FIX 4.2)</li>
+  <li><strong>J</strong>: Trade in a clearing hold</li>
+  <li><strong>K</strong>: Trade has been released to clearing</li>
+  <li><strong>L</strong>: Triggered or activated by system</li>
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag39">39</td>
+			<td>OrdStatus</td>
+			<td class="text-center">Y</td>
+			<td>int</td>
+			<td>
+				<p>Status of the order</p>
+				<p>Possible values include:</p>
+<ul>
+  <li><strong>0</strong>: New</li>
+  <li><strong>1</strong>: Partially filled</li>
+  <li><strong>2</strong>: Filled</li>
+  <li><strong>3</strong>: Done for day</li>
+  <li><strong>4</strong>: Cancelled</li>
+  <li><strong>5</strong>: Replaced</li>
+  <li><strong>6</strong>: Cancel pending</li>
+  <li><strong>7</strong>: Stopped</li>
+  <li><strong>8</strong>: Rejected</li>
+  <li><strong>9</strong>: Suspended (Held)</li>
+  <li><strong>A</strong>: Pending new</li>
+  <li><strong>B</strong>: Calculated</li>
+  <li><strong>C</strong>: Expired</li>
+  <li><strong>D</strong>: Accepted for bidding</li>
+  <li><strong>E</strong>: Pending replace</li>
+  <!--
+  <li><strong>U</strong>: Order in an unknown state due to an Exchange error
+    <p>Note: The trader should immediately contact the Exchange to clarify the status of the order.</p>
+  </li>
+-->
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag32">32</td>
+			<td>LastShares</td>
+			<td class="text-center">C</td>
+			<td>int</td>
+			<td>
+				<p>Indicates the number of contracts that just filled</p>
+				<p>Condition: Sent only when Tag 150 (ExecType) is 1 (Partial Fill) or 2 (Fill)</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag31">31</td>
+			<td>LastPx</td>
+			<td class="text-center">C</td>
+			<td>Price</td>
+			<td>
+				<p>Price of this fill</p>
+				<p>If Tag 442 (MultiLegReportingType) is 2 (Leg), the value represents the price at which a leg of the spread
+					filled. The message's Instrument Component identifies the filled leg.</p>
+				<p>Condition: Sent when Tag 150 (ExecType) is 1 (Partial Fill) or 2 (Fill)</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag14">14</td>
+			<td>CumQty</td>
+			<td class="text-center">Y</td>
+			<td>int</td>
+			<td>
+				<p>Total number of contracts that have filled over the life of this order</p>
+				<p>The value always equals the sum of the Tag 32 (LastShares) of all fill execution reports received for this
+					order, including this one. </p>
+				<p><strong>Note</strong>: If Tag 442 (MultiLegReportingType) is 2 (Leg), this value represents the total number
+					of contacts that have filled for the leg of the specified strategy.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag151">151</td>
+			<td>LeavesQty</td>
+			<td class="text-center">Y</td>
+			<td>int</td>
+			<td>
+				<p>Number of contracts that are still working in the market</p>
+				<p>Possible values include:</p>
+				<ul>
+					<li>Value of (Tag 38 (OrderQty) - Tag 14 (CumQty)), if the order is still in the market</li>
+					<li>0, otherwise</li>
+				</ul>
+				<p><strong>Note:</strong> If Tag 442 (MultiLegReportingType) is 2 (Leg), this value represents the total number
+					of contracts that are still working for the leg of the specified strategy.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag442">442</td>
+			<td>MultiLegReportingType</td>
+			<td class="text-center">N</td>
+			<td>char</td>
+			<td>
+				<p>Indicates what an Execution Report represents (e.g. used with multi-leg securities, such as option strategies,
+					spreads, etc.)</p>
+				<p>Possible values include:</p>
+<ul>
+  <li><strong>1</strong>: Single security</li>
+  <li><strong>2</strong>: Individual leg of multi-leg security</li>
+  <li><strong>3</strong>: Parent of multi-leg security (summary fill)</li>
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag44">44</td>
+			<td>Price</td>
+			<td class="text-center">C</td>
+			<td>Price</td>
+			<td>
+				<p>Order price</p>
+				<p>Condition: Sent when Tag 40 (OrdType) is:</p>
+				<ul>
+  <li><strong>2</strong>: Limit</li>
+  <li><strong>4</strong>: Stop Limit</li>
+  <!--
+  <li>B : LOC</li>
+  <li>O : LSM</li>
+  <li>Q : MLM</li>
+  <li>W : Limit If Touched (LIT)</li>
+-->
+</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag99">99</td>
+			<td>StopPx</td>
+			<td class="text-center">C</td>
+			<td>Price</td>
+			<td>
+				<p>Trigger price for a stop order</p>
+				<p>Condition: Sent when Tag 40 (OrdType) is:</p>
+				<ul>
+  <li><strong>4</strong>: Stop Limit</li>
+  <!--
+  <li><strong>5</strong>: Market On Close (MOC)</li>
+  <li><strong>8</strong>: Cross Order</li>
+  <li><strong>B</strong>: Limit On Close (LOC)</li>
+  <li><strong>J</strong>: Market If Touched (MIT))</li>
+-->
+  <li><strong>K</strong>: Market With Leftover as Limit</li>
+  <!--
+  <li><strong>O</strong>: LSM (supported only for Eurex)</li>
+  <li><strong>Q</strong>: Market to Limit (with Limit Price) (MLM)</li>
+  <li><strong>R</strong>: Market to Limit (without Limit Price)</li>
+  <li><strong>S</strong>: Stop Market to Limit (without Limit Price)</li>
+  <li><strong>T</strong>: Market to Limit (without Limit Price) If-Touched</li>
+  <li><strong>U</strong>: Best Limit (BL)</li>
+  <li><strong>V</strong>: Stop Best Limit</li>
+  <li><strong>W</strong>: Limit If Touched (LIT)</li>
+  <li><strong>X</strong>: Best Limit If Touched (BLIT)</li>
+-->
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag38">38</td>
+			<td>OrderQty</td>
+			<td class="text-center">C</td>
+			<td>Qty</td>
+			<td>
+				<p>Total order quantity</p>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag1138">1138</td>
+			<td>DisplayQty</td>
+			<td class="text-center">C</td>
+			<td>Qty</td>
+			<td>
+				<p>Sum of working quantities of child orders.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag1088">1088</td>
+			<td>RefreshQty</td>
+			<td class="text-center">C</td>
+			<td>Qty</td>
+			<td>
+				<p>Quantity disclosed for a disclosed quantity (Iceberg) order</p>
+				<p>Condition: Sent only for disclosed quantity orders</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag40">40</td>
+			<td>OrdType</td>
+			<td class="text-center">C</td>
+			<td>char</td>
+			<td>
+				<p>Order type</p>
+				<p>Possible values include:</p>
+<ul>
+  <li><strong>1</strong>: Market</li>
+  <li><strong>2</strong>: Limit</li>
+  <li><strong>3</strong>: Stop</li>
+  <li><strong>4</strong>: Stop Limit</li>
+  <li><strong>5</strong>: Market On Close (MOC)</li>
+  <li hidden><strong>8</strong>: Cross Order</li>
+  <li><strong>B</strong>: Limit On Close (LOC)</li>
+  <li><strong>J</strong>: Market If Touched (MIT)</li>
+  <li><strong>K</strong>: Market with Leftover as Limit</li>
+  <li><strong>Q</strong>: Market Limit Market (MLM) with Leftover as Limit</li>
+  <li><strong>S</strong>: Stop Market to Limit</li>
+  <li><strong>T</strong>: Market to Limit (without Limit Price) If-Touched</li>
+  <li><strong>U</strong>: Market to Limit If Touched (MLM-IT)</li>
+  <li><strong>V</strong>: Market Close Today (reserved for future use)</li>
+  <li><strong>W</strong>: Limit Close Today (reserved for future use)</li>
+  <li><strong>p</strong>: Limit (post-only)</li>
+</ul>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag59">59</td>
+			<td>TimeInForce</td>
+			<td class="text-center">C</td>
+			<td>char</td>
+			<td>
+				<p>How long an order remains active</p>
+				<p>Possible values include:</p>
+<ul>
+
+  <li><strong>0</strong>: Day (default, if not specified)</li>
+  <li><strong>1</strong>: Good Till Cancel (GTC)</li>
+  <li><strong>2</strong>: At The Opening (OPG)</li>
+  <li><strong>3</strong>: Immediate or Cancel (IOC)</li>
+  <li><strong>4</strong>: Fill Or Kill (FOK)</li>
+  <li><strong>5</strong>: Good Till Crossing</li>
+  <li><strong>6</strong>: Good Till Date</li>
+  <li><strong>7</strong>: At the Close</li>
+  <li><strong>8</strong>: Good through Crossing</li>
+  <li><strong>9</strong>: At Crossing</li>
+  <li><strong>A</strong>: Auction</li>
+  <li><strong>V</strong>: Good in Session</li>
+  <li><strong>W</strong>: Day Plus</li>
+  <li><strong>X</strong>: Good Till Cancel Plus</li>
+  <li><strong>Y</strong>: Good Till Date Plus</li>
+
+  <!--
+  <li><strong>Z</strong>: At The Auction</li>
+-->
+</ul>
+<p hidden><strong>Note</strong>: The "Plus" enums indicate that the TIF is available for the after hours (ATH) T + 1 session. </p>
+<p>For more information about TIFs supported by exchanges, refer to <a href="http://library.tradingtechnologies.com/user-setup/otr-supported-native-order-types-and-tifs.html" title="">Supported Order Types and TIFs</a> in the Setup help.</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag432">432</td>
+			<td>ExpireDate</td>
+			<td class="text-center">C</td>
+			<td>LocalMktDate</td>
+			<td>
+				<p>Date a Good Till Date order expires</p>
+				<p>Condition: Sent unless Tag 59 (TimeInForce) = 6 (Good Till Cancel)</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag58">58</td>
+			<td>Text</td>
+			<td class="text-center">C</td>
+			<td>String</td>
+			<td>
+				<p>Additional information about the message</p>
+				<p>Condition: Sent when the TT FIX needs to send additional information</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="text-right" id="tag10">10</td>
+			<td>Checksum</td>
+			<td class="text-center">Y</td>
+			<td>String</td>
+			<td>
+				<p>Unencrypted three-character checksum
+					This tag must always be the last field in a message (i.e. it serves, with the trailing <SOH>, as the end-of-message delimiter).</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	</div> <!--- /fullarticle ttdoc-article-wrapper-->
+  </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
+
+
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			
+			<a href=".html">
+				<div class="lower-nav-arrow-left">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Previous:</h1>
+	  				<h2></h2>
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->
+
+</section>
+</div><!--/.container-fluid -->
+
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/imp-execution-report.html" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+           
+           
+          <p class="footer__copyright">Copyright © 2022 Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

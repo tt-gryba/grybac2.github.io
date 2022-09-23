@@ -1,0 +1,78 @@
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+{% for thisPage in site.data.titles.pages  %}
+
+  {% if page.title == thisPage.pagetitle %}
+    {% assign category = thisPage.pagecategory %}
+  {% endif %}
+
+{% endfor %}  
+
+{% for toc in site.data.categories.categories %}
+  {% assign tocID = toc.id %}
+  {% assign tocName = toc.name %}
+  
+  {% if category == tocID %}
+
+    <a href="#{{ tocID }}" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>{{ tocName }}</a>
+    <div class="collapse in nav-indiv-article" id="{{ tocID }}">
+  {% else %}
+    <a href="#{{ tocID }}" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>{{ tocName }}</a>
+    <div class="collapse nav-indiv-article" id="{{ tocID }}">
+  {% endif %}
+
+  {% for article in site.data.titles.pages  %}
+    {% assign categoryCheck = article.pagecategory %}
+    {% if categoryCheck == tocID  %}
+      {% assign check = page.title %}
+      {% case check %}
+        {% when article.pagetitle %} <!-- in source YML header, should also match the filename/url -->
+
+          <a href class="active list-group-item list-group-subitem">{{ article.pagetitle }}</a>
+                    
+        {% else %}
+
+          <a href="{{ article.filename }}.html" class="list-group-item list-group-subitem">{{ article.pagetitle }}</a>
+                        
+      {% endcase %}
+
+    {% endif %}
+  {% endfor %}
+    </div> <!-- /.nav-indiv-article description -->
+{% endfor %}
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>{{ page.title }}</span>
+      </div>
+
+      <h1>{{ page.title }}</h1>
+
+          
+      
+
+
+
+

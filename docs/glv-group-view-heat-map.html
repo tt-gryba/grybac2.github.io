@@ -1,0 +1,151 @@
+---
+layout: default
+title: Cluster Group View - Heat Map
+---
+<!-- target article structure:
+<ul>
+	<li>What this report tells you and how.</li>
+	<li>Report Interface - section by section breakdown</li>
+	<li>Example with interpretation</li>
+	<li>Table of definitions: Reference</li>
+</ul>
+
+-->
+<p>The Heat Map shows you which traders or accounts are generating activity that has a high degree of similarity to regulatory cases. Each rectangle represents a group of clusters using color to indicate the level of risk, and size to indicate the number of clusters. These visual cues help you prioritize your cluster group review 
+	based on activity that generates the most risk.</p>
+
+<h2>Heat Map display</h2>
+
+<img class="img-responsive" src="Content/new-rpt-heatmap-display.png" />
+
+
+<p>The Heat Map display is organized into the following sections:</p>
+	<ol>
+		<li><a href="#heat-map">Heat Map</a>: Displays the Heat Map view of the selected data as well as filtering and navigation tools.</li>
+	<!--	<li><a href="#statistical-summary">Summary Statistics Panel</a>: Shows metrics about the selected data in the current view.
+		</li> -->
+		<li><a href="#data-selection-panel">Data Selection Panel</a>: Manages the dates available to TT Score and specifies the criteria to use when populating the list.</li>
+	</ol>
+
+	<h2 id="heat-map">Interpreting the Heat Map</h2>
+
+		<p>The Heat Map groups clusters by trader, instrument, or account, and displays these groups as a collection of blocks. TT Score calculates a risk score for each block based on the clusters in the group represented by that block.</p>
+
+		 <img class="img-responsive" src="Content/new-rpt-heatmap-explorer.png" /> 
+
+			<ul>
+			  <li>The color of a block indicates the severity of the score. Low scores are represented as light green and high scores are represented as red.</li>
+			  <li>The size of a block indicates the number of clusters.</li>
+			  <br>
+			  <img class="img-responsive" src="Content/new-rpt-heatmap-block-metrics.png" />
+			  
+			  <li>Metrics for the clusters in each groups are displayed within the block:</li>
+			  	<ul>
+			  		<li><strong>Trader, Account, or Instrument ID</strong>: Shows the ID based on the "Group By" setting
+			  		<li><strong>Max</strong>: Highest cluster score</li>
+			  		<li><strong>Avg</strong>: Average score of clusters within the group</li>
+			  		<li><strong>Clusters</strong>: Total number of clusters within the group</li>
+			  	</ul>
+			</ul>
+
+		<h3>Heat Map navigation and filters</h3>
+		<p><img class="img-responsive" src="Content/heatmap-navigation.png" alt=""/></p>
+<ol>
+	<li>
+		Select View: Switch between Individual Clusters, Heat Map, Outlier Chart, and Daily Cluster Groups views.
+	</li>
+	<li>
+		Group By: Sort the view by trader, account, and instrument.
+	</li>
+	<li>
+		Cluster Filters: Filter the view by trader, account, and instrument.
+	</li>
+	<li>
+		Export: Exports filtered data into a <strong>.csv </strong>spreadsheet file.
+	</li>
+</ol>
+
+
+
+		<!--	<table class="table table-striped table-bordered" border="1">
+				<tbody>
+					<tr>
+						<th>Filter</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td>Score</td>
+						<td>Set minimum and maximum score thresholds to filter which blocks to display.</td>
+					</tr>
+					<tr>
+						<td>Cortex</td>
+						<td>Select which models to include in the results.</td>
+					</tr>
+					<tr>
+						<td>Instrument</td>
+						<td>Filter for one or more instruments.</td>
+					</tr>
+					<tr>
+						<td>ProdType</td>
+						<td>Filter to for Futures, Strategies and Options on Futures.</td>
+					</tr>
+					<tr>
+						<td>Trader</td>
+						<td>Select traders to include in the results.</td>
+					</tr>
+					<tr>
+						<td>Account</td>
+						<td>Select accounts to include in the results.</td>
+					</tr>
+					<tr>
+						<td>More</td>
+						<td>Filter the results by whether or not a reviewed column contains a value.</td>
+					</tr>
+				</tbody>
+			</table> -->
+
+<!-- <h3 id="statistical-summary">Summary Statistics</h3>
+	<p>On the right side of the display is the <strong>Summary Statistics</strong> pane, which contains the following:</p>
+	<img class="img-responsive" src="Content/rpt-heatmap-summary-statistics.png" />
+
+	<ol>
+		<li>A bar chart summarizing the number of clusters for each category of problematic trading activity. </li>
+		<li>Scores for the current data selection. (See table below for parameter descriptions)</li>
+		<li>A pie chart illustrating the number of clusters for each group. The type of group is defined by the "Group by" drop down menu. (by Trader in this example)</li>
+		<li>A table showing the number of clusters for each group .</li>
+	</ol>
+
+<p>Scores are described in the following table.</p>
+<table class="table table-striped table-bordered" border="1">
+	<tbody>
+		<tr>
+			<th>Field</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>Min Risk</td>
+			<td>The minimum individual cluster risk score.</td>
+		</tr>
+		<tr>
+			<td>Mean Risk</td>
+			<td>The average risk score of all clusters contained in the current data selection.</td>
+		</tr>
+		<tr>
+			<td>Median Risk</td>
+			<td>The median individual cluster risk score.</td>
+		</tr>
+		<tr>
+			<td>Max Risk</td>
+			<td>The highest individual risk score seen the the currently viewed data.</td>
+		</tr>
+		<tr>
+			<td>#_clusters</td>
+			<td>Total number of clusters.</td>
+		</tr>
+	</tbody>
+</table>
+-->
+
+<h2 id="data-selection-panel">Data Selection Panel</h2>
+
+{% include content/data-selection-panel.html %}

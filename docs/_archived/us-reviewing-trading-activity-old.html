@@ -1,0 +1,178 @@
+---
+layout: default
+title: Reviewing Trading Activity
+---
+
+<p>TT Score provides you the ability to review your firm’s trading activity to identify and investigate problematic trading patterns. After <a href="us-selecting-data.html" >selectiong daily audit log data</a>, you can examine clusters of trading activity and record dispositions at the cluster and cluster-group levels.</p> 
+
+<p>After you have selected your dates, TT Score organizes that dates' trading activity into <a href="ovw-how-tt-score-works.html">clusters</a>. After <a href="#">choosing how you would like your clusters grouped</a>, you conduct your review by examining the activity one cortex at a time:</p>
+
+
+<ol>
+	<li>Filter your trading activity by your chosen cortex.</li>
+	<li>Choose one of the cluster group views to identify groups of clusters that require review.</li>
+	<li>Examine the list of clusters in these groups using the Rainbow list to identify clusters which require review.</li>
+	<li>Use the Cluster views to review trading activity within a cluster.</li>
+	<li>Once a cluster review is complete, record your disposition in the Cluster Scorecard.</li>
+	<li>Repeat the review process using each of the other cluster group views.</li>
+	<li>Once all problematic clusters have been reviewed, use the Alert view to record cluster group level dispositions.</li>
+</ol>
+
+<p>The above process is then repeated for each cortex.</p>
+
+
+<h2>Cluster Group Reviews</h2>
+
+	<p>TT Score provide views to review groups of clusters and prioritize the review of trading activity.</p>
+
+	<ul>
+		<li><a href="#outlier-chart">Outlier Chart</a></li>
+		<li><a href="#heat-map">Heat Map</a></li>
+		<li><a href="#alerts-view">Alerts View</a></li>
+	</ul>
+
+	<h3 id="outlier-chart">Outlier Chart</h3>
+
+		<p>The Outlier chart displays every group's percentage of clusters with a score above a threshold defined by the user. This allows for easy detection of problematic trading in big data sets with disparate customer or trader cluster volumes.</p>
+
+		<p><img class="img-responsive" src="Content/rpt-outlier-display-example.png" alt=""></p>
+		
+		<ul>
+		  <li>
+		  	The color of the dot indicates the severity of the score, with low scores represented as dark green and becoming yellow and finally dark red as risk scores increase.
+		  </li>
+		  <li>
+		  	The position of a dot in the X-axis indicates the number of clusters contained in the dot.
+		  </li>
+		  <li>
+		  	The position of a dot in the Y-axis indicates the percentage of clusters that exceeded the score.
+		  </li>
+		</ul>
+
+		<p>Priority should be given to groups that land further up the Y-axis and should increase in priority the further to the right a cluster lands.</p>
+
+		<p>You may also want to...</p>
+
+		<p>Clicking on group's dot on the <strong>Outlier Chart</strong> will display the Rainbow List, allowing you to conduct a <a href="#cluster-list-review">cluster list review</a>.</p>    
+
+		<p>Consult the <strong>Viewing Your Data</strong> section of the documentation for more information about the <a href="glv-group-view-outlier-chart.html">Outlier Chart</a>.</p> 
+
+	<h3 id="heat-map">Heat Map</h3>
+		<p>The Heat Map groups clusters by trader, instrument or account and displays these groups as a collection of blocks. TT Score calculates a risk score for each block based on the clusters in the group represented by that block.</p>
+
+		<img class="img-responsive" src="Content/rpt-heatmap-explorer.png" />
+
+			<ul>
+			  <li>The color of a block indicates the severity of the score, with low scores represented as light green and becoming yellow and finally red risk scores increase.</li>
+			  <li>The size of a block indicates the number of clusters.</li>
+			  <li>Metrics for the clusters in each groups are displayed within the block.</li>
+			  	<ul hidden>
+			  		<li><strong>Max</strong>: Highest cluster score.</li>
+			  		<li><strong>Avg</strong>: Average score of clusters within the group.</li>
+			  		<li><strong>Cnt</strong>: Total number of clusters within the group</li>
+			  	</ul>
+			</ul>
+
+		<!---what to look for-->
+
+		<p>Priority should be given to large red blocks, as they indicate greater numbers of transactions with higher risk scores. Then you can focus on smaller red blocks, followed by blocks with lower risk scores (dark yellow to light green).</p>
+
+		<p>You may also want to...</p>
+
+		<p>Clicking on a block in the <strong>Heat Map</strong> will display the Rainbow List, allowing you to conduct a <a href="#cluster-list-review">cluster list review</a>.</p>    
+
+		<p>Consult the <strong>Viewing Your Data</strong> section of the documentation for more information about the <a href="glv-group-view-heat-map.html">Heat Map</a>.</p> 
+
+	<h3 id="alerts-view">Alerts View</h3>
+
+		<p>The Alerts panel allows you to view and investigate the data for each problematic trading scenario flagged by TT Score. Each row represents the activity for a combination of trader, instrument and cortex.</p>
+
+
+		<img class="img-responsive" src="Content/rpt-alerts-panel.png" />
+		<p><strong><em>!!! AUTHOR NOTE: NEED TO REPLACE WITH A PIC FILTERED BY CORTEX !!!</em></strong></p>
+<!--
+		<p>The following columns are displayed for each alert.</p>
+  
+			  	<ul>
+			  		<li><strong>Cortex</strong>: The name of the model used for analyzing the data and generating the alert.</li>
+			  		<li><strong>% High Risk</strong>: The percentage of clusters flagged as being at high-risk for problematic trading activity based on the Cortex.</li>
+			  		<li><strong>Clusters</strong>: The total number of clusters analyzed.</li>
+			  		<li><strong>Instrument</strong>: The name of instrument that was traded.</li>
+			  		<li><strong>Trader</strong>: The name or ID of the trader submitting the trades.</li>
+			  		<li><strong>Max Score</strong>: The TT Score value indicating the risk problematic trading based on the Cortex. Higher values indicate a greater likelihood of manipulative or disruptive trading activity.</li>
+			  		<li><strong>Reviewed</strong>: An indication of whether the alerts data was reviewed.</li>
+			  	</ul>
+-->
+
+		<!---what to look for-->
+
+		<p>Priority should be given to alerts with high risk scores. Then you might choose to focus on a specific trader or instrument.</p>
+
+		<p>You may also want to...</p>
+
+		<p>Clicking on a row in the <strong>Outlier Chart</strong> will display the Rainbow List, allowing you to conduct a <a href="#cluster-list-review">cluster list review</a>.</p>    
+
+		<p>Consult the <strong>Viewing Your Data</strong> section of the documentation for more information about the <a href="glv-group-view-alerts.html">Alerts</a>.</p> 
+
+
+
+
+<h2 id="rpt-summary-view-alerts.html">Cluster List Reviews</h2>
+
+	<p>Once a problematic cluster group is identified, you use the <strong>Rainbow List</strong> view to discern which clusters within the group require a cluster review.</p>
+
+<p>The Rainbow List displays all of the individual clusters that an individual cluster group, such as a Heat Map block. The list sorts the clusters in decreasing score so the most important clusters are at the top of the list. This view is color coded using a graduated scale tied to the risk score, transitioning from red through yellow to green and pale green as scores decrease.</p>
+
+<!--
+<p>TODO: Annotate pic to illustrate gradations</p>
+-->
+
+<p hidden><img class="img-responsive" src="Content/rpt-rainbow-list-example.png" alt=""></p>
+<p><img class="img-responsive" src="Content/rpt-rainbow-list-cluster-summary.png" alt=""></p>
+
+<p>The Rainbow List displays the summary information about each cluster, allowing you to conduct a <a href="#cluster-review">cluster review</a>.</p>
+<ul hidden>
+    <li>
+    	<strong>Score</strong>: Risk score calculated for the cluster.
+    </li>
+    <li>
+    	<strong>Risk Model</strong>: Type of risk highlighted in the cluster.
+    </li>
+    <li>
+    	<strong>Cluster Start Time</strong>: Start time of the cluster, with millisecond precision.
+    </li>
+    <li>
+    	<strong>Instrument</strong>: ID of the instrument whose activity is contained in the cluster.
+    </li>
+    <li>
+    	<strong>Trader</strong>: Trader ID used for the cluster's trading activity.
+    </li>
+    <li>
+    	<strong>Account</strong>: Account used for the cluster's trading activity.
+    </li>
+    <li>
+    	<strong>Reviewed</strong>: Check box to indicate the cluster has been reviewed by compliance officers.
+    </li>
+</ul>
+
+		<p>Priority should be given to red rows with high risk scores. Then you can evaluate lower-risk clusters.</p>
+
+		<p>You may also want to...</p>
+
+		<p>Clicking on a row in the cluster list reveals <a href="glv-list-view.html#cluster-detail">more information</a> about that cluster.</p>
+
+		<p>Consult the <strong>Viewing Your Data</strong> section of the documentation for more information about the <a href="glv-list-view.html">Rainbow List</a>.</p> 
+
+
+<h2 id="cluster-review">Cluster Reviews</h2>
+
+	<p>TT Score provides views to review groups of clusters and prioritize the review of trading activity.</p>
+
+	<ul>
+		<li><a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a></li>
+		<li><a href="cv-cluster-view-ladder-replay.html">Ladder Replay</a></li>
+		<li><a href="cv-cluster-view-macro-view.html">Macro View</a></li>
+	</ul>
+
+
+
