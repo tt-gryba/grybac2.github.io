@@ -1,0 +1,85 @@
+.ttdoc-maincontent-container.ttdoc-platform-tile-container {
+	background: $light-gray;
+	padding:20px 30px 50px 0px;
+	margin:0 auto;
+	text-align:center;
+
+	.ttdoc-maincontent-row {
+		padding-bottom: 0px;
+		padding-top:0px;
+	}
+
+	.ttdoc-tile {
+		background:$white;
+		padding:2% 5%;
+		border: $light-gray 10px solid;
+
+		img {
+			width:100px;
+			padding-top:10px;
+		}
+
+		a:link, a:visited {
+		background:$white;
+		color:$link-color;
+		text-decoration: none;
+		}
+
+		a:hover, a:hover {
+		color:$link-color;
+		text-decoration:none;
+		}
+
+		a > p {
+			color:$dark-gray;
+		}
+	}
+
+	@media (max-width:300px) {
+		.ttdoc-tile {
+			border:none;
+			border-bottom: $light-gray 8px solid;
+
+			img {
+				width:40%;
+			}
+		}
+	}
+
+	@media (min-width:768px) {
+		.ttdoc-tile {
+			height:275px;
+		}
+	}
+
+	h2 {
+		font-size:16px;
+		text-transform: capitalize;
+		font-weight: 800;
+	}
+}
+
+@media (max-width: 767px) {
+	.ttdoc-maincontent-container.ttdoc-platform-tile-container .ttdoc-maincontent-row {
+		padding-left:0px;
+		padding-right:5px;
+		min-width:100px;
+	}
+
+	.ttdoc-maincontent-container.ttdoc-platform-tile-container .ttdoc-tile {
+		margin-left: 30px; 
+	}
+}
+
+
+@media (max-width: 650px) {
+	.ttdoc-platform-tile-container {
+		padding-top:0px;
+	}
+}
+
+@media (max-width: 400px) {
+	.ttdoc-maincontent-container.ttdoc-platform-tile-container {
+		padding: 20px 20px 30px 0px;
+	}
+}

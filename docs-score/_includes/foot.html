@@ -1,0 +1,82 @@
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          {% if page.layout != 'platform-page' AND page.layout != 'category-page' AND page.layout != 'search-page' %}
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/{{page.name}}" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+          {% endif %} 
+          {% if page.layout == 'platform-page' %}
+          <div class="row">
+            <p>Language: English | <a href="tthelp_ja.html" class="footer-link" style="color:#66c9d0;">日本語</a></p> 
+          </div>
+          {% endif %} 
+          <p class="footer__copyright">Copyright © {{ 'now' | date: "%Y" }} Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    {% if page.layout == "chrt-drawing-tools" %}
+    <script src="js/drawing-tool-nav.js"></script>
+    {% endif %}
+    {% if page.AccordionID == "chrt-technical-indicators" OR page.layout == "learning-guide" %}
+      <script src="../js/ti-search.js"></script>
+    {% endif %}
+    {% if page.layout == "learning-guide" %}
+      <script src="../js/learningguide.js"></script>
+    {% endif %}
+    {% if page.layout == 'search-page' %}
+    <script src="../js/search.js"></script>
+    {% endif %}
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

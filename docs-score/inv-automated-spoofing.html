@@ -1,0 +1,124 @@
+---
+layout: default
+title: Automated Spoofing
+---
+
+
+<p>Spoofing is an attempt to deceive the market into thinking an instrument has more interest, liquidity, or depth by placing large automated orders on one side for the purpose of causing traders to execute smaller orders on the opposite side. Once the intended orders are filled, the trader deletes the larger orders. </p>
+
+<p><b>Note</b>:The Automated Spoofing Model in TT Score is specifically tuned for automated trading strategies. Only trading events marked as originating from automated strategies in FIX Tag 1028 are clustered and scored under this model. Any clusters that contain a single trading event that is not marked as originating from automated trading strategies in FIX Tag 1028 are still found in the Spoofing model.</p>
+
+
+<h2>Automated spoofing patterns</h2>
+
+<p>TT Score detects a variety of spoofing patterns created by automated trading, including:</p>
+<ul>
+  <li>
+  	<b>Simple spoofing</b>: An automated trading strategy places a small order on one side (intent side) of the market that the user wants to execute, followed by a much larger order on the other side (spoof side) of the market to mislead another trader into executing against the smaller order.
+  </li>
+  <li>
+<b>Spoofing with layering</b>: An automated trading strategy places a small order on the intent side of the market and submits orders at multiple price levels on the spoof side of the market. These spoof-side orders are designed to create a false impression of liquidity so that other participants execute against the smaller intent-side order. Once filled, all spoof-side orders are canceled or modified to avoid execution.
+  </li>
+  <li>
+  <b>Spoofing with vacuuming</b>: An automated trading strategy places a small order on one side of the market and a larger order on the same side of the market. The larger spoof order is then canceled to entice market movement toward the smaller order.
+  </li>
+  <li>
+  	<b>Collapsing of layers</b>: An automated trading strategy tries to create a false appearance of large volume by circumventing pre-trade individual order size limits. The automated trading strategy places a small order on the intent side and several small orders at a variety of price levels on the spoof side. The small individual spoof-side orders are then modified to the same price level to imply more volume at that price level.
+  </li>
+  <li>
+  	<b>Flipping</b>: An automated trading strategy places orders on one side of the market with the intent to switch, or flip, to the other side of the market. In this pattern, the automated trading strategy places a large spoof-side order at or near one side of the inside market to create a false impression of market depth, hoping to induce others to place orders on the same side at the same price point. Then the automated strategy simultaneously cancels the spoof-side orders and flips the order from buy to sell (or vice versa) to execute against the other participants.
+  </li>
+  <li>
+  	<b>Spread squeezing</b>: This spoofing pattern is unique to instruments with spreads that are multi-tick wide. An automated trading strategy places an order on the spoof-side at successively higher or lower prices with the spread to squeeze it one direction, enticing other market participants to join or beat the newly established top of book. The automated trading strategy then switches sides and executes against those participants. After execution, the trader cancels the spoof-side orders, and the market returns to its previous state. The automated trading strategy then uses the same squeeze technique on the opposite side of the trade to trade out of the established position at an advantageous price.
+  </li>
+</ul>
+
+<h2>Scoring methodology</h2>
+
+
+  <p>TT Score computes a <a href="ovw-how-tt-score-works.html#cluster">cluster</a> score based on how similar the activity in the cluster matches trading activity that has drawn regulatory attention in the past. </p>
+
+<p>Higher scores indicate that the trading activity within a cluster is more likely to risk regulatory concern. A company's risk monitors can use these scores to prioritize resources for investigating which users' trading activity poses the most regulatory risk.</p>
+
+
+<h3>Score interpretation</h3>
+
+<p>For the automated spoofing pattern, each cluster is assigned a risk score on a sliding scale between 0-100. This score represents the probability that spoofing occurred during the duration of the cluster's trading activity.</p>
+
+{% include score-method.html %}
+
+
+<h3>Scorecard metrics</h3>
+
+<p>The Scorecard Metrics section shows the following statistics related to automated spoofing on a per trader basis:</p>
+
+<ul>
+            <li><b>Placed Buy Volume</b> &mdash; Total quantity of Buy orders.</li>
+            <li><b>Placed Sell Volume</b> &mdash; Total quantity of Sell orders.</li>
+            <li><b>Filled Buy Volume</b> &mdash; Total Buy fills.</li>
+            <li><b>Filled Sell Volume</b> &mdash; Total Sell fills.</li>
+            <li><b>Ord Cancel/Placed</b> &mdash; Percentage of working orders that were canceled.</li>
+            <li><b>Ord Modify/Placed</b> &mdash; Percentage of working orders that were modified.</li>
+            <li><b>Volume Cancel/Placed</b> &mdash; Percentage of total volume that was canceled.</li>
+            <li><b>Volume Modify/Placed</b> &mdash; Percentage of total volume that was modified.</li>
+
+</ul>
+
+
+<!--
+<p>Scoring methodology - Each cluster is assigned a risk score.  The risk score is on a sliding scale of 0-100 and describes the probability that spoofing occurred within cluster of trading activity. TT Score computes this probability based upon the similarity that the Features in the clustered activity have to the Features in trading activity that has drawn regulatory attention in the past. </p>
+
+<p>Score interpretation - The score is indicating the probability that the trading activity will attract regulatory attention, thereby creating a workflow prioritization for users where they can focus their resources on investigating the highest scoring or “riskiest” activity first.</p>
+-->
+
+<h2>Identifying spoofing with the Automated Spoofing Model</h2>
+
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to analyze the trading activity that triggered the high automated spoofing score. The chart at the bottom of the scorecard gives you visual clues about the automated spoofing pattern.</p>
+
+<p>For example, the following chart shows a potential "spoofing with layering" pattern.</p>
+
+<p><img class="img-responsive" src="Content/automated-spoofing-pressure-chart.png" alt="" /></p> 
+ <!-- <p><img class="img-responsive" src="Content/automated-spoofing-pressure-chart-no-indicator.png" alt="" /></p> -->
+
+<p>In this example:</p>
+
+<ol>
+<li>
+An automated trading strategy adds volume to create the appearance of Buy-side pressure.
+</li>
+<li>
+The automated trading strategy gets filled on its resting Sell order by traders executing against the smaller order on the opposite side of the market.
+
+<P> <b>Note</b>: The green diamond above the fill is an "imbalanced fill indicator" that marks where a trader receives a fill on the opposite side of the majority of their working volume.</p>
+    </li>
+    <li>
+      After getting filled, the automated strategy cancels the large Buy orders.
+    </li>
+  </ol>
+
+<p>The chart in the scorecard shows activity based on order volume over time, but does not show prices and liquidity. Looking at the prices for the potential spoofing orders can help you determine whether the automated trading strategy was placing those orders far off the market in an attempt to deceive traders.</p>
+
+<p>In the Cluster Scorecard, you can click <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> to view how orders interacted with the market at various price levels.</p>
+
+<p>For example, you can see in the replay when the automated trading strategy begins submitting numerous Buy orders to create the illusion of buy-side pressure. As you continue replaying the market activity, you can observe the state of the market and the trader's activity at each point in time.</p>
+
+  <p><img class="img-responsive" src="Content/automated-spoofing-ladder-replay.png" alt="" /></p>
+
+  <p>In this example:</p>
+  <ol>
+    <li>
+      The price ladder shows the prices and liquidity in the market during the potential spoofing activity by an automated trading strategy.
+    </li>
+    <li>
+      The vertical line identifies the point in time when the trading occurred.
+    </li>
+    <li>
+      Orders and fills that occurred around the specified time are also displayed.
+    </li>
+  </ol>
+
+
+   {% include spoofing-indicators.html %}
+
+
+

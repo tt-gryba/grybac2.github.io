@@ -1,0 +1,107 @@
+---
+layout: default
+title: Spoofing
+---
+
+
+<p>Spoofing represents an attempt to deceive the market into thinking that an instrument has more interest, liquidity or depth by placing large orders on one side for the purpose of causing traders to execute smaller orders on the opposite side. Once the intended orders are filled, the larger orders are deleted. </p>
+
+<p>The Spoofing Model in TT Score analyzes and scores clusters that contain only manual trading or a mix of both automated and manual trading. Trading events that originate only from automated sources are scored separately by the Automated Spoofing Model.</p>
+
+<h2>Spoofing patterns</h2>
+<p>TT Score detects a variety of spoofing patterns, including:</p>
+<ul>
+  <li>
+  	Simple spoofing: A trader places a small order on one side (intent side) of the market that the trader wants to execute, followed by a much larger order on the other side (spoof side) of the market to mislead another trader into executing against the smaller order.
+  </li>
+  <li>
+  	Spoofing with layering: A trader places a small order on the intent side of the market and orders at multiple price levels on the spoof side of the market. These spoof-side orders are designed to create a false impression of liquidity so that other participants execute against the smaller intent-side order. Once filled, all spoof-side orders are canceled or modified to avoid execution.
+  </li>
+  <li>
+  	Spoofing with vacuuming: A trader places a small order on one side of the market and a larger order on the same side of the market. The larger spoof order is then canceled to entice market movement toward the smaller order.
+  </li>
+  <li>
+  	Collapsing of layers: A trader tries to create a false appearance of large volume by circumventing pre-trade individual order size limits. The trader places a small order on the intent side and several small orders at a variety of price levels on the spoof side. The small individual spoof-side orders are then modified to the same price level to imply more volume at that price level.
+  </li>
+  <li>
+  	Flipping: A trader places orders on one side of the market with the intent ot switch, or flip, to the other side of the market. In this pattern, a trader places a large spoof-side order at or near one side of the inside market to create a false impression of market depth, hoping to induce others to place orders on the same side at the same price point. Then the trader simultaneous cancels the spoof-side orders and flips the order from buy to sell (or vice versa) to execute against the other participants.
+  </li>
+  <li>
+  	Spread squeezing: This spoofing pattern is unique to instruments with spreads that are multi-tick wide. A trader places order on the spoof-side at successively higher or lower prices with the spread to squeeze it one direction, enticing other market participants to joi or beat the newly established top of book. The trader then switches sides and executes against those participants. After execution, the trader cancels the spoof-side orders, and the market returns to its previous state. The trader then uses the same squeeze technique on the opposite side of the trade to trade out of the established position at an advantageous price.
+  </li>
+</ul>
+
+<h2>Scoring methodology</h2>
+
+
+  <p>TT Score computes a <a href="ovw-how-tt-score-works.html#cluster">cluster</a> score based on how similar the activity in the cluster matches trading activity that has drawn regulatory attention in other situations. </p>
+<p>Higher scores indicate the trading activity within a cluster is more likely to risk regulatory concern. A company's risk monitors can use these scores to prioritize resources for investing which users' trading activity poses the most regulatory risk.</p>
+
+
+<h3>Score interpretation</h3>
+<p>For the spoofing pattern, each cluster is assigned a risk score on a sliding scale between 0-100. This score represents the probability that spoofing occurred during the duration of the cluster's trading activity.</p>
+
+{% include score-method.html %}
+
+
+<h3>Scorecard metrics</h3>
+<p>The Scorecard Metrics section measures the following statistics related to abusive messaging:</p>
+<ul>
+            <li>Disclosed Buy Volume</li>
+            <li>Disclosed Sell Volume</li>
+            <li>Filled Buy Volume</li>
+            <li>Filled Sell Volume</li>
+            <li>Ord Cancel/Placed</li>
+            <li>Ord Modify/Placed</li>
+            <li>Volume Cancel/Placed</li>
+            <li>Volume Modify/Placed</li>
+
+</ul>
+
+
+<!--
+<p>Scoring methodology - Each cluster is assigned a risk score.  The risk score is on a sliding scale of 0-100 and describes the probability that spoofing occurred within cluster of trading activity. TT Score computes this probability based upon the similarity that the Features in the clustered activity have to the Features in trading activity that has drawn regulatory attention in the past. </p>
+
+<p>Score interpretation - The score is indicating the probability that the trading activity will attract regulatory attention, thereby creating a workflow prioritization for users where they can focus their resources on investigating the highest scoring or “riskiest” activity first.</p>
+-->
+
+<h2>Identifying spoofing</h2>
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the spoofing score. The chart at the bottom of the scorecard can give you visual clues about the spoofing pattern. For example, the chart in the following scorecard for a cluster with a high spoofing score shows a potential flipping pattern.</p>
+
+ <!-- <p><img class="img-responsive" src="Content/spoofing-pressure-chart.png" alt="" /></p> -->
+  <p><img class="img-responsive" src="Content/spoofing-pressure-chart-no-indicator.png" alt="" /></p>
+
+  <p>In this example:</p>
+  <ol>
+    <li>
+      Trader is adding volume on the buy side to create the appearance of buy-side pressure.
+    </li>
+    <li>
+      Trader adds a small Sell order, which immediately fills. 
+
+      <p><b>Note</b>: The green diamond above the fill is an "imbalanced fill indicator" that marks where a trader receives a fill on the opposite side of the majority of their working volume.</p>
+    </li>
+    <li>
+      Trader then cancels all outstanding Buy orders.
+    </li>
+  </ol>
+
+<p>The chart shows activity based on order volume over time, but does not show the order prices and liquidity. Looking at the prices for the potential spoofing orders can help you determine whether the trader was placing those orders far off the market in an attempt to deceive traders. From the Cluster Scorecard, you can click <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> to show how the orders interacted with the market at the various price levels.</p>
+
+<p>In this example, you can see when the trader begins submitting numerous Buy orders to create the illusion of buy-side pressure. As you continue replaying the market activity, you can observe the state of the market and the trader's activity at every point in time.</p>
+
+  <p><img class="img-responsive" src="Content/spoofing-ladder-replay.png" alt="" /></p>
+  <ol>
+    <li>
+      The price ladder shows the prices and liquidity in the market during the potential spoofing activity.
+    </li>
+    <li>
+      The vertical line identifies the point of time during the market replay.
+    </li>
+    <li>
+      Orders and fills that occurred around the specified time during the market replay.
+    </li>
+  </ol>
+
+
+{% include spoofing-indicators.html %}

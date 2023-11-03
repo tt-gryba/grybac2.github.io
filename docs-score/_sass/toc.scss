@@ -1,0 +1,493 @@
+.ttdoc-nav-and-maincontent-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.ttdoc-maincontent-container {
+    margin: 0 auto;
+    padding: 0;
+
+    .ttdoc-maincontent-row {
+    	width:100%;
+    	max-width:1200px;
+    	margin: 0 auto;
+    	padding-left:30px;
+    	padding-bottom:50px;
+    }
+
+    @media (max-width: 650px) {
+		.ttdoc-maincontent-row {
+			padding-bottom:20px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.ttdoc-maincontent-row {
+			padding-left:15px;
+		}
+	}
+
+	@media (min-width: 768px) { 
+		.ttdoc-maincontent-row {
+			padding-left:0px;
+			padding-right:0px;
+			padding-top:0px;
+		}
+	}
+
+	.ttdoc-article-wrapper {
+		padding: 0px 35px 0px 10px;
+		margin-right:15px;
+
+		#newWindowContainer {
+			display:none;
+			
+			img {
+				width: 5%; 
+				height: auto;
+				min-width: 3%; 
+				padding-bottom:7px;
+			}
+
+		}
+
+
+		h1 {
+			font-family: "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+			font-weight: 600;
+			margin-bottom: 40px;
+    		margin-top: 0px;
+    		text-transform: uppercase;
+    		font-size:2.75em;
+    		line-height:1.25;
+    	}
+
+    	h1:after {
+			content: '';
+    		width: 50px;
+    		height: 1px;
+    		background: $medium-gray;
+    		position: absolute;
+    		display: block;
+    		margin-top:10px;
+		}
+
+		h2 {
+			font-weight: 600;
+			font-size:2em;
+			line-height: 1.4;
+		}
+
+		h3 {
+			font-weight: 600;
+			line-height: 1.25;
+			padding-bottom:5px;
+			font-size: 1.5em;
+		}
+
+		h4 {
+		    font-weight: 600;
+		    padding-top: 10px;
+		    line-height: 1.25;
+		    font-size: 1.2em;
+    		padding-bottom: 5px;
+		}
+
+		p {
+		    font-size: 1.1em;
+		    line-height: 1.7;
+		}
+
+		a:link, a:visited {
+			text-decoration: none;
+			color: $link-color;
+		}
+
+		a:hover, a:active {
+			text-decoration: underline;
+			color:$link-color;
+		}
+
+		ol > li {
+			margin-bottom:8px;
+		}
+
+		ul {
+    		list-style-image: url(../images/icon-circle-filled.svg);
+    		line-height: 1.75;
+    		margin-bottom:14px;
+
+    		ul {
+    			list-style-image: url(../images/icon-diamond.svg);
+
+    			ul {
+    				list-style-image: url(../images/icon-circle.svg);
+    			}
+    		}
+    	}
+
+    	img.img-responsive {
+    		margin: 0 auto;
+    		padding-bottom: 13px;
+		}
+    }
+
+    @media (max-width: 1000px) {
+    	.ttdoc-article-wrapper {
+          
+          p {
+		    font-size: 1em;
+		  }
+          
+          h1 {
+            font-size:2.5em;
+          }
+          
+          h2 {
+            font-size:1.7em;
+          }
+		}
+    }
+
+    @media (max-width: 767px) {
+    	.ttdoc-article-wrapper {
+          
+          h1 {
+            padding-top:0px;
+          }
+          
+		}
+    }
+
+    @media (max-width: 500px) {
+    	.ttdoc-article-wrapper {
+          
+          h1 {
+            font-size:2em;
+          }
+          
+          h2 {
+            font-size:1.5em;
+          }
+		}
+    }
+}
+
+#myTab {
+	float:left;
+}
+
+@media (min-width: 768px) { 
+	.site-wrap {
+		width:62%;
+	}
+
+	#myTab {
+		width:30%;
+		max-width: 300px;
+	}
+
+	.container-fluid.ttdoc-maincontent-container.site-wrap {
+	    float: left;
+	    padding-left: 30px;
+	    max-width: 1200px;
+	}
+}
+
+.sidebar {
+	.list-group-item {
+	    font-family: "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+		font-weight: 600;
+		border: none;
+	    padding: 5px 15px;
+	    margin-right: 0px;
+	}
+
+	.list-group-subitem {
+		border:$medium-gray solid 1px;
+		border-top:none;
+		padding-left:25px;
+		margin-right:10px;
+		background-color: $white;
+	}
+
+	.list-group-subitem:hover {
+		background-color: $faint-gray;
+		background-size: 15px;
+		border-left:$link-color 6px solid;
+		padding-left:20px;
+	}
+
+	a.active.list-group-item.list-group-subitem:hover {
+		padding-left:25px;
+	}
+
+	a.list-group-item-success {
+		color: $white;
+		font-size:18px;
+		background: $dark-gray url(../images/dropdown-minus.svg) no-repeat 95% 50%;
+		background-size: 15px;
+		letter-spacing: .5px;
+		text-transform: uppercase;
+	}
+
+	@media (max-width:900px) {
+	    a.list-group-item-success {
+    		font-size:16px;
+		}
+	}
+
+	.list-group-item-success.collapsed {
+		color: $dark-gray;
+		background: $faint-gray url(../images/dropdown-inverted-chevron.svg) no-repeat 95% 50%;
+		background-size: 15px;	
+		letter-spacing: .5px;	
+		border:$medium-gray solid 1px;
+		margin-top: -1px;	
+		text-transform: uppercase;
+		margin-bottom:0px;
+	}
+
+	a.list-group-item.list-group-item-success.collapsed, a.list-group-item.list-group-item-success.collapsed:visited {
+		color: $dark-gray;
+		background: $faint-gray url(../images/dropdown-inverted-chevron.svg) no-repeat 95% 50%;
+		background-size: 15px;
+	}
+
+	a.list-group-item.list-group-item-success.collapsed:hover {
+		color: $white;
+		background: $medium-gray url(../images/dropdown-inverted-chevron-white.svg) no-repeat 95% 50%;
+		background-size: 15px;
+	}
+
+	.list-group-item:last-child {
+		margin-bottom: 0px;
+		border-bottom-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+
+	.list-group-item:first-child {
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		padding-top:5px;
+		margin-top:1px;
+	}
+
+	.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+		background:$light-teal;
+		color: $dark-gray;
+		border-left:$medium-gray solid 1px;
+		border-right:$medium-gray solid 1px;
+		border-top:none;
+		border-bottom:none;
+	}
+
+	.list-group-item.active:last-child {
+		border-bottom:$medium-gray solid 1px;
+	}
+
+	.active {
+		color:$inactive-link;
+	}
+}
+
+/* Mobile Slide Navigation Menu */
+/* media query for slide navigation */
+@media (min-width: 768px) {
+	.nav-trigger, .ttdoc-sidebar-return-links-container, .ttdoc-widget-title-mobile, .ttdoc-widget-title-mobile {
+		display:none;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.ttdoc-hero.row.ttdoc-article-hero, .breadcrumb.ttdoc-breadcrumb {
+		display: none;
+	}
+
+	.container-fluid.ttdoc-maincontent-container.site-wrap {
+		margin-left:0px;
+	}
+
+	.ttdoc-sidebar-logo {
+	    width: 175px;
+	    height: 61px;
+    	/* to show logo in sidebar, add nav class to display:none call above and display logo below:
+    	margin-left: 10px; 
+    	text-indent: -9999px;
+	    background: url(../images/logo-words.svg) no-repeat center center; 
+	    left: 0;
+	    top: 0; 
+	    */
+	}
+
+	.ttdoc-sidebar-return-links-container {
+		font-family: "Avenir Next Pro", Arial, Helvetica, sans-serif;
+		font-size: 11px;
+		font-weight: 600;
+		color:$dark-gray;
+		background-color: $white;
+		border: none;
+		border-top:none;
+	    padding: 0px 15px;
+	    margin-right: 0px;
+
+	    a:link, a:visited {
+	    	color:$link-color;
+	    	text-transform: underline;
+	    	display:inline;
+	    	padding-top:5px;
+	    }
+
+	    a:hover, a:active {
+	    	color:$link-color;
+	    	text-transform: underline;
+	    	display:inline;
+	    	padding-top:5px;
+	    }
+
+	    span {
+	    	text-transform: uppercase;
+	    }
+	}
+
+	.ttdoc-maincontent-container.ttdoc-article-wrapper {
+    	padding: 0px 35px 0px 60px;
+	}
+
+	.row.ttdoc-maincontent-row {
+		padding-left:50px;
+		padding-right:5px;
+		min-width:350px;
+	}
+
+	.ttdoc-widget-title-mobile {
+    	padding-top: 42px;
+    	padding-bottom:8px;
+
+    	.inapp {
+    	display:none;
+    	}
+	}
+
+	/* Navigation Menu - Background */
+	.navigation {
+	  /* critical sizing and position styles */
+	  width: 205px;
+	  height: 100%;
+	  position: fixed;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  z-index: 0;
+	  overflow-y:scroll;
+	  padding-left:0px;
+
+	  /* non-critical appearance styles */
+	  list-style: none;
+	  background: $white;
+	}
+
+	/* Navigation Menu - List items */
+	.nav-item, .list-group-item {
+	  /* non-critical appearance styles */
+	  width: 180px;
+	}
+
+	.nav-item a {
+	  /* non-critical appearance styles */
+	  display: block;
+	  padding: 1em;
+	  background: $white;
+	  color: $link-color;
+	  font-size: 1.2em;
+	  text-decoration: none;
+	  transition: color 0.2s, background 0.5s;
+	}
+
+	.nav-item a:hover {
+	  color: #c74438;
+	  background: $light-gray;
+	}
+
+	/* Site Wrapper - Everything that isn't navigation */
+	.site-wrap {
+	  /* Critical position and size styles */
+	  min-height: 100%;
+	  min-width: 100%;
+	  background-color: $white; /* Needs a background or else the nav will show through */
+	  position: relative;
+	  top: 0;
+	  bottom: 100%;
+	  left: 0;
+	  z-index: 1;
+	}
+
+	/* Nav Trigger */
+	.nav-trigger {
+	  /* critical styles - hide the checkbox input */
+	  position: absolute;
+	  clip: rect(0, 0, 0, 0);
+	}
+
+	label[for="nav-trigger"] {
+	  /* critical positioning styles */
+	  position: fixed;
+	  left: 15px; 
+	  top: 65px;
+	  z-index: 2;
+	  
+	  /* non-critical apperance styles */
+	  height: 30px;
+	  width: 30px;
+	  cursor: pointer;
+	  background-image: url("../images/icon-menu.svg");
+	  background-size: contain;
+	}
+
+	/* Make the Magic Happen */
+	.nav-trigger + label, .site-wrap {
+	  transition: left 0.2s;
+	}
+
+	.nav-trigger:checked + label {
+  		left: 190px;
+	}
+
+	.nav-trigger:checked ~ .site-wrap, .nav-trigger:checked ~ .footer, .nav-trigger:checked ~ .ttdoc-footer, .nav-trigger:checked ~ .container-fluid.ttdoc-lower-nav-container {
+	  	left: 180px;
+	  	box-shadow: -4px 0px 4px 1px rgba(0, 0, 0, 0.1);
+	  	/* turning the content  grayscale 
+        -webkit-filter: grayscale(100%); 
+   		filter: grayscale(100%);
+    	opacity: 0.2; */
+   	}
+
+   	.nav-trigger:checked ~ .ttdoc-footer, .nav-trigger:checked ~ .container-fluid.ttdoc-lower-nav-container {
+	  	padding-right: 180px;
+   	}
+
+   	.nav-trigger:checked ~ .ttdoc-footer .footer-inner.constrain, .nav-trigger:checked ~ .container-fluid.ttdoc-lower-nav-container.ttdoc-lower-nav {
+	  	min-width:350px;
+   	}
+
+   	.nav-trigger:checked ~ .navbar, .navbar-default, .navbar-fixed-top, .ttdoc-navbar {
+		position:fixed !important;
+	}
+
+	.nav-trigger:checked ~ .ttdoc-maincontent-container {
+	  padding-right: 150px;
+	  border-left: $light-gray solid 1px;
+	}
+
+	/* to elmiinate lower nav on mobile menu open
+
+	.nav-trigger:checked ~ .container-fluid.ttdoc-lower-nav-container {
+		display:none !important;
+	} */
+
+	body {
+	/* Without this, the body has excess horizontal scroll when the menu is open */
+  		overflow-x: hidden;
+	}
+}

@@ -1,0 +1,78 @@
+---
+layout: default
+title: How IPsec Works
+---
+
+   <article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-US" id="Cisco_Concept.dita_203be3be-9077-41c6-a1c5-1920cea0d1d1">
+                     <!--   <h3 class="title topictitle3" id="ariaid-title5">How IPsec Works</h3>
+                        <section class="body conbody"> -->
+
+                        	     <p class="p">IPsec implements network layer encryption and authentication, embedding end-to-end
+                              security within the network architecture. The advantage to this is that individual
+                              applications do not need to be modified to take advantage of strong security. All
+                              packets routed through the network are automatically secured.
+                           </p>
+                           
+                           <p class="p">IPsec provides secure <em class="ph i">tunnels</em> between two peers, such as two switches. You define which packets are considered sensitive and should be sent through these
+                              secure tunnels. You define the parameters which should be used to protect these sensitive packets, by specifying characteristics
+                              of these tunnels. Marked packets are locally redirected to the tunnel interface as shown in the following image.
+                           </p>
+
+
+<p><img class="img-responsive" src="Content/ipsec.png" alt="" /></p>
+
+
+                           
+                       <!--    <figure class="fig fignone">
+                              <figcaption><span class="fig--title-label">Figure 2. </span>IPsec Tunnel
+                              </figcaption>
+                              
+                              <img class="image" src="/c/dam/en/us/td/i/400001-500000/460001-470000/468001-469000/468249.jpg">
+                              
+                           </figure>-->
+                           <h2>IPsec Security Associations</h2>
+                           <p class="p">More accurately, tunnels are sets of <em class="ph i">security associations</em> (SAs) that are
+                              established between two IPsec peers. The security associations define which protocols
+                              and algorithms should be applied to sensitive packets, and also specify the keying
+                              material to be used by the two peers. Security associations are unidirectional and are
+                              established per security protocol. 
+                           </p>
+                           
+        
+                           
+                           <p class="p">Once established, the set of security associations (outbound, to the peer) is then
+                              applied to the triggering packet as well as to subsequent applicable packets as those
+                              packets exit the device. <em class="ph i">Applicable packets</em> are packets that match the same
+                              criteria that the original packet matched. For example, all applicable packets could be
+                              encrypted before being forwarded to the remote peer. The corresponding inbound security
+                              associations are used when processing the incoming traffic from that peer.
+                           </p>
+
+                           <h2>Internet Key Exchange protocol (IKE)</h2>
+
+                               <p class="p">If no security association exists that IPsec can use to protect this traffic to the peer,
+                              IPsec uses the Internet Key Exchange protocol (IKE) to negotiate with the remote peer to
+                              set up the necessary IPsec security associations on behalf of the data flow.
+                           </p>
+                           
+                           <p class="p">If IKE is used to establish the security associations, the security associations will
+                              have lifetimes set so that they periodically expire and require renegotiation, thus
+                              providing an additional level of security.
+                           </p>
+                           
+                           <h2>IPsec Transform Sets</h2>
+                           
+                           <p class="p">A transform set is an acceptable combination of security protocols, algorithms, and other
+                              settings to apply to IPsec protected traffic. During the IPsec security association
+                              negotiation, the peers agree to use a particular transform set when protecting a
+                              particular data flow.
+                           </p>
+                           
+                      
+                           
+                        </section>
+                        <!-- minitoc start -->
+                        <nav role="navigation" class="related-links"></nav>
+                        <!-- minitoc end -->
+                     </article>
+                

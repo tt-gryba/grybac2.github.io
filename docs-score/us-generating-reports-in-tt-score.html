@@ -1,0 +1,292 @@
+---
+layout: default
+title: Generating Reports in TT Score
+---
+
+
+<p>As a Score administrator, you can generate compliance reports that quantify cluster statistics for your entire company and for individual traders. Reports can be generated from the "Reports" tab on the Score dashboard. Existing compliance reports can also be viewed on this tab.</p>
+
+<p>The following types of reports can be generated in TT Score:</p>
+<ul>
+	<li><a href="#summary">Summary Stats</a> &mdash; Summary statistics of clusters over a given time period.</li>
+		<li><a href="#process">Processing Stats</a> &mdash; Daily processing statistics.</li>
+		<li><a href="#trends">Summary Stats Trends</a> &mdash; A trends report for the summary statistics.</li>
+	</ul>
+</li>
+
+<p>After generating a report, you can select which statistics to display and download each set of data from the report as needed.
+</p>
+
+<p><b>Note</b>: You must have <a href="ovw-accessing-tt-score.html#admin">administrator permissions in Setup</a> in order to generate reports. As a TT Score administrator, you can generate reports for your company and view data for all accounts that your users have access to, including accounts shared with your company. As a TT Score account administrator, you can generate reports only for the accounts assigned to you.</p>
+
+
+
+
+
+
+<h2 id="summary">Generating a TT Score Summary Stats report</h2>
+
+<p>The summary stats report contains statistics for your entire company, as well as statistical data sorted by surveillance model per trader, account, or instrument.</p>
+
+<p>To generate a Summary Stats report:</p>
+<ol>
+{% include report-step1.html %}
+
+<li>Select <b>Summary Stats</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+
+		<p><img class="img-responsive" src="Content/us-report-left-panel.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b> fields in the panel:
+
+<ul>
+	
+	<li><b>Start Date - End Date</b> &mdash; Sets the time period for reporting the statistics.
+		<li><b>Group By</b> &mdash; Allows you to filter the report by "trader", "account", or "instrument".
+			<li><b>Display By</b> &mdash; Sorts and displays statistics by surveillance model.
+			</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+	<p>The report is displayed on the screen.</p>
+					<p><img class="img-responsive" src="Content/us-report-generated.png" alt="" /></p>
+
+	<!--		<p><img class="img-responsive" src="Content/us-report-view-display.png" alt="" /></p> -->
+
+	<p>Each section of the report contains statistics in the following columns:</p>
+
+<ul>
+	<li><b>Model</b> &mdash; Name of the surveillance model. This column is displayed for company level statistics, which can be viewed only by Score administrators.</li>
+		<li><b>Trader/Account/Instrument</b> &mdash; The name of the trader/account/instrument. This column is displayed per surveillance model based on your "Group By" data selection.
+		<li><b>% High Scoring</b> &mdash; The percentage of clusters with a score of 75 - 100.
+			<li><b>Change % High Scoring</b> &mdash; Shows the percentage change in high scores since the last time period (Start Date - End Date) the report was generated. Periods must be of the same duration in order to calculate this change.
+
+<li><b>Clusters (0-100)</b> &mdash; Total number of clusters scored by the model.
+<li><b>Clusters (1-100)</b> &mdash; Total number of clusters receiving a score.
+<li><b>Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score.
+	<li><b>Max Score</b> &mdash; The highest cluster score.
+		<li><b>Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model.
+		<li><b>Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0".
+		<li><b>Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score.
+		<li><b>Min Score (0-100)</b> &mdash; The lowest score of the clusters.
+		<li><b>Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0".
+		<li><b>Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores.
+
+		<li><b>Prev Period % High Scoring</b> &mdash; The percentage change of clusters with a score of 75 - 100 from the previous period.
+<li><b>Prev Period Clusters (0-100)</b> &mdash; The total number of clusters scored by the model in the previous period.
+<li><b>Prev Period Clusters (1-100)</b> &mdash; Total number of clusters receiving a score in the previous period.
+<li><b>Prev Period Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score in the previous period.
+	<li><b>Prev Period Max Score</b> &mdash; The highest cluster score in the previous period.
+		<li><b>Prev Period Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model in the previous period.
+		<li><b>Prev Period Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0" in the previous period.
+		<li><b>Prev Period Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score in the previous period.
+		<li><b>Prev Period Min Score (0-100)</b> &mdash; The lowest score of the clusters in the previous period.
+		<li><b>Prev Period Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0" in the previous period.
+		<li><b>Prev Period Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores in the previous period.
+</ul>
+
+
+</li>
+</ol>
+
+
+
+<!-- trends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="trends">Generating a TT Score Summary Stats Trends report</h2>
+
+<p>Using the Reports tab, you can generate an interactive report that displays trends in suspect trading activity in your company. The <b>Summary Stats Trend</b> report is similar to the summary stats report, but it also provides a trend analysis of the specified time period for your entire company grouped by model, trader, account or instrument.</p>
+
+<p>To generate a Summary Stats Trends report:</p>
+
+<ol>
+{% include report-step1.html %}
+
+<li>Select <b>Summary Stats Trends</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+		<p><img class="img-responsive" src="Content/us-report-trends-panel.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b>:
+
+<ul>
+	
+	<li><b>Start Date - End Date</b> &mdash; Sets the time period for reporting the statistics.
+	<li><b>Group By</b> &mdash; Allows you to filter the report by "trader", "account", or "instrument".
+	<li><b>Display By</b> &mdash; Sorts and displays statistics by surveillance model.
+	<li><b>Summary Interval</b> &mdash; Sets which days within the time period to show data (e.g., an interval of "2" would show data every other day within the start and end dates.)
+	<li><b>Metrics</b> &mdash; Sets what type of data to display in the report. Select one or more of the following:
+				<ul>
+					<li><b>Perc high scoring</b> &mdash; Shows the percentage of high scoring clusters.
+		<li><b>Clusters (0-100)</b> &mdash; Total number of clusters scored by the model.
+		<li><b>Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score.
+        <li><b>Clusters (1-100)</b> &mdash; Total number of clusters receiving a score.
+		<li><b>Max Score</b> &mdash; The highest cluster score.
+
+       <li><b>Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model.
+		<li><b>Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0".
+		<li><b>Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score.
+		<li><b>Min Score (0-100)</b> &mdash; The lowest score of the clusters.
+		<li><b>Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0".
+		<li><b>Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores.
+				</ul>
+	<li><b>Company ID</b> &mdash; Generates and displays the total processing stats for your company. 
+
+</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+
+	<p>The interactive charts in the report are displayed on the screen. A company summary chart is at the top of the report and the selected grouping is populated below. Data is shown at each interval based on your metrics and shows trends in the amount of suspect trading activity per model and for all models combined. 
+	 </p>
+
+<p><b>Note</b>: As you click a model on the screen, the statistics and trends are adjusted in the report for that model.</p>
+				<!--	<p><img class="img-responsive" src="Content/us-report-trends-generated.png" alt="" /></p> -->
+
+<p><img class="img-responsive" src="Content/us-report-trends.png" alt="" /></p>
+	<!--
+
+<h2>Viewing the TT Score Summary Stats Trends report</h2> -->
+
+			<!-- <p><img class="img-responsive" src="Content/us-report-trends-generated-example.png" alt="" /></p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="process">Generating a TT Score Processing Statistics report</h2>
+
+<p>The processing statistics report shows the quantity and type of data processed by TT Score over a selected period of time for your company. Processing data can be included per surveillance model, trader, account, instrument, and TT source.
+</p>
+
+<p>To generate a Processing Statistics report:</p>
+
+<ol>
+
+{% include report-step1.html %}
+
+<li>Select <b>Processing Stats</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+		<p><img class="img-responsive" src="Content/us-report-left-panel-processing.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b> fields in the panel:
+
+<ul>
+	
+	<li><b>Date</b> &mdash; Sets the time period for reporting the statistics.
+	<li><b>Include Account Stats</b> &mdash; Includes processing stats on a per account basis. This setting is optional.
+	<li><b>Company ID</b> &mdash; Generates and displays the total processing stats for your company. 
+
+			<li><b>Detail Categories</b> &mdash; Generates processing statistics for a specific category of data. Select one of the following:
+				<ul>
+				<li>Model: Shows statistics per problematic trading model.
+					<li>Trader: Shows stats per trader in your company.
+						<li>Source: Includes processing stats for specific TT components.
+						<li>Instrument: Includes statistics per instrument traded by your company.
+				</ul>
+
+		</li>
+</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+
+<p>The report is displayed on the screen.</p>
+					<!-- <p><img class="img-responsive" src="Content/us-report-generated.png" alt="" /></p> -->
+
+			<p><img class="img-responsive" src="Content/us-report-processing.png" alt="" /></p> 
+
+	<p>The report includes the following columns:</p>
+
+<ul>
+<li><b>Processing Stat</b> &mdash; Lists the type of processing statistics. The column appears in the "Processing Results Overview" at the top of the report, the "Company Processing Results" section, and per account if included.
+	<li><b>Value</b> &mdash; Shows the amount of clusters or ledger records processed, and the time (ms) and duration of each process.
+<li><b>Clusters (0-100)</b> &mdash; The total number of clusters processed by a surveillance model or TT service.
+<li><b>Ledger Records</b> &mdash; The total number of records in Ledger that were processed by a surveillance model 
+	or TT source.
+</ul>
+
+
+</li>
+</ol>
+
+
+
+
+<h2>Viewing a report in TT Score</h2>
+
+<p>To view a generated report in Score, select the <b>Reports</b> tab on the Score dashboard and click <b>View Report</b>.</p>
+
+			<p><img class="img-responsive" src="Content/us-report-view.png" alt="" /></p>
+
+	<p>The selected report is displayed on the screen. The data selection panel for the report is also displayed on the left of the screen.</p>
+		
+			<p><img class="img-responsive" src="Content/us-report-view-display.png" alt="" /></p>
+
+<p><b>Tip</b>: Hover on the "i" by the report title to view more details about the report.</p>
+
+			<p><img class="img-responsive" src="Content/us-report-view-info.png" alt="" /></p>
+
+
+<p>Click <img src="Content/us-report-icon.png" alt="" /> to show/hide the columns of statistics to display for each set of data in the report. Check or uncheck each checkbox in the column menu to show or hide a column.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-show-hide-columns.png" alt="" /></p>
+
+
+
+
+
+
+
+
+<h2>Exporting a TT Score report</h2>
+
+<p>To export data from the report, click <img src="Content/us-report-icon2.png" alt="" /> and select an output file format. The data will be exported to the "downloads" folder on your workstation or laptop.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-export.png" alt="" /></p>
+
+
+<h2>Deleting a TT Score report</h2>
+
+<p>Reports can be deleted one at a time or in bulk. To delete multiple reports at once, select each report and click <b>Delete</b> under the <b>Reports</b> tab on the Score dashboard.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-delete.png" alt="" /></p>
+

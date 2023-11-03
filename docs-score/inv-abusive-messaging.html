@@ -1,0 +1,74 @@
+---
+layout: default
+title: Abusive Messaging
+---
+
+<p>Abusive messaging involves patterns of disruptive or excessive order activity that can harm markets.</p>
+<ul>
+  <li>
+  	Quote stuffing: Quote stuffing is an attempt to disrupt normal market operations by introducing latency into an exchange's quoting engine to prevent other traders from trading as intended. A trader intentionally places orders at a pace that will slow market updates.
+  </li>
+  <li>
+  	Microburst quote stuffing: This form of quote stuffing involves submitting  extremely high rates of messages over very short periods of time, which can introduce predictable latency while avoiding traditional detection methods. For example, submitting 80 messages in a single millisecond can appear as a non-interrupting 80 messages per second, while it actually has an effective rate of 80,000 messages per second.
+  </li>
+  <li>
+  	Malfunctioning algorithms: Due to the speed at which algorithms can send messages, even minor errors in an algorithm can have major impacts on market behavior.
+  </li>
+</ul>
+
+<h2>Scoring methodology</h2>
+<p>For the abusive messaging pattern, TT Score analyzes clusters for messaging rates, looking for high rates regardless of duration. Risk monitors can then evaluate whether the messaging pattern might be a case of abusive messaging or makes sense in context.</p>
+
+
+
+<h3>Score interpretation</h3>
+<p>The score is assigned based on a sliding scale of 0 to 100 with the score increasing as higher message rate bursts are identified.
+</p>
+
+{% include score-method.html %}
+
+
+<h3>Scorecard metrics</h3>
+<p>The Scorecard Metrics section measures the following statistics related to abusive messaging:</p>
+<ul>
+  <li>
+    Avg. Msgs/sec
+  </li>
+  <li>
+    Low-rate Msgs
+  </li>
+  <li>
+    Med-rate Msgs
+  </li>
+  <li>
+    High-rate Msgs
+  </li>
+</ul>
+
+<h2 id="id">Identifying abusive messaging</h2>
+
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the abusive messaging score. The Cluster Statistics and Scorecard Metrics sections of the scorecard show the:</p>
+<ul>
+  <li>Time duration of the cluster</li>
+  <li>Total number of messages sent</li>
+  <li>Percentages for different message rates</li>
+</ul>
+<p>The chart at the bottom of the scorecard can give you visual clues about the abusive messaging pattern. For example, the chart in the following scorecard for a cluster with a high percentage of high-rate messages over a very short time period.</p>
+<p><img class="img-responsive" src="Content/abusive-msg-example-scorecard.png" alt=""/></p>
+<ol>
+    <li>
+      In just over five-thousandths of a second, the trader canceled 250 order messages, 100% of which were considered to be submitted at a high rate.
+    </li>
+    <li>
+      The risk indicator indicates this cluster has a risk score of 100.
+    </li>
+    <li>
+      The trader repeatedly submitted the same type of order.
+    </li>
+    <li>
+    	The exchange times indicated the messages were sent in micro-second intervals.
+    </li>
+    <li>
+    	The Burst Chart graph shows that for the first six-tenths of a second, the trader submitted messages at a rate of well over 45,000 messages per second.
+    </li>
+</ol>

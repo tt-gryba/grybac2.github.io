@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Generating Reports in TT Score | TT Score Help and Tutorials</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet"> <!-- need for tech indicators. also need mathjax script-->
+    <link rel="shortcut icon" href="Content/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29111405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>-->
+
+ <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+ <!--<script src="js/bootstrap.min.js"></script> at bottom but might need for videos-->
+  </head>
+  <body class="pagination-centered">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top ttdoc-navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav nav-tabs" role="tablist">
+          
+          <li><a class="ttdoc-main-nav__brand" target="_blank" href="https://www.tradingtechnologies.com/">Trading Technologies Help Library</a>
+          </li>
+        </ul>
+        <ul class="main-nav__secondary">
+          <li>
+              <form class="main-nav__search" action="Search.html">
+                <input class="main-nav__search-input" placeholder="Search" type="search" name="q" id="search" value="" autocomplete="off">
+                <input class="main-nav__search-button" type="submit" value="">
+              </form>
+          </li>
+        </ul>
+        <!-- Brand and toggle get grouped for better mobile display
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        Brand and toggle get grouped for better mobile display -->
+      </div><!-- ./navbar-inner -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+<div class="container-fluid">
+<section>
+
+<div class="ttdoc-hero row ttdoc-article-hero">
+  <div class="vert-wrapper">
+    <h1 class="ttdoc-hero-headline">TT Score</h1>
+    
+  </div>
+</div> 
+
+<div class="breadcrumb ttdoc-breadcrumb">
+<ul>
+	<!-- Library Home link -->
+    <li><a href="../tthelp.html">Help Library</a></li><!--Library home - displays platforms-->
+    
+	    <!-- ADL Home link -->
+	    
+	    	<li><a href="index.html">TT Score</a></li>
+			
+			 	
+			 		<li class="active">Generating Reports in TT Score</li>
+			 	
+		
+</ul>
+</div>
+ 
+
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+  
+
+
+  
+  
+  
+  
+    <a href="#overview" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Overview</a>
+    <div class="collapse nav-indiv-article" id="overview">
+  
+
+  
+    
+    
+      
+      
+
+          <a href="ovw-introduction-c.html" class="list-group-item list-group-subitem">MPLS Introduction</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-how-tt-score-works-c.html" class="list-group-item list-group-subitem">How MPLS Works</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-accessing-tt-score-c.html" class="list-group-item list-group-subitem">Configuring MPLS</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+
+    <a href="#using-tt-score" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Using MPLS</a>
+    <div class="collapse in nav-indiv-article" id="using-tt-score">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="us-using-overview.html" class="list-group-item list-group-subitem">Workflow Summary</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-selecting-data.html" class="list-group-item list-group-subitem">Selecting Data</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-analyzing-data.html" class="list-group-item list-group-subitem">Analyzing trading activity using data visualizations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-reporting-recording-findings.html" class="list-group-item list-group-subitem">Recording reviews and opening investigations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-creating-custom-alerts-in-tt-score.html" class="list-group-item list-group-subitem">Creating custom alerts in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+      
+       <!-- in source YML header, should also match the filename/url -->
+
+          <a href class="active list-group-item list-group-subitem">Generating Reports in TT Score</a>
+                    
+        
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Configuration Examples</a>
+    <div class="collapse nav-indiv-article" id="views">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-outlier-chart.html" class="list-group-item list-group-subitem">Cluster Group View - Outlier Chart</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-heat-map.html" class="list-group-item list-group-subitem">Cluster Group View - Heat Map</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-daily-cluster-group.html" class="list-group-item list-group-subitem">Cluster Group View - Daily Cluster Groups</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-list-view.html" class="list-group-item list-group-subitem">Cluster List View</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-cluster-view-cluster-scorecard.html" class="list-group-item list-group-subitem">Cluster Scorecard</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-identifying-problematic-activity.html" class="list-group-item list-group-subitem">Reviewing Clusters Using Cluster Views</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Use Cases</a>
+    <div class="collapse nav-indiv-article" id="problematic-trading-models">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-abusive-messaging.html" class="list-group-item list-group-subitem">Abusive Messaging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-cross-trading.html" class="list-group-item list-group-subitem">Cross Trading</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-exchange-messaging-rate-limit.html" class="list-group-item list-group-subitem">Exchange Messaging Rate Limit</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-marking-the-close.html" class="list-group-item list-group-subitem">Marking the Close</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-momentum-ignition.html" class="list-group-item list-group-subitem">Momentum Ignition</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-pinging.html" class="list-group-item list-group-subitem">Pinging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-spoofing.html" class="list-group-item list-group-subitem">Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-spoofing.html" class="list-group-item list-group-subitem">Automated Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-collusive-spoofing.html" class="list-group-item list-group-subitem">Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-collusive-spoofing.html" class="list-group-item list-group-subitem">Automated Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-wash-trading.html" class="list-group-item list-group-subitem">Wash Trading</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Reference</a>
+    <div class="collapse nav-indiv-article" id="reference">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-import.html" class="list-group-item list-group-subitem">Importing data using TT FIX</a>
+                        
+      
+
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>Generating Reports in TT Score</span>
+      </div>
+
+      <h1>Generating Reports in TT Score</h1>
+
+          
+      
+
+
+
+
+ 
+
+<p>As a Score administrator, you can generate compliance reports that quantify cluster statistics for your entire company and for individual traders. Reports can be generated from the "Reports" tab on the Score dashboard. Existing compliance reports can also be viewed on this tab.</p>
+
+<p>The following types of reports can be generated in TT Score:</p>
+<ul>
+	<li><a href="#summary">Summary Stats</a> &mdash; Summary statistics of clusters over a given time period.</li>
+		<li><a href="#process">Processing Stats</a> &mdash; Daily processing statistics.</li>
+		<li><a href="#trends">Summary Stats Trends</a> &mdash; A trends report for the summary statistics.</li>
+	</ul>
+</li>
+
+<p>After generating a report, you can select which statistics to display and download each set of data from the report as needed.
+</p>
+
+<p><b>Note</b>: You must have <a href="ovw-accessing-tt-score.html#admin">administrator permissions in Setup</a> in order to generate reports. As a TT Score administrator, you can generate reports for your company and view data for all accounts that your users have access to, including accounts shared with your company. As a TT Score account administrator, you can generate reports only for the accounts assigned to you.</p>
+
+
+
+
+
+
+<h2 id="summary">Generating a TT Score Summary Stats report</h2>
+
+<p>The summary stats report contains statistics for your entire company, as well as statistical data sorted by surveillance model per trader, account, or instrument.</p>
+
+<p>To generate a Summary Stats report:</p>
+<ol>
+<li>On the Score dashboard, select the <b>Reports</b> tab and click <b>Generate Report</b>.
+
+		<p><img class="img-responsive" src="Content/us-report-homepage.png" alt="" /></p>
+
+
+		<p>The reports data selection panel is displayed on the left side of the screen.</p>
+
+
+
+</li>
+
+<li>Select <b>Summary Stats</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+
+		<p><img class="img-responsive" src="Content/us-report-left-panel.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b> fields in the panel:
+
+<ul>
+	
+	<li><b>Start Date - End Date</b> &mdash; Sets the time period for reporting the statistics.
+		<li><b>Group By</b> &mdash; Allows you to filter the report by "trader", "account", or "instrument".
+			<li><b>Display By</b> &mdash; Sorts and displays statistics by surveillance model.
+			</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+	<p>The report is displayed on the screen.</p>
+					<p><img class="img-responsive" src="Content/us-report-generated.png" alt="" /></p>
+
+	<!--		<p><img class="img-responsive" src="Content/us-report-view-display.png" alt="" /></p> -->
+
+	<p>Each section of the report contains statistics in the following columns:</p>
+
+<ul>
+	<li><b>Model</b> &mdash; Name of the surveillance model. This column is displayed for company level statistics, which can be viewed only by Score administrators.</li>
+		<li><b>Trader/Account/Instrument</b> &mdash; The name of the trader/account/instrument. This column is displayed per surveillance model based on your "Group By" data selection.
+		<li><b>% High Scoring</b> &mdash; The percentage of clusters with a score of 75 - 100.
+			<li><b>Change % High Scoring</b> &mdash; Shows the percentage change in high scores since the last time period (Start Date - End Date) the report was generated. Periods must be of the same duration in order to calculate this change.
+
+<li><b>Clusters (0-100)</b> &mdash; Total number of clusters scored by the model.
+<li><b>Clusters (1-100)</b> &mdash; Total number of clusters receiving a score.
+<li><b>Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score.
+	<li><b>Max Score</b> &mdash; The highest cluster score.
+		<li><b>Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model.
+		<li><b>Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0".
+		<li><b>Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score.
+		<li><b>Min Score (0-100)</b> &mdash; The lowest score of the clusters.
+		<li><b>Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0".
+		<li><b>Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores.
+
+		<li><b>Prev Period % High Scoring</b> &mdash; The percentage change of clusters with a score of 75 - 100 from the previous period.
+<li><b>Prev Period Clusters (0-100)</b> &mdash; The total number of clusters scored by the model in the previous period.
+<li><b>Prev Period Clusters (1-100)</b> &mdash; Total number of clusters receiving a score in the previous period.
+<li><b>Prev Period Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score in the previous period.
+	<li><b>Prev Period Max Score</b> &mdash; The highest cluster score in the previous period.
+		<li><b>Prev Period Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model in the previous period.
+		<li><b>Prev Period Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0" in the previous period.
+		<li><b>Prev Period Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score in the previous period.
+		<li><b>Prev Period Min Score (0-100)</b> &mdash; The lowest score of the clusters in the previous period.
+		<li><b>Prev Period Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0" in the previous period.
+		<li><b>Prev Period Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores in the previous period.
+</ul>
+
+
+</li>
+</ol>
+
+
+
+<!-- trends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="trends">Generating a TT Score Summary Stats Trends report</h2>
+
+<p>Using the Reports tab, you can generate an interactive report that displays trends in suspect trading activity in your company. The <b>Summary Stats Trend</b> report is similar to the summary stats report, but it also provides a trend analysis of the specified time period for your entire company grouped by model, trader, account or instrument.</p>
+
+<p>To generate a Summary Stats Trends report:</p>
+
+<ol>
+<li>On the Score dashboard, select the <b>Reports</b> tab and click <b>Generate Report</b>.
+
+		<p><img class="img-responsive" src="Content/us-report-homepage.png" alt="" /></p>
+
+
+		<p>The reports data selection panel is displayed on the left side of the screen.</p>
+
+
+
+</li>
+
+<li>Select <b>Summary Stats Trends</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+		<p><img class="img-responsive" src="Content/us-report-trends-panel.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b>:
+
+<ul>
+	
+	<li><b>Start Date - End Date</b> &mdash; Sets the time period for reporting the statistics.
+	<li><b>Group By</b> &mdash; Allows you to filter the report by "trader", "account", or "instrument".
+	<li><b>Display By</b> &mdash; Sorts and displays statistics by surveillance model.
+	<li><b>Summary Interval</b> &mdash; Sets which days within the time period to show data (e.g., an interval of "2" would show data every other day within the start and end dates.)
+	<li><b>Metrics</b> &mdash; Sets what type of data to display in the report. Select one or more of the following:
+				<ul>
+					<li><b>Perc high scoring</b> &mdash; Shows the percentage of high scoring clusters.
+		<li><b>Clusters (0-100)</b> &mdash; Total number of clusters scored by the model.
+		<li><b>Clusters (75-100)</b> &mdash; Total number of clusters receiving a high score.
+        <li><b>Clusters (1-100)</b> &mdash; Total number of clusters receiving a score.
+		<li><b>Max Score</b> &mdash; The highest cluster score.
+
+       <li><b>Mean Score (0-100)</b> &mdash; The mean of all clusters scored by the model.
+		<li><b>Mean Score (1-100)</b> &mdash; The mean of all clusters with a score greater than "0".
+		<li><b>Mean Score (75-100)</b> &mdash; The mean of all clusters with a high score.
+		<li><b>Min Score (0-100)</b> &mdash; The lowest score of the clusters.
+		<li><b>Min Score (1-100)</b> &mdash; The lowest score of the clusters with a score greater than "0".
+		<li><b>Min Score (75-100)</b> &mdash; The lowest score of the clusters that received high scores.
+				</ul>
+	<li><b>Company ID</b> &mdash; Generates and displays the total processing stats for your company. 
+
+</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+
+	<p>The interactive charts in the report are displayed on the screen. A company summary chart is at the top of the report and the selected grouping is populated below. Data is shown at each interval based on your metrics and shows trends in the amount of suspect trading activity per model and for all models combined. 
+	 </p>
+
+<p><b>Note</b>: As you click a model on the screen, the statistics and trends are adjusted in the report for that model.</p>
+				<!--	<p><img class="img-responsive" src="Content/us-report-trends-generated.png" alt="" /></p> -->
+
+<p><img class="img-responsive" src="Content/us-report-trends.png" alt="" /></p>
+	<!--
+
+<h2>Viewing the TT Score Summary Stats Trends report</h2> -->
+
+			<!-- <p><img class="img-responsive" src="Content/us-report-trends-generated-example.png" alt="" /></p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="process">Generating a TT Score Processing Statistics report</h2>
+
+<p>The processing statistics report shows the quantity and type of data processed by TT Score over a selected period of time for your company. Processing data can be included per surveillance model, trader, account, instrument, and TT source.
+</p>
+
+<p>To generate a Processing Statistics report:</p>
+
+<ol>
+
+<li>On the Score dashboard, select the <b>Reports</b> tab and click <b>Generate Report</b>.
+
+		<p><img class="img-responsive" src="Content/us-report-homepage.png" alt="" /></p>
+
+
+		<p>The reports data selection panel is displayed on the left side of the screen.</p>
+
+
+
+</li>
+
+<li>Select <b>Processing Stats</b> in the <b>Select a Report</b> field in the reports data selection panel.
+
+		<p><img class="img-responsive" src="Content/us-report-left-panel-processing.png" alt="" /></p>
+</li>
+<li>Enter data for the following <b>Inputs</b> fields in the panel:
+
+<ul>
+	
+	<li><b>Date</b> &mdash; Sets the time period for reporting the statistics.
+	<li><b>Include Account Stats</b> &mdash; Includes processing stats on a per account basis. This setting is optional.
+	<li><b>Company ID</b> &mdash; Generates and displays the total processing stats for your company. 
+
+			<li><b>Detail Categories</b> &mdash; Generates processing statistics for a specific category of data. Select one of the following:
+				<ul>
+				<li>Model: Shows statistics per problematic trading model.
+					<li>Trader: Shows stats per trader in your company.
+						<li>Source: Includes processing stats for specific TT components.
+						<li>Instrument: Includes statistics per instrument traded by your company.
+				</ul>
+
+		</li>
+</ul>
+</li>
+
+<li>Click <b>Generate Report</b>.
+
+<p>The report is displayed on the screen.</p>
+					<!-- <p><img class="img-responsive" src="Content/us-report-generated.png" alt="" /></p> -->
+
+			<p><img class="img-responsive" src="Content/us-report-processing.png" alt="" /></p> 
+
+	<p>The report includes the following columns:</p>
+
+<ul>
+<li><b>Processing Stat</b> &mdash; Lists the type of processing statistics. The column appears in the "Processing Results Overview" at the top of the report, the "Company Processing Results" section, and per account if included.
+	<li><b>Value</b> &mdash; Shows the amount of clusters or ledger records processed, and the time (ms) and duration of each process.
+<li><b>Clusters (0-100)</b> &mdash; The total number of clusters processed by a surveillance model or TT service.
+<li><b>Ledger Records</b> &mdash; The total number of records in Ledger that were processed by a surveillance model 
+	or TT source.
+</ul>
+
+
+</li>
+</ol>
+
+
+
+
+<h2>Viewing a report in TT Score</h2>
+
+<p>To view a generated report in Score, select the <b>Reports</b> tab on the Score dashboard and click <b>View Report</b>.</p>
+
+			<p><img class="img-responsive" src="Content/us-report-view.png" alt="" /></p>
+
+	<p>The selected report is displayed on the screen. The data selection panel for the report is also displayed on the left of the screen.</p>
+		
+			<p><img class="img-responsive" src="Content/us-report-view-display.png" alt="" /></p>
+
+<p><b>Tip</b>: Hover on the "i" by the report title to view more details about the report.</p>
+
+			<p><img class="img-responsive" src="Content/us-report-view-info.png" alt="" /></p>
+
+
+<p>Click <img src="Content/us-report-icon.png" alt="" /> to show/hide the columns of statistics to display for each set of data in the report. Check or uncheck each checkbox in the column menu to show or hide a column.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-show-hide-columns.png" alt="" /></p>
+
+
+
+
+
+
+
+
+<h2>Exporting a TT Score report</h2>
+
+<p>To export data from the report, click <img src="Content/us-report-icon2.png" alt="" /> and select an output file format. The data will be exported to the "downloads" folder on your workstation or laptop.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-export.png" alt="" /></p>
+
+
+<h2>Deleting a TT Score report</h2>
+
+<p>Reports can be deleted one at a time or in bulk. To delete multiple reports at once, select each report and click <b>Delete</b> under the <b>Reports</b> tab on the Score dashboard.</p>
+
+					<p><img class="img-responsive" src="Content/us-report-delete.png" alt="" /></p>
+
+
+	</div> <!--- /fullarticle ttdoc-article-wrapper-->
+  </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
+
+
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			
+			<a href="us-creating-custom-alerts-in-tt-score.html">
+				<div class="lower-nav-arrow-left">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Previous:</h1>
+	  				<h2>Creating custom alerts in TT Score</h2>
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			
+			<a href="glv-group-view-outlier-chart.html">
+				<div class="lower-nav-arrow-right">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Next:</h1>
+					<h2>Cluster Group View - Outlier Chart</h2> 
+				</div>
+			</a>
+			
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->
+
+</section>
+</div><!--/.container-fluid -->
+
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/us-generating-reports-in-tt-score.html" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+           
+           
+          <p class="footer__copyright">Copyright © 2022 Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

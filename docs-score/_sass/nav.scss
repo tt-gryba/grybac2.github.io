@@ -1,0 +1,129 @@
+.navbar-default.ttdoc-navbar {
+    background-color: $white;
+    border-color: $white;
+}
+
+.ttdoc-navbar {
+	position: relative;
+	z-index: 1030;
+	margin: 0;
+	padding: 0;
+
+	.navbar {
+	    margin-bottom: 0;
+	    border: none;
+	    min-width: 250px;
+	}
+
+	.navbar a {
+	    text-decoration: none;
+	    display: inline-block;
+	}
+
+	.main-nav__secondary {
+    	float: right;
+
+    	ul, li {
+    		list-style: none;
+    	}
+	}
+
+	.main-nav__search {
+	    display: inline-block;
+	    margin-left: 10px;
+	    margin-top: 14px;
+	    margin-bottom: -3px;
+	}
+
+	.main-nav__search .main-nav__search-input {
+	    float: left;
+	    width: 200px;
+	    height: 30px;
+	    border: 1px solid #000;
+	    border-right: none;
+	    -webkit-appearance: none;
+	    background-color: white;
+	    font: 14px/18px "Avenir Next Pro Condensed Demi", Arial, Helvetica Neue, Helvetica, sans-serif;
+	    letter-spacing: 1px;
+	    color: #000;
+	    padding: 0;
+	    padding-left: 3px;
+	    transition-property: width, padding;
+	    transition-duration: 300ms, 300ms;
+	    -webkit-transition-property: width, padding;
+	    -webkit-transition-duration: 300ms, 300ms;
+	    -moz-transition-property: width, padding;
+	    -moz-transition-duration: 300ms, 300ms;
+	    -o-transition-property: width, padding;
+	    -o-transition-duration: 300ms, 300ms;
+	}
+
+	.main-nav__search-button {
+	    float: right;
+	    text-indent: -9999px;
+	    width: 30px;
+	    height: 30px;
+	    padding-top: 0;
+	    border: 1px solid #000;
+	    cursor: pointer;
+	    background: url(../images/icon-search.svg) no-repeat center center $white;
+	    margin-right:15px;
+	}
+
+	.main-nav__search-button:hover {
+    	background: url(../images/icon-search-white.svg) no-repeat center center #000; 
+    }
+
+    .search-open .main-nav__search, .touch .main-nav__search {
+  		margin-bottom: -3px; 
+  	}
+
+	.search-open .main-nav__search .main-nav__search-input, .touch .main-nav__search .main-nav__search-input {
+		 width: 200px;
+		 padding: 0 8px; 
+	}
+
+	.search-open .main-nav__search-button, .touch .main-nav__search-button {
+  		background: url(../images/icon-search-white.svg) no-repeat center center #000; 	
+  	}
+  
+  	.lt-ie9 .search-open .main-nav__search-button, .lt-ie9 .touch .main-nav__search-button {
+    	background-image: url(../images/icon-search-white.svg); 
+    }
+
+	.search-open .main-nav__signin, .search-open .main-nav__contact, .touch .main-nav__signin, .touch .main-nav__contact {
+  		max-width: 0; 
+  	}
+
+	.ttdoc-main-nav__brand {
+		position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 205px;
+	    text-indent: -9999px;
+	    background: url(../images/logo-words.svg) no-repeat center center;
+	    margin-top: 10px;
+    	margin-left: 10px;
+	}
+
+	@media (max-width: 560px) {
+		.ttdoc-main-nav__brand {
+			width: 40px;
+			background: url(../images/logo-color.svg) no-repeat center center;
+    	}
+    	.main-nav__search .main-nav__search-input {
+    		width: 150px;
+    	}
+    }
+
+	.nav > li > a:hover, .nav > li > a:focus {
+    	text-decoration: none;
+    	background-color: $white;
+    	border: none;
+	}
+
+	.nav-tabs > li > a {
+		border: none;
+		border-bottom: none;
+	}
+}

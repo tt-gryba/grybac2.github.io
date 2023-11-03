@@ -1,0 +1,57 @@
+---
+layout: default
+title: Wash Trading
+---
+
+<p>A wash trade is a form of market manipulation in which a trader simultaneously buys and sells the same instrument using the same trader ID or account. Wash trades are typically used to generate artificial volume or to generate commissions for a broker.</p>
+
+<p>In TT Score, the Wash Trader Model analyzes and scores wash trading per user, while the Wash Account Model scores wash trading events per account.</p>
+
+<h2>Scoring methodology</h2>
+<p>When evaluating a potential wash trade based on Trader IDs, TT Score uses two checks. First, it determines if opposing orders for the same exchange-traded instrument were executed against each other at the same time and price. If so, TT Score then determines whether both trades were made with the same trader ID or same account.</p>
+
+<h3>Score interpretation</h3>
+<p>TT Score sets the cluster risk score to 100 if a true wash trade is detected; otherwise it sets the score to 0.</p>
+
+
+<h2>Identifying wash trading</h2>
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the wash trading score. The Cluster Scorecard shows activity that could constitute a wash trade.</p>
+<p><img class="img-responsive" src="Content/wash-trade-example.png" alt=""/></p>
+<ol>
+    <li>
+    	Fills were executed on opposite sides of the market for the same order quantity.
+    </li>
+    <li>
+    	The two transactions were executed within the same millisecond.
+    </li>
+    <li>
+    	The two transactions were executed by the same trader ID.
+    </li>
+</ol>
+
+<!--
+<p>Scoring methodology - TT Score’s wash trade surveillance first checks to see if opposing orders of the same exchange-instrument executed against each other at the same time and price, and second checks to see if the trader(s) on either side are the same beneficial owner with the same trading ID or same account.</p>
+
+<p>Score interpretation - TT Score utilizes a Boolean test (true/false) in applying risk scores to instances of wash trading. If a true wash trade is detected then a risk score of 100 is assigned.</p>
+-->
+
+<!--
+<p><span class="label label-danger">Alert</span> <span style="color:red;">Creating TT REST API application keys requires company administrators to enable the <b style="color:red;">Can create TT REST API key</b> setting for the user.</span></p>
+-->
+
+<!--
+<h2 id="wash-trading-acct">Wash Trading (Account)</h2>
+
+<p>A wash trade is a form of market manipulation in which an investor simultaneously buys and sells the same financial instrument(s).</p>
+
+<h3>Scoring methodology</h3>
+<p>TBD</p>
+
+<h3>Score interpretation</h3>
+<p>TBD</p>
+
+<p>Scoring methodology - TT Score’s wash trade surveillance first checks to see if opposing orders of the same exchange-instrument executed against each other at the same time and price, and second checks to see if the trader(s) on either side are the same beneficial owner with the same trading ID or same account.</p>
+
+<p>Score interpretation - TT Score utilizes a Boolean test (true/false) in applying risk scores to instances of wash trading. If a true wash trade is detected then a risk score of 100 is assigned.</p>
+
+-->

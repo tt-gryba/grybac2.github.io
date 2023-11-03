@@ -1,0 +1,188 @@
+---
+layout: default
+title: IPsec Overview
+---
+
+ <article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-US" id="Cisco_Concept.dita_db4fe1f8-9bfc-4b52-a537-394308f4b02a">
+                        <h3 class="title topictitle3" id="ariaid-title4">IPsec Overview</h3>
+                        <section class="body conbody">
+                           
+                           <span class="label-info label">Note</span>
+
+                             <p class="p"> You will need to enable the HSECK9 Key to use this feature. To enable the HSECK9 key
+                                          refer to the<a class="xref" href="https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sys_mgmt/b_176_sys_mgmt_9300_cg/sl_using_policy.html" target="_blank">Smart Licensing Using Policy</a> chapter.
+                                       </p>
+
+
+                 <!--          <table class="olh_note" border="0" role="note">
+                              <tr>
+                                 <td width="1%" class="olh_note" role="heading" border="0"><img src="https://www.cisco.com/content/dam/en/us/td/i/templates/note.gif"><br><p><b>Note</b></p>
+                                 </td>
+                                 <td border="0" class="olh_note">
+                                    <section class="note__content">
+                                       <hr>
+                                       
+                                       <p class="p"> You will need to enable the HSECK9 Key to use this feature. To enable the HSECK9 key
+                                          refer to the<a class="xref" href="https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sys_mgmt/b_176_sys_mgmt_9300_cg/sl_using_policy.html" target="_blank">Smart Licensing Using Policy</a> chapter.
+                                       </p>
+                                       
+                                       <hr>
+                                    </section>
+                                 </td>
+                              </tr>
+                           </table> -->
+                           
+                           <p class="p">A secure network starts with a strong security policy that defines the freedom of access
+                              to information and dictates the deployment of security in the network. Cisco Systems
+                              offers many technology solutions for building a custom security solution for Internet,
+                              extranet, intranet, and remote access networks. These scalable solutions seamlessly
+                              interoperate to deploy enterprise-wide network security. Cisco System's IPsec delivers a
+                              key technology component for providing a total security solution. Cisco's IPsec offering
+                              provides privacy, integrity, and authenticity for transmitting sensitive information
+                              over the Internet.
+                           </p>
+                           
+                           <p class="p">Cisco's end-to-end offering allows customers to implement IPsec transparently into the
+                              network infrastructure without affecting individual workstations
+                           </p>
+                           
+                           <p class="p">IPsec is a framework of open standards for ensuring secure private communications over
+                              the Internet. Based on standards developed by the Internet Engineering Task Force
+                              (IETF), IPsec ensures confidentiality, integrity, and authenticity of data
+                              communications across a public network. IPsec provides a necessary component of a
+                              standards-based, flexible solution for deploying a network-wide security policy.
+                           </p>
+                           
+                           <p class="p">IPsec's method of protecting IP datagrams takes the following forms:</p>
+                           
+                           <ul class="ul">
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Data origin authentication</p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Connectionless data integrity authentication</p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Data content confidentiality</p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Anti-replay protection</p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Limited traffic flow confidentiality</p>
+                                 
+                              </li>
+                              
+                           </ul>
+                           
+                           <p class="p">IPsec protects IP datagrams by defining a method of specifying the traffic to protect,
+                              how that traffic is to be protected, and to whom the traffic is sent.
+                           </p>
+                           
+                           <p class="p">By implementing security at the IP level, an organization can ensure secure networking
+                              not only for applications that have security mechanisms but also for the many
+                              security-ignorant applications. IPsec provides the capability to secure communications
+                              across a LAN, across private and public WANs, and across the Internet. Examples of its
+                              use include:
+                           </p>
+                           
+                           <ul class="ul">
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Secure branch office connectivity over the Internet: A company can build a secure
+                                    virtual private network over the Internet or over a public WAN. This enables a
+                                    business to rely heavily on the Internet and reduce its need for private
+                                    networks, saving costs and network management overhead.
+                                 </p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Secure remote access over the Internet: An end user whose system is equipped with
+                                    IP security protocols can make a local call to an Internet Service Provider
+                                    (ISP) and gain secure access to a company network. This reduces the cost of toll
+                                    charges for traveling employees and telecommuters.
+                                 </p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Establishment of extranet and intranet connectivity with partners: IPsec can be
+                                    used to secure communication with other organizations, ensuring authentication
+                                    and confidentiality and providing a key exchange mechanism.
+                                 </p>
+                                 
+                              </li>
+                              
+                              <li class="li">
+                                 
+                                 <p class="p">Enhancement of electronic commerce security: Most efforts to date to secure
+                                    electronic commerce on the Internet have relied upon securing Web traffic with
+                                    SSL since that is commonly found in Web browsers and is easy to set up and run.
+                                    There are new proposals that may utilize IPsec for electronic commerce.
+                                 </p>
+                                 
+                              </li>
+                              
+                           </ul>
+                           
+                           <p class="p">The principal feature of IPsec that enables it to support these varied applications is
+                              that it can encrypt or authenticate all traffic at the IP level. Thus, all distributed
+                              applications, including remote logon, client/server, e-mail, file transfer, Web access,
+                              and so on, can be secured.
+                           </p>
+                           
+                           <figure class="fig fignone">
+                              <figcaption><span class="fig--title-label">Figure 1. </span>IPsec Network
+                              </figcaption>
+                              
+                              <img class="image" src="/c/dam/en/us/td/i/400001-500000/460001-470000/468001-469000/468248.jpg">
+                              
+                           </figure>
+                           
+                           <p class="p">Organizations usually maintain LANs at dispersed locations. In this typical business
+                              scenario, traffic on each LAN does not need any special protection, but the devices on
+                              the LAN can be protected from the untrusted network with firewalls.
+                           </p>
+                           
+                           <p class="p">Since we live in a distributed and mobile world, the people who need to access the
+                              services on each of the LANs may be at sites across the Internet. This company can use
+                              IPsec protocols to protect their access. These protocols can operate in networking
+                              devices, such as a router or firewall that connects each LAN to the outside world, or
+                              they can operate directly on the workstation or server.
+                           </p>
+                           
+                           <p class="p">In Fig1, the user workstation connected to one of the CPEs in a customer site can
+                              establish an IPsec tunnel with the network devices to protect all the subsequent
+                              sessions. After this tunnel is established, the workstation can have many different
+                              sessions with the devices behind these IPsec gateways. The packets going across the
+                              Internet will be protected by IPsec, but will be delivered onto each LAN as a normal IP
+                              packet.
+                           </p>
+                           
+                        </section>
+                        <!-- minitoc start -->
+                        <nav role="navigation" class="related-links"></nav>
+                        <!-- minitoc end -->
+                     </article>
+
+
+
+                  

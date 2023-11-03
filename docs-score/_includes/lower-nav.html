@@ -1,0 +1,51 @@
+{% for thisPage in site.data.titles.pages  %}
+  {% assign check = page.title %}
+    {% case check %}
+      {% when thisPage.pagetitle %}
+        {% assign currentIndex = forloop.index0 %}
+      
+        {% assign previousIndex = currentIndex | minus:1 %}
+        
+        {% assign nextIndex = forloop.index %}
+        
+        {% assign total = forloop.length %}
+        
+    {% endcase %}
+{% endfor %}
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			{% if currentIndex != 0 %}
+			<a href="{{site.data.titles.pages[previousIndex].filename}}.html">
+				<div class="lower-nav-arrow-left">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Previous:</h1>
+	  				<h2>{{site.data.titles.pages[previousIndex].pagetitle}}</h2>
+				</div>
+			</a>
+			{% else %}
+    			<div class="lower-nav-arrow-left" style="visibility:hidden;">
+				</div>
+  			{% endif %}
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			{% if nextIndex != total %}
+			<a href="{{site.data.titles.pages[nextIndex].filename}}.html">
+				<div class="lower-nav-arrow-right">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Next:</h1>
+					<h2>{{site.data.titles.pages[nextIndex].pagetitle}}</h2> 
+				</div>
+			</a>
+			{% endif %}
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->

@@ -1,0 +1,13 @@
+---
+layout: default
+title: Importing data using TT FIX
+---
+
+<p>The TT FIX Inbound Drop Copy service allows third parties to import their data sources into the TT environment for Score processing.</p>
+
+<p>The TT FIX Inbound Drop Copy service supports a subset of the FIX protocol (Version 4.2 with Errata 20010501) message types and tags within the message types. The TT FIX Inbound Drop Copy service support only those messages and tags described in this document. Do not submit other messages or tags, as doing so can produce unexpected results.</p>
+
+<p>The TT FIX Inbound Drop Copy service supports persistent FIX sessions. When it is started for the first time, it will send a Logon (A) message with Tag 34 (MsgSeqNum)=1. When there are unscheduled restarts, the standard FIX message sequence number negotiation will take place.</p>
+
+<p>After the TT FIX Inbound Drop Copy service creates a connection to the FIX acceptor, the FIX acceptor can start sending unsolicited Execution Report (8) messages to be processed by the TT FIX Inbound Drop Copy service.</p>
+

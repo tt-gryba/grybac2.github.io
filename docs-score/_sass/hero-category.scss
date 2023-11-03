@@ -1,0 +1,129 @@
+.ttdoc-hero {
+	width:100%;
+	background-position: center center;
+	height:200px;
+	margin: 0;
+}
+
+.ttdoc-category-hero {
+	background: url(../images/article-hero.png) no-repeat center center $bright-blue;
+ 
+ 	.vert-wrapper {
+    	top: 50%;
+
+    	.ttdoc-hero-supra-headline {
+	 		color: $white;
+	 		font: 1em "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+	 		padding-top: 30px;
+	 		text-align: center;
+	 	}
+
+	 	.ttdoc-hero-headline {
+	 		color: $white;
+	 		padding: 0px;
+	 		padding-bottom:0px;
+	 		text-align: center;
+		    text-transform: uppercase;
+		    font: 50px/56px "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    letter-spacing: 2px;
+	 	}
+
+	 	.ttdoc-hero-headline:after {
+    		content: '';
+    		width: 50px;
+    		height: 2px;
+    		background-color: $white;
+    		display: block;
+    		margin: 0 auto;
+    		margin-top: 10px;
+	 	}
+
+	 	.ttdoc-hero-subheadline {
+	 		color: $white;
+	 		font-family: "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+	 		padding: 0 40px;
+	 		text-align: center;
+	 	}
+		
+		@media(min-width: 768px){
+	 		.ttdoc-hero-supra-headline {
+	 			padding-top:30px;
+	 		}
+
+			.ttdoc-hero-headline:after {
+	 			margin-top:5px;
+	 			margin-bottom:10px;
+	 		}
+
+	 		.ttdoc-hero-subheadline {
+	 			padding-top:20px;
+	 		}
+	 	}
+
+	 	@media (min-width: 900px) {
+			.ttdoc-hero-headline {
+				padding-bottom:25px;
+			}
+
+			.ttdoc-hero-headline:after {
+	 		}
+
+			.ttdoc-hero-subheadline {
+				font-size:20px;
+				padding-top: 0px;
+			}
+
+		}
+
+	 	@media(min-width: 651px) and (max-width: 767px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:45px;
+	 			margin-top: 30px;
+	 		}
+
+			.ttdoc-hero-headline:after {
+	 			margin-top:0px;
+	 			margin-bottom:10px;
+	 		}
+
+	 		.ttdoc-hero-subheadline {
+	 			padding-top:0px;
+	 		}
+
+	 	}
+
+	 	@media(min-width: 551px) and (max-width: 650px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:38px;
+	 			margin-top: 30px;
+	 		}
+	 		.ttdoc-hero-headline:after {
+	 			margin-top:0px;
+	 			margin-bottom:10px;
+	 		}
+
+	 		.ttdoc-hero-subheadline {
+	 			padding-top:0px;
+	 		}
+	 	}
+
+	 	@media(max-width: 550px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:26px;
+	 			line-height: 1.5;
+	 			margin-top: 30px;
+	 		}
+	 		.ttdoc-hero-headline:after {
+	 			margin-top:0px;
+	 			margin-bottom:10px;
+	 		}
+	 	}
+
+	}
+}
+
+@media (max-width: 668px) {
+	.ttdoc-hero {
+		height:200px;
+	}
+}

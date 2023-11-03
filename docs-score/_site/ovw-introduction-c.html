@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>MPLS Introduction | TT Score Help and Tutorials</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet"> <!-- need for tech indicators. also need mathjax script-->
+    <link rel="shortcut icon" href="Content/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29111405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>-->
+
+ <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+ <!--<script src="js/bootstrap.min.js"></script> at bottom but might need for videos-->
+  </head>
+  <body class="pagination-centered">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top ttdoc-navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav nav-tabs" role="tablist">
+          
+          <li><a class="ttdoc-main-nav__brand" target="_blank" href="https://www.tradingtechnologies.com/">Trading Technologies Help Library</a>
+          </li>
+        </ul>
+        <ul class="main-nav__secondary">
+          <li>
+              <form class="main-nav__search" action="Search.html">
+                <input class="main-nav__search-input" placeholder="Search" type="search" name="q" id="search" value="" autocomplete="off">
+                <input class="main-nav__search-button" type="submit" value="">
+              </form>
+          </li>
+        </ul>
+        <!-- Brand and toggle get grouped for better mobile display
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        Brand and toggle get grouped for better mobile display -->
+      </div><!-- ./navbar-inner -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+<div class="container-fluid">
+<section>
+
+<div class="ttdoc-hero row ttdoc-article-hero">
+  <div class="vert-wrapper">
+    <h1 class="ttdoc-hero-headline">TT Score</h1>
+    
+  </div>
+</div> 
+
+<div class="breadcrumb ttdoc-breadcrumb">
+<ul>
+	<!-- Library Home link -->
+    <li><a href="../tthelp.html">Help Library</a></li><!--Library home - displays platforms-->
+    
+	    <!-- ADL Home link -->
+	    
+	    	<li><a href="index.html">TT Score</a></li>
+			
+			 	
+			 		<li class="active">MPLS Introduction</li>
+			 	
+		
+</ul>
+</div>
+ 
+
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+  
+
+
+  
+  
+  
+  
+
+    <a href="#overview" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Overview</a>
+    <div class="collapse in nav-indiv-article" id="overview">
+  
+
+  
+    
+    
+      
+       <!-- in source YML header, should also match the filename/url -->
+
+          <a href class="active list-group-item list-group-subitem">MPLS Introduction</a>
+                    
+        
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-how-tt-score-works-c.html" class="list-group-item list-group-subitem">How MPLS Works</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-accessing-tt-score-c.html" class="list-group-item list-group-subitem">Configuring MPLS</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Using MPLS</a>
+    <div class="collapse nav-indiv-article" id="using-tt-score">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="us-using-overview.html" class="list-group-item list-group-subitem">Workflow Summary</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-selecting-data.html" class="list-group-item list-group-subitem">Selecting Data</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-analyzing-data.html" class="list-group-item list-group-subitem">Analyzing trading activity using data visualizations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-reporting-recording-findings.html" class="list-group-item list-group-subitem">Recording reviews and opening investigations</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-creating-custom-alerts-in-tt-score.html" class="list-group-item list-group-subitem">Creating custom alerts in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-generating-reports-in-tt-score.html" class="list-group-item list-group-subitem">Generating Reports in TT Score</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Configuration Examples</a>
+    <div class="collapse nav-indiv-article" id="views">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-outlier-chart.html" class="list-group-item list-group-subitem">Cluster Group View - Outlier Chart</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-group-view-heat-map.html" class="list-group-item list-group-subitem">Cluster Group View - Heat Map</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-daily-cluster-group.html" class="list-group-item list-group-subitem">Cluster Group View - Daily Cluster Groups</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-list-view.html" class="list-group-item list-group-subitem">Cluster List View</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-cluster-view-cluster-scorecard.html" class="list-group-item list-group-subitem">Cluster Scorecard</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="cv-identifying-problematic-activity.html" class="list-group-item list-group-subitem">Reviewing Clusters Using Cluster Views</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Use Cases</a>
+    <div class="collapse nav-indiv-article" id="problematic-trading-models">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-abusive-messaging.html" class="list-group-item list-group-subitem">Abusive Messaging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-cross-trading.html" class="list-group-item list-group-subitem">Cross Trading</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-exchange-messaging-rate-limit.html" class="list-group-item list-group-subitem">Exchange Messaging Rate Limit</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-marking-the-close.html" class="list-group-item list-group-subitem">Marking the Close</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-momentum-ignition.html" class="list-group-item list-group-subitem">Momentum Ignition</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-pinging.html" class="list-group-item list-group-subitem">Pinging</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-spoofing.html" class="list-group-item list-group-subitem">Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-spoofing.html" class="list-group-item list-group-subitem">Automated Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-collusive-spoofing.html" class="list-group-item list-group-subitem">Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-automated-collusive-spoofing.html" class="list-group-item list-group-subitem">Automated Collusive Spoofing</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-wash-trading.html" class="list-group-item list-group-subitem">Wash Trading</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Reference</a>
+    <div class="collapse nav-indiv-article" id="reference">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-import.html" class="list-group-item list-group-subitem">Importing data using TT FIX</a>
+                        
+      
+
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>MPLS Introduction</span>
+      </div>
+
+      <h1>MPLS Introduction</h1>
+
+          
+      
+
+
+
+
+ 
+
+<p>In IP forwarding, when a packet arrives at a router the router looks at the destination address in the IP header, performs a route lookup, and then forwards the packet to the next hop. MPLS is a forwarding mechanism in which packets are forwarded based on labels. Label Distribution Protocols assign, distribute, and install the labels in an MPLS environment. It is the set of procedures and messages by which Label Switched Routers (LSRs) establish LSPs through a network by mapping network-layer routing information directly to data-link layer switched paths. These LSPs may have an endpoint at a directly attached neighbor (comparable to IP hop-by-hop forwarding), or may have an endpoint at a network egress node, enabling switching via all intermediary nodes.
+
+LSPs can be created statically, by RSVP traffic engineering (TE), or by LDP. LSPs created by LDP perform hop-by-hop path setup instead of an end-to-end path. LDP enables LSRs to discover their potential peer routers and to establish LDP sessions with those peers to exchange label binding information. Once label bindings are learned, the LDP is ready to setup the MPLS forwarding plane.</p>
+
+DP is ready to setup the MPLS forwarding plane.
+<p>
+<h2>Prerequisites for Implementing MPLS Label Distribution Protocol</h2>
+<p>
+Restrictions and Recommendations
+Information About Implementing Cisco MPLS LDP
+How to Implement MPLS LDP
+Configuration Examples for Implementing MPLS LDP
+Controlling State Advertisements in an mLDP-Only Setup
+Use Cases For Controlling State Advertisements
+mLDP-Based MVPN
+Disable Prefix-LSPs On An L2VPN/PW tLDP Session
+Load Balancing based on the Position of Entropy Label
+Additional References
+Prerequisites for Implementing MPLS Label Distribution Protocol
+The following are the prerequisites to implement MPLS LDP:
+
+You must be in a user group associated with a task group that includes the proper task IDs. The command reference guides include the task IDs required for each command. If you suspect user group assignment is preventing you from using a command, contact your AAA administrator for assistance.
+
+You must be running Cisco IOS XR software.
+
+You must install a composite mini-image and the MPLS package.
+
+Note	
+This point is not appplicable for a Cisco NCS 540 Series Router.
+
+You must activate IGP.
+
+We recommend to use a lower session holdtime bandwidth such as neighbors so that a session down occurs before an adjacency-down on a neighbor. Therefore, the following default values for the hello times are listed:
+
+Holdtime is 15 seconds.
+
+Interval is 5 seconds.
+
+For example, the LDP session holdtime can be configured as 30 seconds by using the holdtime command.
+
+Restrictions and Recommendations
+The following restrictions and recommendations apply to the MPLS LDP CSC feature:
+
+Only IPv4 address family is supported for a default or a non-default VRF.
+
+No T-LDP support in a VRF context.
+
+An address family under VRF and VRF interface must be configured for non-default VRFs.
+
+Following scenarios are not supported :
+
+Different VRFs between a given PE-CE device pair (VRFs configured on different links and interfaces)
+
+LDP/BGP CSC co-existence on a given VRF between a given PE-CE device pair:
+
+Single link
+
+Parallel links: LDP CSC on one link and BGP CSC on the other
+
+LDP router-id must be configured per-VRF. If not configured for non-default VRF, LDP computes router-id from available loopback interfaces under the VRF.
+
+It is recommended to configure a routable discovery transport address under a VRF IPv4 address-family submode for deterministic transport endpoint and connection.
+
+When LDP CSC is configured and in use:
+
+BGP label allocation policy for VRF prefixes must be per-prefix
+
+Selective VRF Download (SVD) feature must be disabled
+</p>
+	</div> <!--- /fullarticle ttdoc-article-wrapper-->
+  </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
+
+
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			
+    			<div class="lower-nav-arrow-left" style="visibility:hidden;">
+				</div>
+  			
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			
+			<a href="ovw-how-tt-score-works-c.html">
+				<div class="lower-nav-arrow-right">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Next:</h1>
+					<h2>How MPLS Works</h2> 
+				</div>
+			</a>
+			
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->
+
+</section>
+</div><!--/.container-fluid -->
+
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/ovw-introduction-c.html" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+           
+           
+          <p class="footer__copyright">Copyright © 2022 Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

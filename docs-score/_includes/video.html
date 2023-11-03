@@ -1,0 +1,34 @@
+<iframe id="videoPlayer" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="https://player.vimeo.com/video/{{ page.videoid }}?api=1&autoplay=0&speed=true"></iframe>
+    
+    <script src="https://player.vimeo.com/api/player.js"></script>
+	
+	<script>
+	    var iframe = document.querySelector('iframe');
+	    var player = new Vimeo.Player(iframe);
+
+	    var currentURL = document.location.href;
+	    var requestQueryString = decodeURIComponent(currentURL.split("?")[1]);
+	    
+	    var queryStrings = {}
+	    
+	    if (requestQueryString !== undefined) { 
+
+	      queryArray = requestQueryString.split("&")
+
+	      for (i = 0; i < queryArray.length; i++) {  
+	        currentPair = queryArray[i].split('=');
+	        keyStr = currentPair[0]
+	        valueStr = currentPair[1]
+	        
+	        if(typeof valueStr !== "undefined"){
+	          queryStrings[keyStr] = valueStr;      
+	        }
+
+	      }
+	    }
+
+	    timeStamp = queryStrings["ts"];
+
+	    player.setCurrentTime(timeStamp)
+	    
+	</script>

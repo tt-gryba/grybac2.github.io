@@ -1,0 +1,66 @@
+---
+layout: default
+title: Momentum Ignition
+---
+
+<p>Momentum ignition trading patterns attempt to create directional price movement and then to capitalize on the result. Typically, momentum ignition is identified by a series of aggressive orders submitted in a short time span in an attempt to trigger resting stop orders, which then cause pre-placed orders to be executed at a profit by the ignited price movement.
+</p>
+
+<h2>Scoring methodology</h2>
+<p>To detect potential momentum ignition, TT Score searches for specific patterns of fill activity by the same trader who submitted the aggressive orders. It looks for traders who place multiple orders that immediately lift offers or hit bids within a short time frame (called aggressive orders). For each of these aggressive orders, TT Score identifies fill prices for orders executed at multiple price levels and whether the changing fill prices trend in same side as the aggressive orders. Finally, it determines whether a fill was received too quickly on the opposite side of the market from the aggressive orders.</p>
+
+<h3>Score interpretation</h3>
+<p>The score assigned is based on a sliding scale between 0-100, based on the relationship between the aggressive order fill quantities and the profit-taking order fill quantities.</p>
+
+<h3>Scorecard metrics</h3>
+<p>The Scorecard Metrics section measures the following statistics related to momentum ignition:</p>
+
+	<ul>
+		<li>Ignitier Price Levels: Number of price levels at which the aggressive orders were filled. The sequence of price levels at which fills occur correspond to the movement in market price (i.e. Buy orders at increasing price levels that contribute to an increase in market price).</li>   
+
+		<li>Ignites (Vol): Fill volume for the “aggressive” orders (bids that immediately lift offers or offers that immediately lift bids within) within a time frame.</li>  
+
+		<li>Opp. Side (Vol): Volume of fills received on the opposite side of the market from the aggressive order within a time frame.</li>
+	</ul>
+
+	<p>For example, if the Igniter Price Levels and the Ignites (Vol) metrics display large values, this indicates that the trader may have been attempting to ignite a price movement in a particular direction (buy or sell) in order to mislead other market participants or to create an artificial price.  The Opp. Side (Vol) is a good indicator of whether or not the trader received advantageous fills on orders opposite the igniter orders that the trader would not have otherwise received without intentionally or recklessly sparking the price movement.</p>
+
+<h2>Identifying momentum ignition</h2>
+
+<p>When investigating Momentum Ignition clusters with TT Score, you should focus on the:</p>
+  <ul>
+  <li>Number of distinct price levels used by aggressive orders.</li>
+  <li>Quantity filled on the aggressive orders.</li>
+  <li>Quantify filled on the opposite, or profit-taking, orders.</li>
+</ul>
+
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the high cluster score. The pressure chart on the scorecard provides visual clues about the potential suspect trading pattern. The order audit trail data on the scorecard can then be used to verify order information and timing of the activity. The following example shows trading activity identified as potential Momentum Ignition.</p>
+
+<p><img class="img-responsive" src="Content/momentum-ignition-chart.png" alt="" /></p> 
+
+<p>In this example:</p>
+<ol>
+	<li>Multiple aggressive Sell orders are submitted and filled in a short time span at the best Bid price.
+		<li>The orders ignite a price movement and the same trader receives a Buy fill on the same side of the market.
+		</ol>
+
+
+<p>The activity can then also be replayed on the <a href="cv-cluster-view-cluster-scorecard.html#ladder-view">Ladder view</a> tool and viewed on the <a href="cv-cluster-view-cluster-scorecard.html#macro-view">Macro view</a>. For example, you can click <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> to show how the orders interacted with the market at the various price levels.</p> 
+
+
+<p><img class="img-responsive" src="Content/momentum-ignition-replay.png" alt="" /></p> 
+
+<p>In this example:</p>
+
+
+ <ol>
+    <li>
+      The price ladder shows the prices and liquidity in the market during the suspect trading activity.
+    </li>
+    <li>
+      The vertical line identifies the point of time during the market replay.
+    </li>
+    <li>
+      Orders and fills that occurred around the specified time during the market replay are shown in the audit trail.
+    </li>
+  </ol>

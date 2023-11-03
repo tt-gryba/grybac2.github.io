@@ -1,0 +1,81 @@
+---
+layout: default
+title: Cluster Group View - Daily Cluster Groups
+---
+
+
+<p>The Daily Cluster Groups view displays groups of clusters automatically grouped by trader, instrument, and model with each row representing a unique combination of the three.</p>
+
+
+<h2>Daily Cluster Groups Display</h2>
+
+<img class="img-responsive" src="Content/daily-cluster-group-display.png" />
+<p>The Daily Cluster Groups display is organized into the following sections:</p>
+	<ol>
+		<li><a href="#daily-cluster-group">Daily Cluster Group list</a>: Displays the Daily Cluster Groups view of the selected data as well as filtering and navigation tools.</li>
+	<!--	<li><a href="#statistical-summary">Summary Statistics Panel</a>: Shows metrics about the selected data in the current view.
+		</li> -->
+		<li><a href="#data-selection-panel">Data Selection Panel</a>: Manages the dates available to TT Score and specifies the criteria to use when populating the list.</li>
+	</ol>
+
+
+
+<h3 id="daily-cluster-group">Interpreting the Daily Cluster Group View</h3>
+
+<p>The Daily Cluster Group view allows you to conduct cluster group reviews and identify cluster groups which require further attention.</p>
+<p>You can review the clusters within a group by clicking <strong>View Clusters</strong> in the <strong>Actions</strong> column which will bring up the <a href="glv-list-view.html">Cluster List view</a> pre-filtered to the trader, instrument and model displayed.<p>
+
+
+<img class="img-responsive" src="Content/daily-cluster-group-panel.png" />
+
+<p>The following columns are displayed for each Daily Cluster Group.</p>
+
+<ul>
+	<li><strong>% High Risk</strong>: The percentage of clusters flagged as being at high-risk for problematic trading activity.</li>
+	<li><strong>Max Score</strong>: The highest individual cluster score contained within this cluster group. Higher values indicate a greater likelihood of manipulative or disruptive trading activity.</li>
+	<li><strong>Model</strong>: The name of the model used for analyzing the clusters within this group.</li>
+	<li><strong>Clusters</strong>: The total number of clusters analyzed.</li>
+	<li><strong>Instrument</strong>: The name of instrument that was traded.</li>
+	<li><strong>Trader</strong>: The name or ID of the trader submitting the trades.</li>
+	<li><strong>Date</strong>: The date on which the trading activity in the clusters occured.</li>
+	<li><strong>Reviewed</strong>: An indication of whether the cluster group was reviewed.</li>
+	<li><strong>Actions</strong>: Action buttons:
+		<ul>
+			<li><strong>Review/Investigate</strong>: Launches the review sidebar where you can:
+				<ul>
+					<li>Record a disposition</li>
+					<li>Add a recorded disposition to an an existing investigation.</li>
+					<li>Create a new investigation to which the disposition can be added.</li>
+				</ul>
+			<li><strong>View Clusters</strong>: Launches a <a href="glv-list-view.html">Cluster List view</a> to view the clusters contained within this cluster group.</li>
+		</ul>
+	</li>
+</ul>
+
+
+
+
+<h3>Daily Cluster Group Navigation and Filters</h3>
+{% include content/navigation.html %}
+
+
+<h3 id="group-review">Daily Cluster Group Review</h3>
+
+<p>The Daily Cluster Group Review lets you record group-level notes and recommendations and view the history of dispositions recorded for this group.</p>
+
+<p>Click <strong>Review/Investigate</strong> in the <strong>Actions</strong> column to access the <strong>Review</strong> sidebar.</p>
+ 
+<img class="img-responsive" src="Content/daily-cluster-group-review-panel.png" />
+
+<p>From within the <strong>Review Sidebar</strong> you can:</p>
+<ol>
+	<li>Enter a disposition for this cluster group.</li>
+	<li>View the review history for this cluster group</li>
+	<li>Add this cluster to an existing investigation or create a new investigation to which to add this cluster.</li>
+</ol>
+
+<p><img class="img-responsive" src="Content/daily-cluster-view-review-panel-2.png" /></p>
+
+<!-- include the Data Selection Panel section -->
+<h3 id="data-selection-panel">Data Selection Panel</h3>
+{% include content/data-selection-panel.html %}

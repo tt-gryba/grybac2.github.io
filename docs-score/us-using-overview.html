@@ -1,0 +1,183 @@
+---
+layout: default
+title: Workflow Summary
+---
+
+<p>TT Score provides a comprehensive surveillance and case management toolset for analyizing and reporting on trading activity. You conduct reviews in TT Score by:</p>
+<ul>
+	<li>
+		<a href="#selecting-data">Selecting and filtering the audit log data</a> to include in your review.
+	</li>
+	<li>
+		<a href="#analyzing-data">Using data visualization tools</a> to analyze trading data and highlight issues that require your attention.
+	</li>
+	<li>
+		<a href="#investigations">Recording reviews and opening investigations</a> on clusters and cluster groups to report your findings and reccomend them for further action as needed.
+	</li>
+</ul>
+
+<h2 id="selecting-data">Selecting data</h2>
+
+<p>To define and organize dataset you would like to review, TT Score provides tools for filtering and grouping your data.</p>
+
+<p><img class="img-responsive" src="Content/review-workflow.png" alt="" /></p>
+
+<ol>
+	<li>Date picker to define which daily audit logs to include.</li>
+	<li>Filter dropdowns and checkboxes</li>
+	<li>(Optional) For cluster group views, use the <strong>Group by:</strong> dropdown to group clusters by trader, accout or instrument.</li>
+</ol>
+
+<p>Selected filters are applied to the data when you click the <strong>Apply Filters</strong> button.</p>
+
+
+
+<p><strong>Note</strong>: Selected data is best reviewed by focusing on one problematic trading model at a time. This can be done using the filter checkboxes in the <stong>MODELS</stong> section. After you have completed a review of clusters associated with an individual model, you filter down to the next model in the list and repeate the review process.</p>
+
+<p>For more information, consult <a href="us-selecting-data.html">Selecting Data</a> article.</p>
+
+<h2 id="analyzing-data">Analyzing trading activity using data visualizations</h2>
+
+<p>Once your data is selected, you can use TT Score's data visulaizations to identify clusters of problematic trading activity.</p>
+
+<p>TT Sore provides the ability to review clusters at various levels of granularity: the cluster group level, the cluster list level, and the individual cluster level.</p>
+<ol>
+	<li>
+		Identify concentrations of problematic activity using the following views:
+		<ul>
+			<li><a href="glv-group-view-outlier-chart.html#outlier-chart">Outlier chart</a></li>
+			<li><a href="glv-group-view-heat-map.html#heat-map">Heat Map</a></li>
+			<li><a href="glv-daily-cluster-group.html">Daily Cluster Groups</a></li>
+		</ul>
+	</li>
+	<li>
+		Use the <a href="glv-list-view.html">Cluster List</a> to identify and analyze individual clusters to determine whether further action is needed.
+		<p><img class="img-responsive" src="Content/us-list-view.png" alt="" /></p>
+		<ol>
+			<li>
+				Color-coded risk score to give guidelines on the potential risk for each cluster
+			</li>
+			<li>
+				Name of the problematic trading model for each cluster
+			</li>
+			<li>
+				Option to inspect the cluster in more detail
+			</li>
+		</ol>
+	</li>
+	<li>
+		Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to review each individual cluster to determine whether the trading activity could be problematic or whether it is reasonable for the circumstances.
+		<img class="img-responsive" src="Content/us-scorecard-review.png" />
+		<ol>
+			<li>Cluster statistics and metrics for the trading activity analyzed within the cluster. </li>
+			<li>Orders and fills graph of the trading activity and volume of contracts traded within the cluster over a period of time.</li>
+			<li>Market replay for viewing a frame-by-frame replay of the trading activity overlaid with market data in a market ladder.</li>
+			<li>Actual order actions from the audit trail with some minor normalization of things like Order Type, Side and Order Action.
+			</li>
+		</ol>
+	</li>
+
+</ol>
+
+<!--
+<ul>
+	<li>
+		To identify concentrations of problematic activity, you can conduct a review of cluster groups. The views linked below are used to identify problematic cluster groups:
+		<ul>
+			<li><a href="glv-group-view-outlier-chart.html#outlier-chart">Outlier chart</a></li>
+			<li><a href="glv-group-view-heat-map.html#heat-map">Heat Map</a></li>
+			<li><a href="glv-group-view-alerts.html">Daily Cluster Groups</a></li>
+		</ul>
+	</li>
+		
+	<li>The <a href="glv-list-view.html">cluster list view</a> provides a list of individual clusters generated from your selected data. 
+		<ul>
+			<li>Selecting a group within a cluster group view will display a <strong>cluster list view</strong> with filters automatically set to display only the clusters within that group.</li>
+			<li>You can see a list of all individual clusters generated from you selected data by clicking the <strong>View Individual Clusters</strong>button.</li>
+		</ul>
+
+	<li>For individual clusters, you conduct a <strong>cluster review</strong> using the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a>.
+		</li>
+		<p>
+		Cluster review methods vary by problematic trading model. Consult this <a href="cv-identifying-problematic-activity.html">summary of cluster review methods</a> for more information.
+	</p>
+	
+	
+	
+	<li>
+		After all problematic clusters are reviewed, return to step 1, select a different Cluster Group view and repeat steps 2 through 4.
+		<p></p>
+		<strong>Note</strong>: Filtering out clusters that have already been reviewed makes it easier to differentiate cluster groups that have been reviewed from cluster groups that still require review.
+	</li>
+	<li>Finally, after you have used each cluster group view and reviewed the relevant clusters within each group, you <a href="glv-group-view-alerts.html#group-review">record your disposition for each group</a> in the Daily Cluster Groups view.</li>
+
+</ul>
+-->
+
+<p>For more information, see the <a href="us-analyzing-data.html">Analyzing trading activity using data visualizations</a> article.</p>
+
+
+<h2 id="investigations">Recording reviews and opening investigations</h2>
+
+<p>As you complete your analysis, you can record notes and dispositions. TT Score provides the ability to record these reviews at the cluster group level as well as the individual cluster level.</p>
+
+<p>Reviews that require further action can be added to investigations.</p>
+
+<h3>Recording Reviews</h3>
+
+<p>You record your notes and dispositions using the <strong>Review Sidebar</strong>: </p>
+<ul>
+	<li>To record a review at the cluster group level, click the <strong>Review/Investigate</strong> button in the <strong>Actions</strong> column on in the <a href="glv-daily-cluster-group.html#group-review">Daily Cluster Group</a> view.</li>
+	<li>To record a review for an individual cluster, click the <strong>Review Cluster</strong> button in the <a href="cv-cluster-view-cluster-scorecard.html#controls">Cluster Scorecard</a>.</p>
+	</li>
+</ul>
+
+<p>The <strong>Review Sidebar</strong> will then appear on the left-hand side of your screen</p>
+
+<p><img class="img-responsive" src="Content/us-review-cluster-notes.png" alt="" /></p>
+
+
+<p>The <strong>Review Sidebar</strong> is used to:</p>
+<ol>
+	<li>Enter review notes.</li>
+	<li>View the review history.</li>
+	<li>Add the cluster or cluster group to an existing investigation.</li>
+	<li>Create a new investigation to which to add the cluster or cluster group.</li>
+</ol>
+
+<h3>Creating and managing investigations</h3>
+
+<p>Once the review of a cluster or cluster group is complete, they can be added to an investgation for further review or action.</p> As noted above, clusters and cluster groups can be added to an existing investigation from within the <strong>Review Sidebar</strong>. You can also create new investigations within the <strong>Review Sidebar</strong>.
+<p>A list of open investigations is displayed in the TT Score Dashboard.</p>
+
+
+<p><img class="img-responsive" src="Content/score-dashboard.png" alt="" /></p>
+
+<p>For more information, see the <a href="us-reporting-recording-findings.html">Recording reviews and opening investigations</a> article.</p> 
+<!--
+<ol>
+	<li>
+		Names of investigations
+	</li>
+	<li>
+		Current status of the investigations
+	</li>
+	<li>
+		Button to view and manage an investigation
+	</li>
+</ol>
+<p>Manage each investigation.</p>
+<p><img class="img-responsive" src="Content/us-manage-investigations.png" alt="" /></p>
+<ol>
+	<li>
+		List of clusters and daily cluster groups included in this investigation
+	</li>
+	<li>
+		History of review notes for the investigation
+	</li>
+	<li>
+		Controls to assign and manage the progress of the investigation
+	</li>
+</ol>
+-->
+

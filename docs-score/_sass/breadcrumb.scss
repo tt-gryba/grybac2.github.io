@@ -1,0 +1,64 @@
+.ttdoc-breadcrumb {
+	padding: 0;
+	padding-top:1%;
+	padding-left:10px;
+	margin: 20px auto;
+	background: $white;
+	width: 100%;
+	max-width:1200px;
+	overflow: hidden; 
+
+	a:link, a:visited {
+		color: $link-color;
+		text-decoration: none;
+	}
+
+	a:hover, a:active {
+		text-decoration: underline;
+	}
+
+	ul, ol {
+    	list-style: none;
+	}
+
+	ul {
+		display: block;
+		padding-left:30px;
+	}
+
+	@media (max-width: 767px) {
+		ul {
+			padding-left:20px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		ul {
+			padding-left:5px;
+		}
+	}
+
+	li {
+		display: inline-block;
+    	float:left;
+        color: $dark-gray;
+	}
+
+	li + li:before {
+	  padding: 0 5px;
+	  content: ">\00a0";
+	  color: $link-color;
+	}
+}
+
+.ttdoc-breadcrumb:after {
+	content: '';
+    display: block;
+    clear: both;
+}
+
+@media (min-width: 768px) {
+	.ttdoc-breadcrumb {
+		padding-left:0px;
+	}
+}

@@ -1,0 +1,29 @@
+
+	<p>On the left of the screen, the <a href="us-selecting-data.html">Data Selection Panel</a> shows the daily activity logs that have been selected using the date picker and are available for data visualization. It also includes filters to apply to the 
+		data view.</p>
+
+	<img class="img-responsive" src="Content/new-us-import-panel.png" />
+
+	<p>The panel includes the following:</p>
+	
+<ol>
+	<li><strong>Score Range</strong>: Sets the maximum score of the clusters to include in each view.</li> 
+	<li><strong>Date Range</strong>: Date-based selector to add daily activity data to analyze.</li>
+	<li><strong>MODELS</strong>: Sets which types of suspect trading patterns to analyze in the data. Check this checkbox to apply all problematic trading models.
+		{% assign in-list = true %}
+{% include content/models.html %}
+
+	</li>
+	<li><strong>Products</strong>: Sets one or more of the following product types to include in each view:
+		<ul>
+			<li>Futures
+				<li>Spreads-Strategies
+					<li>Equity-Index Options
+					</ul>
+
+
+
+	</li>
+	<li><b>Keep Dropdown Filters Selected</b>: Maintains your selected trader, account, instrument, and exchange filters when changing the selected date(s), models, or product types.</li>
+	<li><strong>Apply Filters</strong>: Applies the selected dates and filters.</li>
+</ol>

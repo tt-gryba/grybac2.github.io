@@ -1,0 +1,123 @@
+---
+layout: default
+title: Reviewing Clusters Using Cluster Views
+---
+
+<p>The method for reviewing clusters for problematic trading activities are unique to each type.</p>
+
+<ul>
+	<li><a href="#spoofing">Spoofing</a></li>
+	<li><a href="#abusive-messaging">Abusive Messaging</a></li>
+	<li><a href="#wash-trading">Wash Trading</a></li>
+	<li><a href="#momentum-ignition">Momentum Ignition</a></li>
+	<li><a href="#pinging">Pinging</a></li>
+</ul>
+
+<h2 id="spoofing">Spoofing</h2>
+
+	<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the spoofing score. The chart at the bottom of the scorecard can give you visual clues about the spoofing pattern. For example, the chart in the following scorecard for a cluster with a high spoofing score shows a potential flipping pattern.</p>
+	<p><img class="img-responsive" src="Content/spoofing-pressure-chart.png" alt=""/></p>
+	<p>The example shows the following:</p>
+	<ol>
+	    <li>
+	      Trader is adding volume on the buy side to create the appearance of buy-side pressure.
+	    </li>
+	    <li>
+	      Trader adds a small Sell order, which immediately fills.
+	    </li>
+	    <li>
+	      Trader then cancels all outstanding Buy orders.
+	    </li>
+	</ol>
+
+	<p>The chart shows activity based on order volume over time, but does not show the order prices and liquidity. Looking at the prices for the potential spoofing orders can help you determine whether the trader was placing those orders far off the market in an attempt to deceive traders.</p> 
+
+	<p>From the Cluster Scorecard, you can click <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> to show how the orders interacted with the market at the various price levels.</p>
+
+	<p><img class="img-responsive" src="Content/spoofing-ladder-replay.png" alt=""/></p>
+	
+	<p>The market replay shows the following:</p>
+	<ol>
+	    <li>
+	      The price ladder shows the prices and liquidity in the market during the potential spoofing activity.
+	    </li>
+	    <li>
+	      The vertical line identifies the point of time during the market replay.
+	    </li>
+	    <li>
+	      Orders and fills that occurred around the specified time during the market replay.
+	    </li>
+	</ol>
+
+
+<h2 id="abusive-messaging">Abusive Messaging</h2>
+
+	<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the abusive messaging score. The Cluster Statistics and Scorecard Metrics sections of the scorecard show the:</p>
+	<ul>
+	  <li>Time duration of the cluster</li>
+	  <li>Total number of messages sent</li>
+	  <li>Percentages for different message rates</li>
+	</ul>
+	<p>The chart at the bottom of the scorecard can give you visual clues about the abusive messaging pattern. For example, the chart in the following scorecard is for a cluster with a high percentage of high-rate messages over a very short time period.</p>
+	<p><img class="img-responsive" src="Content/abusive-msg-example-scorecard.png" alt=""/></p>
+	<ol>
+	    <li>
+	      In just over five one-thousandth's of a second, the trader submitted over 25 order messages, 100% of which were considered to be submitted at a high rate.
+	    </li>
+	    <li>
+	      The meter indicates this cluster has a risk score of 100.
+	    </li>
+	    <li>
+	      The trader repeatedly submitted the same type of order.
+	    </li>
+	    <li>
+	    	The exchange times indicated the messages were sent in micro-second intervals.
+	    </li>
+	    <li>
+	    	The Burst Chart shows that for the first six-tenths of a second, the trader submitted messages at a rate of nearly 5,000 messages per second.
+	    </li>
+	</ol>
+
+<h2 id="wash-trading">Wash Trading</h2>
+
+	<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to get a closer look at the activity that triggered the wash trading score. The Cluster Scorecard shows activity that could constitute a wash trade.</p>
+	<p><img class="img-responsive" src="Content/wash-trade-example.png" alt=""/></p>
+	<ol>
+	    <li>
+	    	Fills were executed on opposite sides of the market for the same order quantity.
+	    </li>
+	    <li>
+	    	The two transactions were executed within the same millisecond.
+	    </li>
+	    <li>
+	    	The two transactions were executed by the same trader ID.
+	    </li>
+	</ol>
+
+
+<h2 id="momentum-ignition">Momentum Ignition</h2>
+
+<p>When investigating Momentum Ignition clusters with TT Score, you should focus on the:</p>
+  <ul>
+  <li>Number of distinct price levels used by aggressive orders.</li>
+  <li>Quantity filled on the aggressive orders.</li>
+  <li>Quantity filled on the opposite, or profit-taking, orders.</li>
+</ul>
+
+
+<p>For example, if the Igniter Price Levels and the Ignites (Vol) metrics display large values, this indicates that the trader may have been attempting to ignite a price movement in a particular direction (buy or sell) in order to mislead other market participants or to create an artificial price.  The Opp. Side (Vol) is a good indicator of whether or not the trader received advantageous fills on orders opposite the igniter orders that the trader would not have otherwise received without intentionally or recklessly sparking the price movement.</p>
+
+<p>The order audit trail data on the Statistics Scorecard can then be used to verify all of the order information and the timing of the activity that was identified as potential Momentum Ignition.</p>
+
+<p>The activity can then also be replayed with the <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> on the Cluster Scorecard.</p> 
+
+<h2 id="pinging">Pinging</h2>
+
+<p>Use the Cluster Scorecard to get a closer look at the activity that triggered the pinging score, focusing on the audit trail:</p>
+
+<ul>
+	<li>Review the audit trail for the creation of a series of small new orders at various price levels followed almost immediately by cancel events.</li>
+	<li>Look for a change in trader behavior once the small orders begin to fill immediately after order entry. Specifically, look for larger aggressively priced orders being entered on the opposite side of the market (as the small orders) as soon as the small orders get filled.  The use of a hyper-marketable limit order or a market order could be indicative of aggressive orders.</li>
+	<li>Look in the audit trail to see if that aggressive order was filled and was followed by an even larger order on the same side of the market as the original small orders were placed.</li>
+	<li>Compare the fill price of the final large order to that of the fill of the last small ping order.  If the final large order filled at a better price than the original small ping orders, then it is likely that an abusive pinging occurred.</li>
+</ul>

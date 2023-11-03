@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Static Virtual Tunnel Interfaces | TT Score Help and Tutorials</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet"> <!-- need for tech indicators. also need mathjax script-->
+    <link rel="shortcut icon" href="Content/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29111405-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>-->
+
+ <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+ <!--<script src="js/bootstrap.min.js"></script> at bottom but might need for videos-->
+  </head>
+  <body class="pagination-centered">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top ttdoc-navbar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav nav-tabs" role="tablist">
+          
+        <!--  <li><a target="_blank" href="https://content.cisco.com/welcome.html/">Cisco Tech Help Library</a>
+          </li> -->
+        </ul>
+        <ul class="main-nav__secondary">
+          <li>
+              <form class="main-nav__search" action="Search.html">
+                <input class="main-nav__search-input" placeholder="Search" type="search" name="q" id="search" value="" autocomplete="off">
+                <input class="main-nav__search-button" type="submit" value="">
+              </form>
+          </li>
+        </ul>
+        <!-- Brand and toggle get grouped for better mobile display
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        Brand and toggle get grouped for better mobile display -->
+      </div><!-- ./navbar-inner -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav> 
+
+<div class="container-fluid">
+<section>
+
+<div class="ttdoc-hero row ttdoc-article-hero">
+  <div class="vert-wrapper">
+    <h1 class="ttdoc-hero-headline">Security Configuration for Cisco Catalyst 9400 Switches</h1>
+    
+  </div>
+</div> 
+
+<div class="breadcrumb ttdoc-breadcrumb">
+<ul>
+	<!-- Library Home link -->
+    <li><a href="https://content.cisco.com/welcome.html">Catalyst Security</a></li><!--Library home - displays platforms-->
+    
+	    <!-- ADL Home link -->
+	    
+	    	<li><a href="https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/cisco8000/application-hosting/b-application-hosting-cg-cisco8000/m-preface-ah-cg.html.xml&platform=Cisco%208000%20Series%20Routers&release=All">Configuration</a></li>
+			
+
+	    	<li><a href="https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/cisco8000/application-hosting/b-application-hosting-cg-cisco8000/m-preface-ah-cg.html.xml&platform=Cisco%208000%20Series%20Routers&release=All">Configuring IPsec</a></li>
+			 	
+			 		<li class="active">Static Virtual Tunnel Interfaces</li>
+			 	
+		
+</ul>
+</div>
+ 
+
+<div class="ttdoc-nav-and-maincontent-container"> <!-- closed in lower-nav file -->
+  <ul class="navigation sidebar" id="myTab">
+    <div class="ttdoc-sidebar-logo">
+    </div>
+    <div class="ttdoc-sidebar-return-links-container ttdoc-breadcrumb">
+      <span>return to:</span>
+        <div class="ttdoc-sidebar-return-links">
+          <a href="../tthelp.html" id="ttdoc-help-library-link"> Help Library</a><span class="ttdoc-breadcrumb-hierarchy-separator"> > </span> 
+          <a href="index.html" id="ttdoc-platform-link">TT Score Help</a>
+        </div>
+    </div>
+
+  
+
+
+  
+  
+  
+  
+    <a href="#overview" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>IPsec on Catalyst 9400</a>
+    <div class="collapse nav-indiv-article" id="overview">
+  
+
+  
+    
+    
+      
+      
+
+          <a href="ovw-ipsec-overview.html" class="list-group-item list-group-subitem">IPsec Overview</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-ipsec-restrictions-on-catalyst-9400.html" class="list-group-item list-group-subitem">IPsec Restrictions on Catalyst 9400</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-how-ipsec-works.html" class="list-group-item list-group-subitem">How IPsec Works</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="ovw-ipsec-anti-replay-window.html" class="list-group-item list-group-subitem">IPsec Anti-Replay Window</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Internet Key Exchange Version 2</a>
+    <div class="collapse nav-indiv-article" id="using-tt-score">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="us-ikev2-overview.html" class="list-group-item list-group-subitem">IKEv2 Overview</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-ikev2-supported-standards.html" class="list-group-item list-group-subitem">IKEv2 Supported Standards</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-about-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Internet Key Exchange Version 2 CLI Constructs</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-ikev2-smart-defaults.html" class="list-group-item list-group-subitem">IKEv2 Smart Defaults</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="us-ikev2-suite-b-support.html" class="list-group-item list-group-subitem">IKEv2 Suite-B Support</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+
+    <a href="#views" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>IPsec Virtual Tunnel Interfaces</a>
+    <div class="collapse in nav-indiv-article" id="views">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-ipsec-virtual-tunnel-interfaces-overview.html" class="list-group-item list-group-subitem">IPsec Virtual Tunnel Interfaces Overview</a>
+                        
+      
+
+    
+  
+    
+    
+      
+       <!-- in source YML header, should also match the filename/url -->
+
+          <a href class="active list-group-item list-group-subitem">Static Virtual Tunnel Interfaces</a>
+                    
+        
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-routing-with-ipsec-virtual-tunnel-interfaces.html" class="list-group-item list-group-subitem">Routing with IPsec Virtual Tunnel Interfaces</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="glv-traffic-encryption-with-the-aIPsec-virtual-tunnel-interface.html" class="list-group-item list-group-subitem">Traffic Encryption with the IPsec Virtual Tunnel Interface</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Configuring IPsec on Catalyst 9400</a>
+    <div class="collapse nav-indiv-article" id="problematic-trading-models">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-how-to-configure-ipsec.html" class="list-group-item list-group-subitem">How to Configure IPsec</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-configuring-static-ipsec-virtual-tunnel-interfaces.html" class="list-group-item list-group-subitem">Configuring Static IPsec Virtual Tunnel Interfaces</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-configuring-ipsec-on-the-distributed-gateway-example.html" class="list-group-item list-group-subitem">Configuring IPsec on the Distributed Gateway Example</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-verifying-results-for-the-ipsec-static-virtual-tunnel-interface-example.html" class="list-group-item list-group-subitem">Verifying Results for the IPsec Static Virtual Tunnel Interface Example</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="inv-global-expanding-and-disabling-an-anti-replay-window-example.html" class="list-group-item list-group-subitem">Global Expanding and Disabling an Anti-Replay Window Example</a>
+                        
+      
+
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+  
+  
+  
+  
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Configuring Internet Key Exchange Version 2</a>
+    <div class="collapse nav-indiv-article" id="reference">
+  
+
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-how-to-configure-internet-key-exchange-version-2.html" class="list-group-item list-group-subitem">How to Configure Internet Key Exchange Version 2</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-internet-key-exchange-version-2-configuration-examples.html" class="list-group-item list-group-subitem">Internet Key Exchange Version 2 Configuration Examples</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-basic-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Configuring Basic Internet Key Exchange Version 2 CLI Constructs</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-basic-internet-key-exchange-version-2-cli-constructs-configuration-examples.html" class="list-group-item list-group-subitem">Basic Internet Key Exchange Version 2 CLI Constructs Configuration Examples</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-ikev2-key-ring-example.html" class="list-group-item list-group-subitem">Configuring IKEv2 Key Ring Example</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-advanced-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Configuring Advanced Internet Key Exchange Version 2 CLI Constructs</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-advanced-internet-key-exchange-version-2-cli-constructs-configuration-examples.html" class="list-group-item list-group-subitem">Advanced Internet Key Exchange Version 2 CLI Constructs Configuration Examples</a>
+                        
+      
+
+    
+  
+    </div> <!-- /.nav-indiv-article description -->
+
+   
+          </ul>
+
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger"></label>
+
+ 
+
+<div class="container-fluid ttdoc-maincontent-container site-wrap">
+  <div class="row ttdoc-maincontent-row">
+
+<!--Article Heading-->
+    <div class="ttdoc-article-wrapper" id="fullarticle"> 
+       
+      <div class="ttdoc-widget-title-mobile">
+        <span>Static Virtual Tunnel Interfaces</span>
+      </div>
+
+      <h1>Static Virtual Tunnel Interfaces</h1>
+
+          
+      
+
+
+
+
+ 
+
+
+	</div> <!--- /fullarticle ttdoc-article-wrapper-->
+  </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
+
+
+
+</div> <!-- /ttdoc-nav-and-maincontent-container -->
+
+<div class="container-fluid ttdoc-lower-nav-container">
+
+	<div class="ttdoc-lower-nav row">
+		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
+			
+			<a href="glv-ipsec-virtual-tunnel-interfaces-overview.html">
+				<div class="lower-nav-arrow-left">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Previous:</h1>
+	  				<h2>IPsec Virtual Tunnel Interfaces Overview</h2>
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-sm-2 col-md-4 col-lg-4">
+		</div>
+		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
+			
+			<a href="glv-routing-with-ipsec-virtual-tunnel-interfaces.html">
+				<div class="lower-nav-arrow-right">
+				</div>
+				<div class="lower-nav-text">
+					<h1>Next:</h1>
+					<h2>Routing with IPsec Virtual Tunnel Interfaces</h2> 
+				</div>
+			</a>
+			
+		</div>  
+	</div>  <!-- /.ttdoc-lower-nav row-->
+</div>  <!-- /.container-fluid -->
+
+</section>
+</div><!--/.container-fluid -->
+
+<footer class="footer ttdoc-footer" role="contentinfo">
+  <div class="footer-inner constrain">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../trade/index.html" class="footer-link">Trade</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../adl/index.html" class="footer-link">ADL<sup>&reg;</sup></a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../user-setup/index.html" class="footer-link">Setup</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../risk/index.html" class="footer-link">Monitor</a> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-android/index.html" class="footer-link">Mobile Android</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../mobile-ios/index.html" class="footer-link">Mobile <span style="text-transform:lowercase;">i</span>OS</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../apis.html" class="footer-link">APIs</a> 
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="../release_notes/index.html" class="footer-link">Release Notes</a> 
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/legal/" target="_blank">Legal</a>  
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <a href="https://www.tradingtechnologies.com/privacy/" target="_blank">Privacy</a>  
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="footer__copyright-wrap">
+          
+          <div class="row">
+            <p>Language: English | <a href="../tt-score_ja/glv-static-virtual-tunnel-interfaces.html" class="footer-link" style="color:#66c9d0;">日本語</a></p>
+          </div>
+           
+           
+          <p class="footer__copyright">Copyright © 2023 Trading Technologies International, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.footer-inner -->
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="../js/hideSearchTabs.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/offcanvas.js"></script> -->
+</body>
+</html>

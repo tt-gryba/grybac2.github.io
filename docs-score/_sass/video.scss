@@ -1,0 +1,27 @@
+@media (max-width: 225px) {
+	iframe#videoPlayer {
+	    width: 150px;
+	    height: 79px;
+	}
+}
+
+@media (min-width: 226px) and (max-width: 324px) {
+	iframe#videoPlayer {
+	    width: 200px;
+	    height: 107px;
+	}
+}
+
+@media (min-width: 325px) and (max-width: 450px) {
+	iframe#videoPlayer {
+	    width: 300px;
+	    height: 178px;
+	}
+}
+
+@media (min-width: 450px)  {
+	iframe#videoPlayer {
+	    width: 100%;
+	    min-height: 400px;
+	}
+}

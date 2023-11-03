@@ -1,0 +1,75 @@
+---
+layout: default
+title: MPLS Introduction
+videoid: 333403609
+---
+
+<p>In IP forwarding, when a packet arrives at a router the router looks at the destination address in the IP header, performs a route lookup, and then forwards the packet to the next hop. MPLS is a forwarding mechanism in which packets are forwarded based on labels. Label Distribution Protocols assign, distribute, and install the labels in an MPLS environment. It is the set of procedures and messages by which Label Switched Routers (LSRs) establish LSPs through a network by mapping network-layer routing information directly to data-link layer switched paths. These LSPs may have an endpoint at a directly attached neighbor (comparable to IP hop-by-hop forwarding), or may have an endpoint at a network egress node, enabling switching via all intermediary nodes.
+
+LSPs can be created statically, by RSVP traffic engineering (TE), or by LDP. LSPs created by LDP perform hop-by-hop path setup instead of an end-to-end path. LDP enables LSRs to discover their potential peer routers and to establish LDP sessions with those peers to exchange label binding information. Once label bindings are learned, the LDP is ready to setup the MPLS forwarding plane.</p>
+
+DP is ready to setup the MPLS forwarding plane.
+<p>
+<h2>Prerequisites for Implementing MPLS Label Distribution Protocol</h2>
+<p>
+Restrictions and Recommendations
+Information About Implementing Cisco MPLS LDP
+How to Implement MPLS LDP
+Configuration Examples for Implementing MPLS LDP
+Controlling State Advertisements in an mLDP-Only Setup
+Use Cases For Controlling State Advertisements
+mLDP-Based MVPN
+Disable Prefix-LSPs On An L2VPN/PW tLDP Session
+Load Balancing based on the Position of Entropy Label
+Additional References
+Prerequisites for Implementing MPLS Label Distribution Protocol
+The following are the prerequisites to implement MPLS LDP:
+
+You must be in a user group associated with a task group that includes the proper task IDs. The command reference guides include the task IDs required for each command. If you suspect user group assignment is preventing you from using a command, contact your AAA administrator for assistance.
+
+You must be running Cisco IOS XR software.
+
+You must install a composite mini-image and the MPLS package.
+
+Note	
+This point is not appplicable for a Cisco NCS 540 Series Router.
+
+You must activate IGP.
+
+We recommend to use a lower session holdtime bandwidth such as neighbors so that a session down occurs before an adjacency-down on a neighbor. Therefore, the following default values for the hello times are listed:
+
+Holdtime is 15 seconds.
+
+Interval is 5 seconds.
+
+For example, the LDP session holdtime can be configured as 30 seconds by using the holdtime command.
+
+Restrictions and Recommendations
+The following restrictions and recommendations apply to the MPLS LDP CSC feature:
+
+Only IPv4 address family is supported for a default or a non-default VRF.
+
+No T-LDP support in a VRF context.
+
+An address family under VRF and VRF interface must be configured for non-default VRFs.
+
+Following scenarios are not supported :
+
+Different VRFs between a given PE-CE device pair (VRFs configured on different links and interfaces)
+
+LDP/BGP CSC co-existence on a given VRF between a given PE-CE device pair:
+
+Single link
+
+Parallel links: LDP CSC on one link and BGP CSC on the other
+
+LDP router-id must be configured per-VRF. If not configured for non-default VRF, LDP computes router-id from available loopback interfaces under the VRF.
+
+It is recommended to configure a routable discovery transport address under a VRF IPv4 address-family submode for deterministic transport endpoint and connection.
+
+When LDP CSC is configured and in use:
+
+BGP label allocation policy for VRF prefixes must be per-prefix
+
+Selective VRF Download (SVD) feature must be disabled
+</p>

@@ -1,26 +1,49 @@
 ---
 layout: default
-title: Configuring MPLS
+title: Accessing TT Score
 ---
 
-IP-Less MPLS-TP Ping and MPLS-TP Traceroute
-In Label Switched Path (LSP) ping or traceroute with IP encapsulation over ACH, IP encapsulated ping or traceroute packets are sent over the MPLS LSP using the control channel (ACH). The application-level control channel in this case is the reverse path of the LSP using ACH. The on-demand ping or traceroute echo response message is sent on the reverse path of the LSP. The response uses ACH and is IP encapsulated. The destination address in the IP header is set to that of the sender of the echo request message, and the source address in the IP header is set to a valid address of the replying node.
+<!--<p>Before you begin using TT&reg; Score, contact your Customer Success representative to activate TT Score for your company. Trading Technologies will also work with you to complete any steps needed to make your data available to be analyzed.</p>
+
+<p>After you're allowed access and the steps are completed, a TT Onboarding Manager will contact you to enable permissions in your company to run TT Score. Permissions are enabled using the Setup application on TT.</p>
+
+<p>If you need permissions to enable these settings in Setup, please contact your company administrator.</p>-->
+
+<p>TT Score provides you the ability to analyze your own trading activity for potential regulatory concerns. Users can also be given administrator-level permissions to view the activity of all users on the accounts to which they have access or all users across an entire company.</p> 
+
+<h2>Logging in to TT Score</h2>
+<p>To log in to the TT Score from any <a href="https://library.tradingtechnologies.com/trade/ttw-tt-platform-requirements.html">supported browser</a></p>
+
+<ul>
+  <li>
+  	Go to <a href="https://trade.tt">https://trade.tt</a> and <a href="https://library.tradingtechnologies.com/trade/ttw-logging-in-to-tradett.html">log in</a> with your TT Account credentials.
+  </li>
+  <li>
+  	In the TT title bar, click <strong>Score</strong>.
+  	<p></p>
+  	The TT Score page opens.
+
+  	<p><img class="img-responsive" src="Content/score-dashboard.png"/></p>
+
+  </li>
+  <li>
+  	Start by <a href="us-selecting-data.html">selecting data</a>.
+  </li>
+</ul>
 
 
-the reply mode is 4
+<h2 id="admin">Administrator and User Permissions</h2>
+<p>In Setup, there are <a href="https://library.tradingtechnologies.com/user-setup/us-adding-a-new-user.html" target="_blank">administrator-level and user-level permission settings</a> on the <b>Users</b> | <b>Settings</b> tab:<p>
 
-the node does not have a return MPLS LSP path to the echo request source.
+<ul>
+    <li><strong>TT SCORE Admin</strong> &mdash; Allows an administrator to run TT Score for all accounts in their company. Check to enable this option, which can only be checked if <strong>TT SCORE Account Admin</strong> is unchecked. This setting cannot be modified until Customer Success has activated TT Score for your company.<p>
+             </li>
 
-<h2>MPLS LSP Ping</h2>
-<p>
-The MPLS LSP Ping feature is used to check the connectivity between Ingress LSR and egress LSRs along an LSP. MPLS LSP ping uses MPLS echo request and reply messages, similar to Internet Control Message Protocol (ICMP) echo request and reply messages, to validate an LSP. While ICMP echo request and reply messages validate IP networks, MPLS echo and reply messages validate MPLS networks. The MPLS echo request packet is sent to a target router through the use of the appropriate label stack associated with the LSP to be validated. Use of the label stack causes the packet to be forwarded over the LSP itself. The destination IP address of the MPLS echo request packet is different from the address used to select the label stack. The destination IP address is defined as a 127.x.y.z/8 address and it prevents the IP packet from being IP switched to its destination, if the LSP is broken.</p>
+            <li><strong>TT SCORE Account Admin</strong> &mdash; Allows an administrator to run TT Score for their own accounts only. Check to enable this option, which can only be checked if <strong>TT SCORE Admin</strong> is unchecked. This setting cannot be modified until Customer Success has activated TT Score for your company.
+              </li>
 
-<p>An MPLS echo reply is sent in response to an MPLS echo request. The reply is sent as an IP packet and it is forwarded using IP, MPLS, or a combination of both types of switching. The source address of the MPLS echo reply packet is an address obtained from the router generating the echo reply. The destination address is the source address of the router that originated the MPLS echo request packet. The MPLS echo reply destination port is set to the echo request source port.</p>
+       <li><strong>TT SCORE User</strong> &mdash; Allows an individual user to run TT Score for their own accounts. Check to enable this option.
+              </li>
 
-<p>The following figure shows MPLS LSP ping echo request and echo reply paths.</p>
-
-<p>Figure 1. MPLS LSP Ping Echo Request and Reply Paths</p>
-  <p><img class="img-responsive" src="Content/cisco-mpls.jpg"></p>
-
-<p>By default, the ping mpls ipv4 command tries to determine the Forwarding Equivalence Class (FEC) being used automatically. However, this is only applicable at head-end and works only if the FEC at the destination is same as the source. If the source and destination FEC types are not the same, the ping mpls ipv4 command may fail to identify the targeted FEC type. You can overcome this limitation by specifying the FEC type in MPLS LSP ping using the fec-type command option. If the user is not sure about the FEC type at the transit or the destination, or it may change through network, use of the generic FEC type command option is recommended. Generic FEC is not coupled to a particular control plane and allows path verification when the advertising protocol is unknown, or may change during the path of the echo request. If you are aware of the destination FEC type, specify the target FEC as BGP or LDP.</p>
+</ul>
 

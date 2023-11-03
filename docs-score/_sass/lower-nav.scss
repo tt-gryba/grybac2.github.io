@@ -1,0 +1,145 @@
+.ttdoc-lower-nav-container {
+	background: $dark-teal;
+	z-index: 0;
+	position: relative;
+}
+
+.ttdoc-lower-nav {
+	color:$white;
+	padding:20px 10px;
+	width:100%;
+	min-width:300px;
+    margin: 0 auto;
+
+	.lower-nav-left {
+
+		.lower-nav-arrow-left {
+			background: url(../images/icon-arrow-left.svg) no-repeat center center;
+			height:70px;
+			width:70px;
+			float: left;
+		}
+
+        a:link, a:hover, a:active, a:visited {
+        	.lower-nav-arrow-left {
+			    -webkit-filter: brightness(0.5);
+    			filter: brightness(0.5);
+			}
+
+			.lower-nav-arrow-left:hover {
+                -webkit-filter: unset;
+            	filter: unset;
+        	}
+
+        	.lower-nav-text {
+				color:$light-gray;
+
+			}
+
+			.lower-nav-text:hover {
+				color:$white;
+			}
+    	}
+
+		.lower-nav-text {
+			float:left;
+            max-width: 198px;
+		}
+
+		h1 {
+		    font: 12px "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    text-transform: uppercase;
+		    letter-spacing: 1.5px;
+		    margin-bottom:0px;
+		    padding-bottom:0px;
+		}
+
+		h2 {
+			font: 14px "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    text-transform: capitalize;
+		    margin-top:0px;
+		    padding-top:none;
+		}
+	}
+
+	.lower-nav-right {
+		text-align: right;
+
+		.lower-nav-arrow-right {
+			background: url(../images/icon-arrow-right.svg) no-repeat center center;
+			height:70px;
+			width:70px;
+			float:right;
+		}
+
+		a:link, a:hover, a:active, a:visited {
+        	.lower-nav-arrow-right {
+			    -webkit-filter: brightness(0.5);
+    			filter: brightness(0.5);
+			}
+
+			.lower-nav-arrow-right:hover {
+                -webkit-filter: unset;
+            	filter: unset;
+        	}
+
+        	.lower-nav-text {
+				color:$light-gray;
+			}
+
+			.lower-nav-text:hover {
+				color:$white;
+			}
+    	}
+
+		.lower-nav-text {
+			float:right;
+            max-width: 198px;
+		}
+
+		h1 {
+		    font: 12px "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    text-transform: uppercase;
+		    letter-spacing: 1.5px;
+		    margin-bottom:0px;
+		    padding-bottom:0px;
+		}
+
+		h2 {
+			font: 14px "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    text-transform: capitalize;
+		    margin-top:0px;
+		    padding-top:none;
+		}
+	}
+
+	@media (max-width:767px) {
+		.lower-nav-text {
+			display:none;
+		 }
+	}
+}
+
+@media (min-width:550px) and (max-width:767px) {
+	.ttdoc-lower-nav {
+		padding:10px 25%;
+	}
+}
+
+@media (min-width:350px) and (max-width:549px) {
+	.ttdoc-lower-nav {
+		padding:10px 20%;
+	}
+}
+
+@media (min-width:200px) and (max-width:349px) {
+	.ttdoc-lower-nav {
+		padding:10px 18%;
+	}
+}
+
+@media (min-width:1px) and (max-width: 200px) {
+	.ttdoc-lower-nav {
+		display:none;
+	}
+}

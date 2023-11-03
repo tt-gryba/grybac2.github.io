@@ -1,0 +1,102 @@
+---
+layout: default
+title: Marking the Close
+---
+
+<p>Marking the Close is a pattern of trading activity intended to manipulate the settlement price of an instrument during its settlement period. The Marking the Close beta model in TT Score detects potential settlement price manipulation in select CME outrights and spreads, and identifies on-exchange activity during settlement periods that may have influenced the settlement price for the most commonly traded CME products.</p>
+
+ <p><b>Note</b>: TT Score highlights suspicious trading for both spreads and outrights in the same product. Some multileg instruments can impact the settlement price of its outrights depending on the type of instrument or the expiration months involved.</p>
+
+
+
+<h2>Scoring methodology</h2>
+
+<p>To detect a trader's potential Marking the Close trading activity, TT Score analyzes the following data during the settlement period:</p>
+
+<ul>
+<li>The price of an instrument before settlement and its eventual settlement price.
+<li>Orders that comprise a large percentage of orders in the market.
+<li>Trades that occurred mostly on the same side of the market.
+<li>A trader's activity during the settlement period in proportion to their activity during the entire trading session.</li>
+</ul>
+
+
+<h3>Score interpretation</h3>
+<p>The score assigned to a cluster is based on a sliding scale between 0-100 using a weighted calculation. A score of 75 and above is a good indication that the suspect trading activity occurred.</p>
+
+{% include score-method.html %}
+
+
+
+<h3 id="metrics">Scorecard metrics</h3>
+
+
+  <p>The Marking the Close cluster scorecard includes metrics that help you determine if price manipulation may have occurred during the instrument's settlement period.</p>
+
+  <p><img class="img-responsive" src="Content/marking-the-close-metrics.png"></p>
+
+
+<p>The following metrics are provided:</p>
+<ol>
+	<li>
+<b>Stlmt Price</b> &mdash; The daily settlement price reported by the exchange. 
+
+
+<!-- <li>
+Trader VWAP vs sett price &mdash; The traders VWAP of their fills that occurred during the settlement window vs the settlement price.  This calculation shows whether or not the traders activity during settlement had a net positive or negative affect on the settlement price.   ? -->
+
+<li>
+<b>Trader Vs Session</b> &mdash; This is the percent of the trader’s total activity for the day that occurred during the instrument's settlement window.  A high percentage of activity by the trader during the small settlement window may indicate a trader targeted the settlement window in an attempt to affect the settlement price.
+
+<li>
+<b>Vol Vs Market</b> &mdash; Shows the trader's settlement volume as a percentage of the total settlement volume. A higher percentage of volume may indicate that the trader’s activity had a greater impact on the eventual settlement price.  
+
+<li><b>Stlmt Period Buy/Sell Fills</b> &mdash; Displays the VWAP of the fills on the suspect side of the market: buy fills for upward price movement over the settlement price, or sell fills for downward price movement below the settlement price.
+
+</li>
+
+
+<li>
+<b>Stlmt Period Vs Stlmt Price</b> &mdash; Shows the last market price of the instrument prior to the settlement period compared to the settlement price. This gives you an approximation of how much the price moved up or down during the settlement period. Calculated as a ratio of settlement price before/during the settlement period.
+
+<li>
+<b>Buy Fills Percentage</b> &mdash; Displays the percent of fills that the trader had on the buy side of the market during settlement.  Note that a "1" indicates that all of the trader’s fills were on the buy side, while a "0" indicates that the trader only had fills on the sell side.
+
+
+<li>
+<b>Stlmt Start Time</b> &mdash; The Settlement start time and end time set and published by the exchange. Fills that occurred during this time window are typically used to calculate the settlement price of an instrument or related product. 
+
+<li> <b>Stlmt End Time</b> &mdash; The Settlement start time and end time set and published by the exchange. Fills that occurred during this time window are typically used to calculate the settlement price of an instrument or related product. 
+
+<li><b>Trader Volume</b> &mdash; Total trader volume during settlement. A high total volume may indicate that the trader’s activity had a greater impact on the eventual settlement price.
+
+<li><b>Market Volume</b> &mdash; Total market volume during settlement.
+
+	<li><b>Last Market Price</b> &mdash; The last market price prior to the settlement period.
+
+		<li><b>Trader VWAP</b> &mdash; The trader settlement period VWAP.
+
+
+</li>
+</ol>
+
+
+
+<h2 id="id">Identifying Marking the Close</h2>
+
+<p>In addition to the scorecard metrics, the Marking the Close chart and audit trail can also help identify Marking the Close trading activity. The following image shows results from inspecting a Marking the Close trading cluster.</p>
+
+<p><img class="img-responsive" src="Content/marking-the-close-example.png" /></p>
+
+
+<p>When investigating Marking the Close clusters in TT Score, check for the following indications of potential price manipulation:</p>
+
+<ol>
+<li>In the chart, look for a high percentage of buys above the settlement price or sells below the settlement price within the settlement period. You can move the cursor over suspect trading markers between the settlement period start and end times to view the price, quantity, and time of the trade.
+<!-- <li>
+Using the chart, identify if most of the buying or selling was on one side of the market. -->
+<li>
+In the audit trail, check if the fills were for aggressive orders entered during the pre-close settlement period or passive orders resting in the market before or during the settlement period. Click a row in the audit trail to expand it and view additional order and fill details. 
+</li>
+</ol>
+

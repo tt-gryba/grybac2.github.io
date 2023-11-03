@@ -3,23 +3,23 @@
 	"categories":[
 		{
 		"id":"overview",
-		"name":"MPLS Overview"
+		"name":"IPsec on Catalyst 9400"
 		},
 		{
 		"id":"using-tt-score",
-		"name":"Using MPLS"
+		"name":"Internet Key Exchange Version 2"
 		},
 		{
 		"id":"views",
-		"name":"MPLS Configuration Examples"
+		"name":"IPsec Virtual Tunnel Interfaces"
 		},
 		{
 		"id":"problematic-trading-models",
-		"name":"MPLS Use Cases"
+		"name":"Configuring IPsec on Catalyst 9400"
 		},
 		{
 			"id": "reference",
-			"name": "MPLS Reference"
+			"name": "Configuring Internet Key Exchange Version 2"
 		}
 	]
 }

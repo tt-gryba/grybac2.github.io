@@ -1,0 +1,1418 @@
+---
+layout: default
+title: Setting up an Application Hosting Environment
+---
+
+
+<p>With the Packet I/O functionality, you can use Linux applications to manage communication with the IOS XR interfaces, and set up the OS environment to establish packet I/O communication with hosted applications.</p>
+
+<p>To set up an application hosting environment:</p>
+<p>
+<a href="#verify">Verify Reachability of IOS XR and Packet I/O Infrastructure</a>
+<br>
+<a href="#program">Program Routes in the Kernel
+	<br>
+<a href="#vrf">Configure VRFs in the Kernel
+	<br>
+<a href="#linux">Open Linux Sockets
+	<br>
+<a href="#traffic">Send and Receive Traffic
+	<br>
+<a href="#manage">Manage IOS XR Interfaces through Linux
+	<br>
+<a href="#config">Configure Traffic Protection for Linux Networking
+	<br>
+<a href="#synch">Synchronize Statistics Between IOS XR and Linux</a>
+</br>
+</p>
+
+<h2 id="verify">Verify Reachability of IOS XR and Packet I/O Infrastructure</h2>
+
+	<table class="table table-striped table-bordered" border="1">
+      <thead>
+        <tr>
+          <th>Feature Name</th>
+          <th>Release</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Virtual IP address in the Linux networking stack</td>
+          <td>7.5.2</td>
+          <td><p>Virtual IP addresses allow a single IP address to connect to the current active RP after an RP switchover event. In addition, this functionality enables your network stack to support virtual IP addresses for third-party applications and IOS XR applications that use the Linux networking stack.</p>
+
+The following commands are modified:
+ 	<ul>
+ 		<li>
+<a href="https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/ip-addresses/b-ip-addresses-cr-8k/network-stack-commands.html#wp2718532061">ipv4 virtual address</a>
+<li>
+<a href="https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/ip-addresses/b-ip-addresses-cr-8k/network-stack-commands.html#wp7955588300">ipv6 virtual address</a>
+<li>
+<a href="https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/ip-addresses/b-ip-addresses-cr-8k/network-stack-commands.html#wp7546444200">show linux networking interfaces address-only</a>
+</li>
+</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+                                  <p class="p">Interfaces configured on IOS XR are programmed into the Linux kernel. These interfaces allow Linux applications to run as
+                                 if they were running on a regular Linux system. This packet I/O capability ensures that off-the-shelf Linux applications can
+                                 be run alongside IOS XR, allowing operators to use their existing tools and automate deployments with IOS XR.
+                              </p>
+                              
+                              <p class="p">The IP address on the Linux interfaces, MTU settings, MAC address are inherited from the corresponding settings of the IOS
+                                 XR interface. Accessing the global VRF network namespace ensures that when you issue the <span class="keyword cmdname">bash</span> command, the default or the global VRF in IOS XR is reflected in the kernel. This ensures default reachability based on the
+                                 routing capabilities of IOS XR and the packet I/O infrastructure.
+                              </p>
+                              
+                              <p class="p">Virtual addresses can be configured to access a router from the management network such as gRPC using a single virtual IP
+                                 address. On a device with two or more RPs, the virtual address refers to the management interface that is currently active.
+                                 This functionality can be used across RP failover without the information of which RP is currently active. This is applicable
+                                 to the Linux packet path.
+                              </p>
+                              
+                              <p class="p">You can run <span class="keyword cmdname">bash</span> commands at the IOS XR router prompt to view the interfaces and IP addresses stored in global VRF. When you access the Cisco
+                                 IOS XR Linux shell, you directly enter the global VRF.
+                              </p>
+                              
+      
+                    
+      <h3>Procedure</h3>
+                   
+                    	<table class="table table-striped table-bordered" border="1">
+
+                         <!--  <table class="stepTable" border="0"> -->
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">From your Linux box, access the IOS XR console through SSH, and log in.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>cisco@host:~$ ssh root@192.168.122.188
+root@192.168.122.188's password:
+Router#
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">View the ethernet interfaces on IOS XR.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#<b>show ip interface brief</b>
+Interface IP-Address Status Protocol Vrf-Name
+FourHundredGigE0/0/0/0 unassigned Shutdown Down default
+FourHundredGigE0/0/0/1 unassigned Shutdown Down default
+FourHundredGigE0/0/0/2 unassigned Shutdown Down default
+FourHundredGigE0/0/0/3 unassigned Shutdown Down default
+FourHundredGigE0/0/0/4 unassigned Shutdown Down default
+FourHundredGigE0/0/0/5 unassigned Shutdown Down default
+FourHundredGigE0/0/0/6 unassigned Shutdown Down default
+FourHundredGigE0/0/0/7 unassigned Shutdown Down default
+FourHundredGigE0/0/0/8 unassigned Shutdown Down default
+FourHundredGigE0/0/0/9 unassigned Shutdown Down default
+FourHundredGigE0/0/0/10 unassigned Shutdown Down default
+FourHundredGigE0/0/0/11 unassigned Shutdown Down default
+FourHundredGigE0/0/0/12 unassigned Shutdown Down default
+FourHundredGigE0/0/0/13 unassigned Shutdown Down default
+FourHundredGigE0/0/0/14 unassigned Shutdown Down default
+FourHundredGigE0/0/0/15 unassigned Shutdown Down default
+FourHundredGigE0/0/0/16 unassigned Shutdown Down default
+FourHundredGigE0/0/0/17 unassigned Shutdown Down default
+FourHundredGigE0/0/0/18 unassigned Shutdown Down default
+FourHundredGigE0/0/0/19 unassigned Shutdown Down default
+FourHundredGigE0/0/0/20 unassigned Shutdown Down default
+FourHundredGigE0/0/0/21 unassigned Shutdown Down default
+FourHundredGigE0/0/0/22 unassigned Shutdown Down default
+FourHundredGigE0/0/0/23 unassigned Shutdown Down default
+HundredGigE0/0/0/24 10.1.1.10 Up Up default
+HundredGigE0/0/0/25 unassigned Shutdown Down default
+HundredGigE0/0/0/26 unassigned Shutdown Down default
+HundredGigE0/0/0/27 unassigned Shutdown Down default
+HundredGigE0/0/0/28 unassigned Shutdown Down default
+HundredGigE0/0/0/29 unassigned Shutdown Down default
+HundredGigE0/0/0/30 unassigned Shutdown Down default
+HundredGigE0/0/0/31 unassigned Shutdown Down default
+HundredGigE0/0/0/32 unassigned Shutdown Down default
+HundredGigE0/0/0/33 unassigned Shutdown Down default
+HundredGigE0/0/0/34 unassigned Shutdown Down default
+HundredGigE0/0/0/35 unassigned Shutdown Down default
+MgmtEth0/RP0/CPU0/0 192.168.122.22 Up Up default
+</code></pre>
+                                          </section>
+                                       <section class="itemgroup info">
+                                          
+                                          <table class="olh_note" border="0" role="note">
+                                             <tr>
+                                                <td width="1%" class="td_faq" role="heading" border="0"><b>Note</b>&nbsp;
+                                                </td>
+                                                <td border="0" class="td_faq">
+                                                   <section class="note__content">
+                                                      
+                                                      <p class="p">Use the <span class="ph synph"><span class="keyword kwd">ip addr show</span> </span> or <span class="ph synph"><span class="keyword kwd">ip link show</span> </span> commands to view all corresponding interfaces in Linux. The IOS XR interfaces that are <code class="ph codeph">admin-down</code> state also reflects a <code class="ph codeph">Down</code> state in the Linux kernel.
+                                                      </p>
+                                                      
+                                                   </section>
+                                                </td>
+                                             </tr>
+                                          </table>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;3</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Check the IP and MAC addresses of the interface that is in <code class="ph codeph">Up</code> state. Here, interfaces <code class="ph codeph">HundredGigE0/0/0/24</code> and <code class="ph codeph">MgmtEth0/RP0/CPU0/0</code> are in the <code class="ph codeph">Up</code> state.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router# class="userinput"><b class="ph userinput">show interfaces HundredGigE0/0/0/24</b></kbd>
+...
+HundredGigE0/0/0/24 is up, line protocol is up
+Interface state transitions: 4
+Hardware is HundredGigE0/0/0/24, address is 5246.e8a3.3754 (bia
+5246.e8a3.3754)
+Internet address is 10.1.1.1/24
+MTU 1514 bytes, BW 1000000 Kbit (Max: 1000000 Kbit)
+reliability 255/255, txload 0/255, rxload 0/255
+Encapsulation ARPA,
+Duplex unknown, 1000Mb/s, link type is force-up
+output flow control is off, input flow control is off
+loopback not set, 
+Last link flapped 01:03:50
+ARP type ARPA, ARP timeout 04:00:00
+Last input 00:38:45, output 00:38:45
+Last clearing of "show interface" counters never
+5 minute input rate 0 bits/sec, 0 packets/sec
+5 minute output rate 0 bits/sec, 0 packets/sec
+12 packets input, 1260 bytes, 0 total input drops
+0 drops for unrecognized upper-level protocol
+Received 2 broadcast packets, 0 multicast packets
+0 runts, 0 giants, 0 throttles, 0 parity
+0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+12 packets output, 1224 bytes, 0 total output drops
+Output 1 broadcast packets, 0 multicast packets
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;4</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the bash command runs in global VRF to view the network interfaces.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#class="userinput"><b class="ph userinput">bash -c ifconfig</b></kbd> 
+<strong class="ph b">Hu0_0_0_24</strong> Link encap:Ethernet HWaddr 78:e7:e8:d3:20:c0
+inet addr:10.1.1.10 Bcast:0.0.0.0 Mask:255.255.255.0
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:360 (360.0 B) TX bytes:0 (0.0 B)
+<strong class="ph b">Mg0_RP0_CPU0_0</strong> Link encap:Ethernet HWaddr 54:00:00:00:bd:49
+inet addr:192.168.122.22 Bcast:0.0.0.0 Mask:255.255.255.0
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+RX packets:3859 errors:0 dropped:0 overruns:0 frame:0
+TX packets:1973 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:2377782 (2.2 MiB) TX bytes:593602 (579.6 KiB)
+<strong class="ph b">lo</strong> Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:242 errors:0 dropped:0 overruns:0 frame:0
+TX packets:242 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:12100 (11.8 KiB) TX bytes:12100 (11.8 KiB)
+<strong class="ph b">to_xr</strong> Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:1 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:60 (60.0 B)
+</code></pre>
+                                          </section>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">The <code class="ph codeph">to_xr</code> interface indicates access to the global VRF.
+                                          </p>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;5</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Access the Linux shell.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+[ios:~]$
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;6</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">(Optional) View the IP routes used by the <code class="ph codeph">to_xr</code> interfaces.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ip route</b></kbd>
+default dev to_xr scope link metric 2048
+6.1.0.0/16dev Mg0_RP0_CPU0_0 proto kernel scope link src 6.1.22.41
+20.1.0.0/16dev Hu0_0_0_0 proto kernel scope link src 20.1.1.1
+20.2.0.0/16dev Hu0_0_0_20 proto kernel scope link src 20.2.1.1
+30.1.0.0/24dev BE500 proto kernel scope link src 30.1.0.1
+172.17.0.0/16dev docker0 proto kernel scope link src 172.17.0.1linkdown
+</code></pre>
+                                          </section>
+
+
+
+
+
+
+                                       <section class="itemgroup info">
+                                          
+                                          <table class="olh_note" border="0" role="note">
+                                             <tr>
+                                                <td width="1%" class="td_faq" role="heading" border="0"><b>Note</b>&nbsp;
+                                                </td>
+                                                <td border="0" class="td_faq">
+                                                   <section class="note__content">
+                                                      
+                                                      <p class="p">You can also enter the global VRF directly after logging into IOS XR using the <span class="ph synph"><span class="keyword kwd">run ip netns exec vrf-default bash</span> </span> command.
+                                                      </p>
+                                                      
+                                            
+                                                </td>
+                                             </tr>
+                                          </table>
+                                          
+                             
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+               
+               
+                        <!-- minitoc start -->
+                  
+               
+
+       <h2 id="program">Program Routes in the Kernel</h2>
+                   
+                              
+                <p>The basic routes required to allow applications to send or receive traffic can be programmed into the kernel. The Linux network
+                                 stack that is part of the kernel is used by normal Linux applications to send/receive packets. In an IOS XR stack, IOS XR
+                                 acts as the network stack for the system. Therefore to allow the Linux network stack to connect into and use the IOS XR network
+                                 stack, basic routes must be programmed into the Linux Kernel.
+                              </p>
+                              
+            
+              
+                              <h3>Procedure</h3>
+           
+                           <hr noshade>
+	<table class="table table-striped table-bordered" border="1">
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd"> View the routes from the bash shell.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ip route</b></kbd>
+default dev to_xr scope link src 10.1.1.10 metric 2048
+10.1.1.0/24 dev Hu0_0_0_24 proto kernel scope link src 10.1.1.10
+192.168.122.0/24 dev Mg0_RP0_CPU0_0 proto kernel scope link src 192.168.122.22
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Programme the routes in the kernel.</p>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">Two types of routes can be programmed in the kernel:</p>
+                                          
+                                          <ul class="ul">
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">Default Route:</strong> The default route sends traffic destined to unknown subnets out of the kernel using a special <code class="ph codeph">to_xr</code> interface. This interface sends packets to IOS XR for routing using the routing state in XR Routing Information Base (RIB)
+                                                   or Forwarding Information Base (FIB). The <code class="ph codeph">to_xr</code> interface does not have an associated IP address. In Linux, most applications expect the outgoing packets to use the IP address
+                                                   of the outgoing interface as the source IP address.
+                                                </p>
+                                                
+                                                <p class="p">With the <code class="ph codeph">to_xr</code> interface, because there is no IP address, a source hint is required. The source hint can be changed to use the IP address
+                                                   another physical interface IP or loopback IP address. In the following example, the source hint is set to 10.1.1.10, which
+                                                   is the IP address of the Hu0_0_0_24 interface. To use the Management port IP address, change the source hint: 
+                                                </p>
+                                                <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+
+[ios:~]$  class="userinput"><b class="ph userinput">ip route replace default dev to_xr scope link src 192.168.122.22 metric 2048</b></kbd>
+
+[ios:~]$  class="userinput"><b class="ph userinput">ip route</b></kbd>
+default dev to_xr scope link src 192.168.122.22 metric 2048
+10.1.1.0/24 dev Hu0_0_0_24 proto kernel scope link src 10.1.1.10
+192.168.122.0/24 dev Mg0_RP0_CPU0_0 proto kernel scope link src 192.168.122.22
+</code></pre>
+                                                <p class="p">With this updated source hint, any default traffic exiting the system uses the Management port IP address as the source IP
+                                                   address.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">Local or Connected Routes:</strong> The routes are associated with the subnet configured on interfaces. For example, the 10.1.1.0/24 network is associated with
+                                                   the <code class="ph codeph">Hu0_0_0_24</code> interface, and the 192.168.122.0/24 subnet is associated with the <code class="ph codeph">Mg0_RP0_CPU0</code> interface .
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+                   
+                 
+                        <h2 id="vrf">Configure VRFs in the Kernel</h2>
+                   
+            
+                              
+                              <p>VRFs configured in IOS XR are automatically synchronized to the kernel. In the kernel, the VRFs appear as network namespaces
+                                 (netns). For every globally-configured VRF, a Linux network namespace is created. With this capability it is possible to isolate
+                                 Linux applications or processes into specific VRFs like an out-of-band management VRF and open-up sockets or send or receive
+                                 traffic only on interfaces in that VRF.
+                              </p>
+                              
+                              <p>Every VRF, when synchronized with the Linux kernel, is programmed as a network namespace with the same name as a VRF but with
+                                 the string <code class="ph codeph">vrf</code> prefixed to it. The default VRF in IOS XR has the name <code class="ph codeph">default</code>. This name gets programmed as <code class="ph codeph">vrf-default</code> in the Linux kernel.
+                              </p>
+                              
+                              <p class="p">The following example shows how to configure a custom VRF <code class="ph codeph">blue</code>:
+                              </p>
+              
+                              <h3>Procedure</h3>
+                  
+	<table class="table table-striped table-bordered" border="1">
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Identify the current network namespace or VRF.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ip netns identify $$</b></kbd>
+vrf-default
+global-vrf</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Configure a custom VRF <code class="ph codeph">blue</code>.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">conf t</b></kbd>
+
+Router(config)#  class="userinput"><b class="ph userinput">vrf blue</b></kbd>
+Router(config-vrf)#  class="userinput"><b class="ph userinput">commit</b></kbd>
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;3</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the VRF <code class="ph codeph">blue</code> is configured in IOS XR.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show run vrf</b></kbd>
+<strong class="ph b">vrf blue</strong>
+!
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;4</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the VRF <code class="ph codeph">blue</code> is created in the kernel.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+
+[ios:~]$  class="userinput"><b class="ph userinput">ls -l /var/run/netns</b></kbd>
+total 0
+-r--r--r--. 1 root root 0 Jul 30 04:17 default
+-r--r--r--. 1 root root 0 Jul 30 04:17 global-vrf
+-r--r--r--. 1 root root 0 Jul 30 04:17 tpnns
+<strong class="ph b">-r--r--r--. 1 root root 0 Aug 1 17:01 vrf-blue</strong>
+-r--r--r--. 1 root root 0 Jul 30 04:17 vrf-default
+-r--r--r--. 1 root root 0 Jul 30 04:17 xrnns
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;5</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Access VRF <code class="ph codeph">blue</code> to launch and execute processes from the new network namespace.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ip netns exec vrf-blue bash</b></kbd>
+[ios:~]$
+[ios:~]$  class="userinput"><b class="ph userinput">ip netns identify $$</b></kbd>
+vrf-blue
+[ios:~]$
+</code></pre>
+                                          </section>
+
+
+
+            
+
+                                       <section class="itemgroup info">
+                                          
+                                          <section class="p">Running an <span class="ph synph"><span class="keyword kwd">ifconfig</span> </span> command shows only the default <code class="ph codeph">to-xr</code> interface because there is no IOS XR interface in this VRF.<pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ifconfig</b></kbd>
+lo Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+<strong class="ph b">to_xr Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00</strong>
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+[ios:~]$
+</code></pre></section>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;6</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Configure an interface in the VRF <code class="ph codeph">blue</code> in IOS XR. This interface will be configured automatically in the network namespace <code class="ph codeph">vrf-blue</code> in the kernel.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>The following example shows how to configure HundredGigE 0/0/0/24 interface in <code class="ph codeph">vrf-blue</code> from IOS XR:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">conf t</b></kbd>
+Router(config)#  class="userinput"><b class="ph userinput">int HundredGigE 0/0/0/24</b></kbd>
+Router(config-if)#  class="userinput"><b class="ph userinput">no ipv4 address</b></kbd>
+Router(config-if)#  class="userinput"><b class="ph userinput">vrf blue</b></kbd>
+Router(config-if)#  class="userinput"><b class="ph userinput">ipv4 address 10.1.1.10/24</b></kbd>
+Router(config-if)#  class="userinput"><b class="ph userinput">commit</b></kbd></code></pre></section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;7</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the HundredGigE 0/0/0/24 interface is configured in the VRF <code class="ph codeph">blue</code> in IOS XR.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show run int HundredGigE 0/0/0/24</b></kbd>
+<strong class="ph b">interface HundredGigE0/0/0/24
+vrf blue
+ipv4 address 10.1.1.10 255.255.255.0</strong>
+!
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;8</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the interface is configured in the VRF <code class="ph codeph">blue</code> in the kernel.
+                                       </p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+Thu Aug 1 17:09:39.314 UTC
+[ios:~]$
+[ios:~]$  class="userinput"><b class="ph userinput">ip netns exec vrf-blue bash</b></kbd>
+[ios:~]$
+[ios:~]$  class="userinput"><b class="ph userinput">ifconfig</b></kbd><strong class="ph b">
+Hu0_0_0_24 Link encap:Ethernet HWaddr 78:e7:e8:d3:20:c0</strong>
+inet addr:10.1.1.10 Bcast:0.0.0.0 Mask:255.255.255.0
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+lo Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+to_xr Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+[ios:~]$
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+                     
+                     
+             
+                        <h2 id="linux">Open Linux Sockets</h2>
+                        <section class="body taskbody">
+                           <section class="section context" id="Cisco_Task_in_List_GUI.dita_43548920-930e-4cb5-963e-0c546ee1ffeb__d54e887">
+                              
+                              <p class="p">The socket entries are programmed into the Local Packet Transport Services (LPTS) infrastructure that distributes the information
+                                 through the line cards. Any packet received on a line card interface triggers an LPTS lookup to send the packet to the application
+                                 opening the socket. Because the required interfaces and routes already appear in the kernel, the applications can open the
+                                 sockets — TCP or UDP.
+                              </p>
+                              
+                           </section>
+                           <section class="tasklabel">
+                              <h3 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Procedure</h3>
+                           </section>
+                           <hr noshade>
+                           <table class="stepTable" border="0">
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that applications open up sockets.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+[ios:~]$<strong class="ph b">nc -l 0.0.0.0 -p 5000 &amp;</strong>
+[1] 1160
+[ios:~]$
+[ios:~]$  class="userinput"><b class="ph userinput">netstat -nlp</b></kbd>
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name
+<strong class="ph b">tcp 0 0 0.0.0.0:5000 0.0.0.0:* LISTEN 1160/nc</strong>
+tcp 0 0 0.0.0.0:57777 0.0.0.0:* LISTEN 14723/emsd
+tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN 8875/ssh_server
+tcp6 0 0 :::22 :::* LISTEN 8875/ssh_server
+udp 0 0 0.0.0.0:68 0.0.0.0:* 13235/xr_dhcpcd
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags Type State I-Node PID/Program name Path
+[ios:~]$  class="userinput"><b class="ph userinput">exit</b></kbd>
+Logout
+Router#
+Router#  class="userinput"><b class="ph userinput">show lpts pifib brief | i 5000</b></kbd>
+Thu Aug 1 17:16:00.938 UTC
+<strong class="ph b">IPv4 default TCP any 0/RP0/CPU0 any,5000 any</strong>
+Router#
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the socket is open.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show lpts pifib brief | i 5000</b></kbd>
+<strong class="ph b">IPv4 default TCP any 0/RP0/CPU0 any,5000 any</strong>
+</code></pre>
+                                          </section>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">Netcat starts listening on port 5000, which appears as an IPv4 TCP socket in the netstat output like a typical Linux kernel.
+                                             This socket gets programmed to LPTS, creating a corresponding entry in the hardware to the lookup tcp port 5000. The incoming
+                                             traffic is redirected to the kernel of the active RP where the netcat runs.
+                                          </p>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+                           <hr noshade>
+                  
+              
+                        <h2 id="traffic">Send and Receive Traffic</h2>
+                
+                           
+                           <p class="p">Connect to the nc socket from an external server. For example, the nc socket was started in the <code class="ph codeph">vrf-default</code> network namespace. So, connect over an interface that is in the same VRF.
+                           </p>
+                           <pre class="pre codeblock"><code>[root@localhost ~]#  class="userinput"><b class="ph userinput">nc -vz 192.168.122.22 5000</b></kbd>
+Ncat: Version 7.50 ( https://nmap.org/ncat )
+<strong class="ph b">Ncat: Connected to 192.168.122.22:5000.</strong>
+Ncat: 0 bytes sent, 0 bytes received in 0.01 seconds.
+</code></pre>
+                   
+         
+             
+                        <h2 id="manage">Manage IOS XR Interfaces through Linux</h3>
+                        <section class="body conbody">
+                           
+                           <p class="p">The Linux system contains a number of individual network namespaces. Each namespace contains a set of interfaces that map
+                              to a single interface in the XR control plane. These interfaces represent the exposed XR interfaces (eXI). By default, all
+                              interfaces in IOS XR are managed through the IOS XR configuration (CLI or YANG models), and the attributes of the interface
+                              (IP address, MTU, and state) are inherited from the corresponding configuration and the state of the interface in XR.
+                           </p>
+                           
+                           <p class="p">With the new Packet I/O functionality, it is possible to have an IOS XR interface completely managed by Linux. This also means
+                              that one or more of the interfaces can be configured to be managed by Linux, and standard automation tools can be used on
+                              Linux servers can be used to manage interfaces in IOS XR.
+                           </p>
+                           
+                        </section>
+
+
+
+
+
+                  
+                        <!-- minitoc start -->
+                  <p>To manage IOS XR interfaces through Linux:</p>
+                           <ul class="ullinks">
+                    <li class="link ulchildlink"><a href="#config1">Configure an Interface to be Linux-Managed</a></li>
+                    <li class="link ulchildlink"><a href="#config2">Configure New IP address on the Interface in Linux</a></li>
+                              <li class="link ulchildlink"><a href="#config3">Configure Custom MTU Setting</a></li>
+                           </ul>
+                        </nav>
+                        <!-- minitoc end -->
+           
+                           <h3 id="config1">Configure an Interface to be Linux-Managed</h3>
+                           <section class="body taskbody">
+                              <section class="section context" id="Cisco_Task_in_List_GUI.dita_fda35fc2-782f-4707-a47e-ded5888f476e__d54e1115">
+                                 
+                                 <p class="p">This section shows how to configure an interface to be Linux-managed.</p>
+                                 
+                              </section>
+                              <section class="tasklabel">
+                                 <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Procedure</h5>
+                              </section>
+                              <hr noshade>
+                              <table class="stepTable" border="0">
+                                 <tbody>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Check the available exposed-interfaces in the system.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             
+                                             <section class="p">
+                                                <pre class="pre codeblock"><code>Router(config)#  class="userinput"><b class="ph userinput">linux networking exposed-interfaces interface ?</b></kbd>
+  <span class="ph">BVI              Bridge-Group Virtual Interface</span>
+  Bundle-Ether     Aggregated Ethernet interface(s) | short name is BE
+  FiftyGigE        FiftyGigabitEthernet/IEEE 802.3 interface(s) | short name is Fi
+  FortyGigE        FortyGigabitEthernet/IEEE 802.3 interface(s) | short name is Fo
+  FourHundredGigE  FourHundredGigabitEthernet/IEEE 802.3 interface(s) | short name is FH
+  GigabitEthernet  GigabitEthernet/IEEE 802.3 interface(s) | short name is Gi
+  HundredGigE      HundredGigabitEthernet/IEEE 802.3 interface(s) | short name is Hu
+  Loopback         Loopback interface(s) | short name is Lo
+  MgmtEth          Ethernet/IEEE 802.3 interface(s) | short name is Mg
+  TenGigE          TenGigabitEthernet/IEEE 802.3 interface(s) | short name is Te
+  TwentyFiveGigE   TwentyFiveGigabitEthernet/IEEE 802.3 interface(s) | short name is TF
+  TwoHundredGigE   TwoHundredGigabitEthernet/IEEE 802.3 interface(s) | short name is TH</code></pre>
+                                                </section>
+                                             
+                                          </section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Configure the interface to be managed by Linux.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows how to configure a HundredGigE interface to be managed by Linux:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">configure</b></kbd>
+Router(config)#  class="userinput"><b class="ph userinput">linux networking exposed-interfaces interface HundredGigE 0/0/0/24 linux-managed</b></kbd>
+Router(config-exi-if)#  class="userinput"><b class="ph userinput">commit
+</b></kbd></code></pre></section>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows how to configure a BVI5 interface to be managed by Linux:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">configure</b></kbd>
+Router(config)#  class="userinput"><b class="ph userinput">linux networking exposed-interfaces interface BVI5 linux-managed</b></kbd>
+Router(config-exi-if)#  class="userinput"><b class="ph userinput">commit</b></kbd>
+</code></pre></section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;3</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">View the interface details and the VRF.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the information for HundredGigE interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show run interface HundredGigE0/0/0/24</b></kbd>
+interface HundredGigE0/0/0/24
+mtu 4110
+vrf blue
+ipv4 mtu 4096
+ipv4 address 10.1.1.10 255.255.255.0
+ipv6 mtu 4096
+ipv6 address fe80::7ae7:e8ff:fed3:20c0 link-local
+!
+</code></pre></section>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the information for BVI5 interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show run interface bvi5</b></kbd>
+interface bvi5
+mtu 1514
+ipv4 mtu 1500
+ipv4 address 90.9.9.9 255.255.255.0
+ipv6 mtu 1500
+ipv6 address fe80::4ee1:75ff:fe74:a80c link-local
+!</code></pre></section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;4</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Verify the configuration in XR.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the configuration for HundredGigE interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show running-config linux networking</b></kbd>
+<strong class="ph b">
+linux networking
+ exposed-interfaces
+  interface HundredGigE0/0/0/24 linux-managed
+  !
+ !
+!
+</strong></code></pre></section>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the configuration for BVI5 interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show running-config linux networking</b></kbd>
+<strong class="ph b">
+linux networking
+ exposed-interfaces
+  interface BVI5 linux-managed
+  !
+ !
+!
+</strong></code></pre></section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;5</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Verify the configuration from Linux.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the configuration for HundredGigE interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+Router:Aug 1 17:40:02.873 UTC: bash_cmd[67805]: %INFRA-INFRA_MSG-5-RUN_LOGIN : User vagrant logged into shell from vty0
+
+[ios:~]$  class="userinput"><b class="ph userinput">ip netns exec vrf-blue bash</b></kbd>
+
+[ios:~]$  class="userinput"><b class="ph userinput">ifconfig</b></kbd>
+lo Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+to_xr Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+
+[ios:~]$  class="userinput"><b class="ph userinput">ifconfig -a</b></kbd>
+<strong class="ph b">Hu0_0_0_24 Link encap:Ethernet HWaddr 78:e7:e8:d3:20:c0
+BROADCAST MULTICAST MTU:1500 Metric:1</strong>
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+lo Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+to_xr Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+</code></pre></section>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>The following example shows the configuration for BVI5 interface:<pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">bash</b></kbd>
+Router:Aug 1 17:40:02.873 UTC: bash_cmd[67805]: %INFRA-INFRA_MSG-5-RUN_LOGIN : User vagrant logged into shell from vty0
+
+[ios:~]$  class="userinput"><b class="ph userinput">ifconfig BVI5</b></kbd>
+lo Link encap:Local LoopbackBVI5 Link encap:Ethernet HWaddr 4c:e1:75:74:a8:0c
+BROADCAST MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+</code></pre></section>
+                                       </td>
+                                    </tr>
+                                    
+                                 </tbody>
+                              </table>
+                              <hr noshade>
+                           </section>
+                           <!-- minitoc start -->
+                    
+                           <!-- minitoc end -->
+                
+             
+                           <h3 id="config2">Configure New IP address on the Interface in Linux</h3>
+                           <section class="body taskbody">
+                              <section class="section context" id="Cisco_Task_in_List_GUI.dita_3b4e035c-97c6-4502-91fa-73ec9466ddf1__d54e1311">
+                                 
+                                 <p class="p">This section shows how to configure a new IP address on the Linux-managed interface.</p>
+                                 
+                              </section>
+                              <section class="tasklabel">
+                                 <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Procedure</h5>
+                              </section>
+                              <hr noshade>
+                              <table class="stepTable" border="0">
+                                 <tbody>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Configure the IP address on the interface.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ip addr add 10.1.1.10/24 dev Hu0_0_0_24</b></kbd>
+[ios:~]$Router:Aug 1 17:41:11.546 UTC: xlncd[253]: %MGBL-CONFIG-6-DB_COMMIT : Configuration
+committed by user 'system'. Use 'show configuration commit changes 1000000021' to view the changes.
+</code></pre>
+                                             </section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Verify that the new IP address is configured.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             <pre class="pre codeblock"><code>[ios:~]$ifconfig Hu0_0_0_24
+<strong class="ph b">Hu0_0_0_24</strong> Link encap:Ethernet HWaddr 78:e7:e8:d3:20:c0
+<strong class="ph b">inet addr:10.1.1.10 Bcast:0.0.0.0 Mask:255.255.255.0</strong>
+BROADCAST MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+</code></pre>
+                                             </section>
+                                       </td>
+                                    </tr>
+                                    
+                                 </tbody>
+                              </table>
+                              <hr noshade>
+                           </section>
+                           <!-- minitoc start -->
+                      
+                           <!-- minitoc end -->
+                
+                  
+                           <h3 id="config3">Configure Custom MTU Setting</h3>
+                           <section class="body taskbody">
+                              <section class="section context" id="Cisco_Task_in_List_GUI.dita_e412a801-91cc-4cd4-b243-a36e6054fc78__d54e1401">
+                                 
+                                 <p class="p">This section shows how to bring up the interface and configure a custom MTU in a Linux-managed interface.</p>
+                                 
+                              </section>
+                              <section class="tasklabel">
+                                 <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Procedure</h5>
+                              </section>
+                              <hr noshade>
+                              <table class="stepTable" border="0">
+                                 <tbody>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Configure the MTU setting.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ifconfig Hu0_0_0_24 up</b></kbd>
+
+[ios:~]$Router:Aug 1 17:41:54.824 UTC: ifmgr[266]: %PKT_INFRA-LINK-3-UPDOWN : Interface
+HundredGigE0/0/0/24, changed state to Down
+Router:Aug 1 17:41:54.824 UTC: ifmgr[266]: %PKT_INFRA-LINEPROTO-5-UPDOWN : Line protocol on
+Interface HundredGigE0/0/0/24, changed state to Down
+Router:Aug 1 17:41:56.448 UTC: xlncd[253]: %MGBL-CONFIG-6-DB_COMMIT : Configuration committed by
+user 'system'. Use 'show configuration commit changes 1000000022' to view the changes.
+Router:Aug 1 17:41:56.471 UTC: ifmgr[266]: %PKT_INFRA-LINK-3-UPDOWN : Interface
+HundredGigE0/0/0/24, changed state to Up
+Router:Aug 1 17:41:56.484 UTC: ifmgr[266]: %PKT_INFRA-LINEPROTO-5-UPDOWN : Line protocol on
+Interface HundredGigE0/0/0/24, changed state to Up
+Router:Aug 1 17:41:58.493 UTC: xlncd[253]: %MGBL-CONFIG-6-DB_COMMIT : Configuration committed by
+user 'system'. Use 'show configuration commit changes 1000000023' to view the changes.
+
+[ios:~]$
+[ios:~]$ <strong class="ph b">ip link set dev Hu0_0_0_24 mtu 4096</strong>
+[ios:~]$
+[ios:~]$Router:Aug 1 17:42:46.830 UTC: xlncd[253]: %MGBL-CONFIG-6-DB_COMMIT : Configuration
+committed by user 'system'. Use 'show configuration commit changes 1000000024' to view the changes.
+</code></pre>
+                                             </section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Verify that the MTU setting has been updated in Linux.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             <pre class="pre codeblock"><code>[ios:~]$  class="userinput"><b class="ph userinput">ifconfig</b></kbd>
+<strong class="ph b">Hu0_0_0_24</strong> Link encap:Ethernet HWaddr 78:e7:e8:d3:20:c0
+inet addr:10.1.1.10 Bcast:0.0.0.0 Mask:255.255.255.0
+inet6 addr: fe80::7ae7:e8ff:fed3:20c0/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST <strong class="ph b">MTU:4096</strong> Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:0 (0.0 B) TX bytes:648 (648.0 B)
+lo Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+inet6 addr: ::1/128 Scope:Host
+UP LOOPBACK RUNNING MTU:65536 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+to_xr Link encap:UNSPEC HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+UP POINTOPOINT RUNNING NOARP MULTICAST MTU:1500 Metric:1
+RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:500
+RX bytes:0 (0.0 B) TX bytes:0 (0.0 B)
+</code></pre>
+                                             </section>
+                                       </td>
+                                    </tr>
+                                    
+                                    <tr class="li step">
+                                       <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;3</b></td>
+                                       <td align="left" valign="top" border="0">
+                                          <p class="ph cmd">Check the effect on the IOS XR configuration with the change in MTU setting on this interface.</p>
+                                          <section class="itemgroup stepxmp">
+                                             <section class="tasklabel">
+                                                <h5 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h5>
+                                             </section>
+                                             <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show running-config int HundredGigE0/0/0/24</b></kbd>
+<strong class="ph b">interface HundredGigE0/0/0/24
+ mtu 4110
+  vrf blue
+  ipv4 mtu 4096
+  ipv4 address 10.1.1.10 255.255.255.0
+  ipv6 mtu 4096
+  ipv6 address fe80::7ae7:e8ff:fed3:20c0 link-local</strong>
+  !
+ !
+!
+Router#
+Router#  class="userinput"><b class="ph userinput">show ip int br | i HundredGigE0/0/0/24</b></kbd>
+<strong class="ph b">HundredGigE0/0/0/24 10.1.1.10 Up Up blue</strong>
+</code></pre>
+                                             </section>
+                                          <section class="itemgroup info">
+                                             
+                                             <p class="p">The output indicates that the interface acts as a regular Linux interface, and IOS XR configuration receives inputs from Linux.
+                                                
+                                             </p>
+                                             
+                                          </section>
+                                       </td>
+                                    </tr>
+                                    
+                                 </tbody>
+                              </table>
+                              <hr noshade>
+                           </section>
+                           <!-- minitoc start -->
+                    
+                           <!-- minitoc end -->
+                
+                        <h2 id="config">Configure Traffic Protection for Linux Networking</h3>
+                        <section class="body taskbody">
+                           <section class="section context" id="gwp_rzq_hnb__d54e1527">
+                              
+                              <p class="p">Traffic protection provides a mechanism to configure Linux firewalls using IOS XR configuration. These rules can be used to
+                                 restrict traffic to Linux applications. You can restrict traffic to Linux applications using native Linux firewalls or configuring
+                                 IOS XR Linux traffic protection. It is not recommended to use both mechanisms at the same time. Any combination of remote
+                                 address, local address and ingress interface can be specified as rules to either allow or deny traffic. However, at least
+                                 one parameter must be specified for the traffic protection rule to be valid.
+                              </p>
+                              
+                              <table class="olh_note" border="0" role="note">
+                                 <tr>
+                                    <td width="1%" class="olh_note" role="heading" border="0"><img src="https://www.cisco.com/content/dam/en/us/td/i/templates/note.gif"><br><b>Note</b></td>
+                                    <td border="0" class="olh_note">
+                                       <section class="note__content">
+                                          <hr>
+                                          
+                                          <p class="p">If traffic is received on a protocol or port combination that has no traffic protection rules configured, then all traffic
+                                             is allowed by default.
+                                          </p>
+                                          
+                                          <hr>
+                                       </section>
+                                    </td>
+                                 </tr>
+                              </table>
+                              
+                              <p class="p">This example explains how to configure a traffic protection rule on IOS XR to deny all traffic on port 999 except for traffic
+                                 arriving on interface HundredGigE0/0/0/25.
+                              </p>
+                              
+                           </section>
+                           <section class="tasklabel">
+                              <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Procedure</h4>
+                           </section>
+                           <hr noshade>
+                           <table class="stepTable" border="0">
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Configure traffic protection rules.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router(config)#  class="userinput"><b class="ph userinput">linux networking vrf default address-family ipv4 protection protocol 
+tcp local-port 999 default-action deny permit hundredgigE0/0/0/25</b></kbd>
+Router(config)#  class="userinput"><b class="ph userinput">commit
+</b></kbd></code></pre>
+                                          </section>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">where —</p>
+                                          
+                                          <ul class="ul">
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">address-family:</strong> Configuration for a particular IPv4 or IPv6 address family.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">protection:</strong> Configure traffic protection for Linux networking.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">protocol:</strong> Select the supported protocol - TCP or UDP.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">local-port:</strong> L4 port number to specify traffic protection rules for Linux networking.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">port number:</strong> Port number ranges from 1 to 65535 or all ports.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">default-action:</strong> Default action to take for packets matching this traffic protection service.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">deny:</strong> Drop packets for this service.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">permit:</strong> Permit packets to reach Linux application for this service.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the traffic protection rule is applied successfully.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router(config)#  class="userinput"><b class="ph userinput">show run linux networking</b></kbd>
+linux networking
+ vrf default
+  address-family ipv4
+   protection
+    protocol tcp local-port 999 default-action deny
+     permit interface HundredGigE0/0/0/25
+     !
+    !
+   !
+ !
+</code></pre>
+                                          </section>
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+                           <hr noshade>
+                        </section>
+                        <!-- minitoc start -->
+                        <!-- minitoc end -->
+                 
+                        <h2 id="synch">Synchronize Statistics Between IOS XR and Linux</h3>
+                        <section class="body taskbody">
+                           <section class="section context" id="Cisco_Task_in_List_GUI.dita_cb5a039f-1ab6-41a2-b9b0-488f278ec7d0__d54e1691">
+                              
+                              <p class="p">This example shows how the bundle-ether interface packet statistics are synchronized between IOS XR and Linux. The packet
+                                 and byte counters maintained by Linux for IOS XR interfaces display only the traffic sourced in Linux. You can configure to
+                                 periodically synchronize these counters with the IOS XR statistics for the interfaces.
+                              </p>
+                              
+                           </section>
+                           <section class="tasklabel">
+                              <h3>Procedure</h3>
+                           </section>
+                           <hr noshade>
+                           <table class="stepTable" border="0">
+                              <tbody>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;1</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Configure the statistics synchronization including the direction and synchronization interval.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>The following example shows statistics synchronization in global configuration:<pre class="pre codeblock"><code>Router(config)#  class="userinput"><b class="ph userinput">linux networking statistics-synchronization from-xr 
+every 30s</b></kbd>
+</code></pre></section>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>The following example shows statistics synchronization in exposed-interface configuration:<pre class="pre codeblock"><code>Router(config)#  class="userinput"><b class="ph userinput">linux networking exposed-interfaces interface 
+bundle-ether 1 statistics-synchronization from-xr every 10s</b></kbd>
+</code></pre></section>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">where —</p>
+                                          
+                                          <ul class="ul">
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">from-xr:</strong> The direction indicating that the interface packet statistics will be pushed from IOS XR to the Linux kernel.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                             <li class="li">
+                                                
+                                                <p class="p"><strong class="ph b">every:</strong> Shows the frequency at which to synchronize statistics. The intervals supported for global configuration are 30s and 60s.
+                                                   The intervals supported for exposed interfaces are 5s, 10s, 30s or 60s. The interval <code class="ph codeph">s</code> is in seconds.
+                                                </p>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                                 <tr class="li step">
+                                    <td align="left" valign="top" border="0" width="10%"><b>Step&nbsp;2</b></td>
+                                    <td align="left" valign="top" border="0">
+                                       <p class="ph cmd">Verify that the statistics synchronization is applied successfully on IOS XR.</p>
+                                       <section class="itemgroup stepxmp">
+                                          <section class="tasklabel">
+                                             <h4 font-weight="bold" class="sectiontitle tasklabel cB_Bold">Example:</h4>
+                                          </section>
+                                          <pre class="pre codeblock"><code>Router#  class="userinput"><b class="ph userinput">show run linux networking</b></kbd> 
+linux networking
+ vrf default
+  address-family ipv4
+   protection
+   protocol tcp local-port all default-action deny 
+    permit interface bundle-ether 1  
+    !
+   !
+  ! 
+ !
+exposed-interfaces
+ interface bundle-ether 1 linux-managed
+  statistics-synchronization from-xr every 10s
+  !
+ !
+!
+</code></pre>
+                                          </section>
+                                       <section class="itemgroup info">
+                                          
+                                          <p class="p">For troubleshooting purposes, use the <span class="ph synph"><span class="keyword kwd">show tech-support linux networking</span> </span> command to display debugging information.
+                                          </p>
+                                          
+                                       </section>
+                                    </td>
+                                 </tr>
+                                 
+                              </tbody>
+                           </table>
+                           <hr noshade>
+                        </section>
+                        <!-- minitoc start -->
+                 
+                        <!-- minitoc end -->
+               
+
+
+
+
+
+
+

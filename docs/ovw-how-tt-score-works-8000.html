@@ -1,0 +1,27 @@
+---
+layout: default
+title: Hosting an Application in Docker Containers
+---
+
+<p>This section provides the procedure for hosting an application in docker containers.
+
+<p>The iPerf application is used as an example to demonstrate the hosting at a server and a client router.
+
+<p>Verify Reachability of IOS XR and Packet I/O Infrastructure on the router that hosts the iPerf application. You can enable the following Packet I/O functionalities on the server and client routers prior to hosting the iPerf application in docker containers, for additional features on the routers:
+<ul>
+	<li>
+Program Routes in the Kernel—to send or receive traffic to a remote network using a specific interface.
+<li>
+Configure VRFs in the Kernel—to run the iperf application in a non-default VRF.
+<li>
+Configure Traffic Protection for Linux Networking—to secure the router by restricting access to the router on which the iperf application is hosted.</li>
+</ul>
+
+<p>You can build the docker image of the application following the standard docker build procedures. The docker image of any application (for example, iPerf) is built only once, after which, that docker image can be copied to other devices where the application can be hosted in docker containers.</p>
+
+<a href="#docker">Docker Operations</a>
+<br>
+<a href="proc">Procedure for Hosting Applications in Docker Containers</a>
+</br>
+
+<h2 id="docker">Docker Operations</a>

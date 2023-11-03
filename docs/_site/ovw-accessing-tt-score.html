@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Configuring MPLS | TT Score Help and Tutorials</title>
+      <title>Accessing TT Score | TT Score Help and Tutorials</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -43,8 +43,8 @@
       <div class="navbar-inner">
         <ul class="nav nav-tabs" role="tablist">
           
-          <li><a class="ttdoc-main-nav__brand" target="_blank" href="https://www.tradingtechnologies.com/">Trading Technologies Help Library</a>
-          </li>
+        <!--  <li><a target="_blank" href="https://content.cisco.com/welcome.html/">Cisco Tech Help Library</a>
+          </li> -->
         </ul>
         <ul class="main-nav__secondary">
           <li>
@@ -74,7 +74,7 @@
 
 <div class="ttdoc-hero row ttdoc-article-hero">
   <div class="vert-wrapper">
-    <h1 class="ttdoc-hero-headline">TT Score</h1>
+    <h1 class="ttdoc-hero-headline">Security Configuration for Cisco Catalyst 9400 Switches</h1>
     
   </div>
 </div> 
@@ -82,14 +82,16 @@
 <div class="breadcrumb ttdoc-breadcrumb">
 <ul>
 	<!-- Library Home link -->
-    <li><a href="../tthelp.html">Help Library</a></li><!--Library home - displays platforms-->
+    <li><a href="https://content.cisco.com/welcome.html">Catalyst Security</a></li><!--Library home - displays platforms-->
     
 	    <!-- ADL Home link -->
 	    
-	    	<li><a href="index.html">TT Score</a></li>
+	    	<li><a href="https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/cisco8000/application-hosting/b-application-hosting-cg-cisco8000/m-preface-ah-cg.html.xml&platform=Cisco%208000%20Series%20Routers&release=All">Configuration</a></li>
 			
+
+	    	<li><a href="https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/cisco8000/application-hosting/b-application-hosting-cg-cisco8000/m-preface-ah-cg.html.xml&platform=Cisco%208000%20Series%20Routers&release=All">Configuring IPsec</a></li>
 			 	
-			 		<li class="active">Configuring MPLS</li>
+			 		<li class="active">Accessing TT Score</li>
 			 	
 		
 </ul>
@@ -115,9 +117,8 @@
   
   
   
-
-    <a href="#overview" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Overview</a>
-    <div class="collapse in nav-indiv-article" id="overview">
+    <a href="#overview" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>IPsec on Catalyst 9400</a>
+    <div class="collapse nav-indiv-article" id="overview">
   
 
   
@@ -126,7 +127,7 @@
       
       
 
-          <a href="ovw-introduction-c.html" class="list-group-item list-group-subitem">MPLS Introduction</a>
+          <a href="ovw-ipsec-overview.html" class="list-group-item list-group-subitem">IPsec Overview</a>
                         
       
 
@@ -137,7 +138,7 @@
       
       
 
-          <a href="ovw-how-tt-score-works-c.html" class="list-group-item list-group-subitem">How MPLS Works</a>
+          <a href="ovw-ipsec-restrictions-on-catalyst-9400.html" class="list-group-item list-group-subitem">IPsec Restrictions on Catalyst 9400</a>
                         
       
 
@@ -146,21 +147,23 @@
     
     
       
-       <!-- in source YML header, should also match the filename/url -->
+      
 
-          <a href class="active list-group-item list-group-subitem">Configuring MPLS</a>
-                    
-        
+          <a href="ovw-how-ipsec-works.html" class="list-group-item list-group-subitem">How IPsec Works</a>
+                        
+      
 
     
   
     
     
-  
-    
-    
-  
-    
+      
+      
+
+          <a href="ovw-ipsec-anti-replay-window.html" class="list-group-item list-group-subitem">IPsec Anti-Replay Window</a>
+                        
+      
+
     
   
     
@@ -232,7 +235,7 @@
   
   
   
-    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Using MPLS</a>
+    <a href="#using-tt-score" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Internet Key Exchange Version 2</a>
     <div class="collapse nav-indiv-article" id="using-tt-score">
   
 
@@ -248,10 +251,13 @@
   
     
     
+  
+    
+    
       
       
 
-          <a href="us-using-overview.html" class="list-group-item list-group-subitem">Workflow Summary</a>
+          <a href="us-ikev2-overview.html" class="list-group-item list-group-subitem">IKEv2 Overview</a>
                         
       
 
@@ -262,7 +268,7 @@
       
       
 
-          <a href="us-selecting-data.html" class="list-group-item list-group-subitem">Selecting Data</a>
+          <a href="us-ikev2-supported-standards.html" class="list-group-item list-group-subitem">IKEv2 Supported Standards</a>
                         
       
 
@@ -273,7 +279,7 @@
       
       
 
-          <a href="us-analyzing-data.html" class="list-group-item list-group-subitem">Analyzing trading activity using data visualizations</a>
+          <a href="us-about-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Internet Key Exchange Version 2 CLI Constructs</a>
                         
       
 
@@ -284,7 +290,7 @@
       
       
 
-          <a href="us-reporting-recording-findings.html" class="list-group-item list-group-subitem">Recording reviews and opening investigations</a>
+          <a href="us-ikev2-smart-defaults.html" class="list-group-item list-group-subitem">IKEv2 Smart Defaults</a>
                         
       
 
@@ -295,27 +301,10 @@
       
       
 
-          <a href="us-creating-custom-alerts-in-tt-score.html" class="list-group-item list-group-subitem">Creating custom alerts in TT Score</a>
+          <a href="us-ikev2-suite-b-support.html" class="list-group-item list-group-subitem">IKEv2 Suite-B Support</a>
                         
       
 
-    
-  
-    
-    
-      
-      
-
-          <a href="us-generating-reports-in-tt-score.html" class="list-group-item list-group-subitem">Generating Reports in TT Score</a>
-                        
-      
-
-    
-  
-    
-    
-  
-    
     
   
     
@@ -372,7 +361,7 @@
   
   
   
-    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Configuration Examples</a>
+    <a href="#views" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>IPsec Virtual Tunnel Interfaces</a>
     <div class="collapse nav-indiv-article" id="views">
   
 
@@ -409,7 +398,7 @@
       
       
 
-          <a href="glv-group-view-outlier-chart.html" class="list-group-item list-group-subitem">Cluster Group View - Outlier Chart</a>
+          <a href="glv-ipsec-virtual-tunnel-interfaces-overview.html" class="list-group-item list-group-subitem">IPsec Virtual Tunnel Interfaces Overview</a>
                         
       
 
@@ -420,7 +409,7 @@
       
       
 
-          <a href="glv-group-view-heat-map.html" class="list-group-item list-group-subitem">Cluster Group View - Heat Map</a>
+          <a href="glv-static-virtual-tunnel-interfaces.html" class="list-group-item list-group-subitem">Static Virtual Tunnel Interfaces</a>
                         
       
 
@@ -431,7 +420,7 @@
       
       
 
-          <a href="glv-daily-cluster-group.html" class="list-group-item list-group-subitem">Cluster Group View - Daily Cluster Groups</a>
+          <a href="glv-routing-with-ipsec-virtual-tunnel-interfaces.html" class="list-group-item list-group-subitem">Routing with IPsec Virtual Tunnel Interfaces</a>
                         
       
 
@@ -442,29 +431,7 @@
       
       
 
-          <a href="glv-list-view.html" class="list-group-item list-group-subitem">Cluster List View</a>
-                        
-      
-
-    
-  
-    
-    
-      
-      
-
-          <a href="cv-cluster-view-cluster-scorecard.html" class="list-group-item list-group-subitem">Cluster Scorecard</a>
-                        
-      
-
-    
-  
-    
-    
-      
-      
-
-          <a href="cv-identifying-problematic-activity.html" class="list-group-item list-group-subitem">Reviewing Clusters Using Cluster Views</a>
+          <a href="glv-traffic-encryption-with-the-aIPsec-virtual-tunnel-interface.html" class="list-group-item list-group-subitem">Traffic Encryption with the IPsec Virtual Tunnel Interface</a>
                         
       
 
@@ -512,7 +479,7 @@
   
   
   
-    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Use Cases</a>
+    <a href="#problematic-trading-models" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Configuring IPsec on Catalyst 9400</a>
     <div class="collapse nav-indiv-article" id="problematic-trading-models">
   
 
@@ -558,16 +525,10 @@
   
     
     
-  
-    
-    
-  
-    
-    
       
       
 
-          <a href="inv-abusive-messaging.html" class="list-group-item list-group-subitem">Abusive Messaging</a>
+          <a href="inv-how-to-configure-ipsec.html" class="list-group-item list-group-subitem">How to Configure IPsec</a>
                         
       
 
@@ -578,7 +539,7 @@
       
       
 
-          <a href="inv-cross-trading.html" class="list-group-item list-group-subitem">Cross Trading</a>
+          <a href="inv-configuring-static-ipsec-virtual-tunnel-interfaces.html" class="list-group-item list-group-subitem">Configuring Static IPsec Virtual Tunnel Interfaces</a>
                         
       
 
@@ -589,7 +550,7 @@
       
       
 
-          <a href="inv-exchange-messaging-rate-limit.html" class="list-group-item list-group-subitem">Exchange Messaging Rate Limit</a>
+          <a href="inv-configuring-ipsec-on-the-distributed-gateway-example.html" class="list-group-item list-group-subitem">Configuring IPsec on the Distributed Gateway Example</a>
                         
       
 
@@ -600,7 +561,7 @@
       
       
 
-          <a href="inv-marking-the-close.html" class="list-group-item list-group-subitem">Marking the Close</a>
+          <a href="inv-verifying-results-for-the-ipsec-static-virtual-tunnel-interface-example.html" class="list-group-item list-group-subitem">Verifying Results for the IPsec Static Virtual Tunnel Interface Example</a>
                         
       
 
@@ -611,7 +572,7 @@
       
       
 
-          <a href="inv-momentum-ignition.html" class="list-group-item list-group-subitem">Momentum Ignition</a>
+          <a href="inv-global-expanding-and-disabling-an-anti-replay-window-example.html" class="list-group-item list-group-subitem">Global Expanding and Disabling an Anti-Replay Window Example</a>
                         
       
 
@@ -619,68 +580,20 @@
   
     
     
-      
-      
-
-          <a href="inv-pinging.html" class="list-group-item list-group-subitem">Pinging</a>
-                        
-      
-
+  
+    
     
   
     
     
-      
-      
-
-          <a href="inv-spoofing.html" class="list-group-item list-group-subitem">Spoofing</a>
-                        
-      
-
+  
+    
     
   
     
     
-      
-      
-
-          <a href="inv-automated-spoofing.html" class="list-group-item list-group-subitem">Automated Spoofing</a>
-                        
-      
-
-    
   
     
-    
-      
-      
-
-          <a href="inv-collusive-spoofing.html" class="list-group-item list-group-subitem">Collusive Spoofing</a>
-                        
-      
-
-    
-  
-    
-    
-      
-      
-
-          <a href="inv-automated-collusive-spoofing.html" class="list-group-item list-group-subitem">Automated Collusive Spoofing</a>
-                        
-      
-
-    
-  
-    
-    
-      
-      
-
-          <a href="inv-wash-trading.html" class="list-group-item list-group-subitem">Wash Trading</a>
-                        
-      
-
     
   
     
@@ -692,7 +605,7 @@
   
   
   
-    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>MPLS Reference</a>
+    <a href="#reference" class="list-group-item list-group-item-success collapsed" data-toggle="collapse" data-parent="#ttdoc-maincontent-row"><div class="arrow-right"></div>Configuring Internet Key Exchange Version 2</a>
     <div class="collapse nav-indiv-article" id="reference">
   
 
@@ -753,26 +666,13 @@
   
     
     
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
+      
+      
+
+          <a href="imp-how-to-configure-internet-key-exchange-version-2.html" class="list-group-item list-group-subitem">How to Configure Internet Key Exchange Version 2</a>
+                        
+      
+
     
   
     
@@ -780,7 +680,62 @@
       
       
 
-          <a href="imp-import.html" class="list-group-item list-group-subitem">Importing data using TT FIX</a>
+          <a href="imp-internet-key-exchange-version-2-configuration-examples.html" class="list-group-item list-group-subitem">Internet Key Exchange Version 2 Configuration Examples</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-basic-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Configuring Basic Internet Key Exchange Version 2 CLI Constructs</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-basic-internet-key-exchange-version-2-cli-constructs-configuration-examples.html" class="list-group-item list-group-subitem">Basic Internet Key Exchange Version 2 CLI Constructs Configuration Examples</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-ikev2-key-ring-example.html" class="list-group-item list-group-subitem">Configuring IKEv2 Key Ring Example</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-configuring-advanced-internet-key-exchange-version-2-cli-constructs.html" class="list-group-item list-group-subitem">Configuring Advanced Internet Key Exchange Version 2 CLI Constructs</a>
+                        
+      
+
+    
+  
+    
+    
+      
+      
+
+          <a href="imp-advanced-internet-key-exchange-version-2-cli-constructs-configuration-examples.html" class="list-group-item list-group-subitem">Advanced Internet Key Exchange Version 2 CLI Constructs Configuration Examples</a>
                         
       
 
@@ -803,10 +758,10 @@
     <div class="ttdoc-article-wrapper" id="fullarticle"> 
        
       <div class="ttdoc-widget-title-mobile">
-        <span>Configuring MPLS</span>
+        <span>Accessing TT Score</span>
       </div>
 
-      <h1>Configuring MPLS</h1>
+      <h1>Accessing TT Score</h1>
 
           
       
@@ -816,26 +771,49 @@
 
  
 
-IP-Less MPLS-TP Ping and MPLS-TP Traceroute
-In Label Switched Path (LSP) ping or traceroute with IP encapsulation over ACH, IP encapsulated ping or traceroute packets are sent over the MPLS LSP using the control channel (ACH). The application-level control channel in this case is the reverse path of the LSP using ACH. The on-demand ping or traceroute echo response message is sent on the reverse path of the LSP. The response uses ACH and is IP encapsulated. The destination address in the IP header is set to that of the sender of the echo request message, and the source address in the IP header is set to a valid address of the replying node.
+<!--<p>Before you begin using TT&reg; Score, contact your Customer Success representative to activate TT Score for your company. Trading Technologies will also work with you to complete any steps needed to make your data available to be analyzed.</p>
+
+<p>After you're allowed access and the steps are completed, a TT Onboarding Manager will contact you to enable permissions in your company to run TT Score. Permissions are enabled using the Setup application on TT.</p>
+
+<p>If you need permissions to enable these settings in Setup, please contact your company administrator.</p>-->
+
+<p>TT Score provides you the ability to analyze your own trading activity for potential regulatory concerns. Users can also be given administrator-level permissions to view the activity of all users on the accounts to which they have access or all users across an entire company.</p> 
+
+<h2>Logging in to TT Score</h2>
+<p>To log in to the TT Score from any <a href="https://library.tradingtechnologies.com/trade/ttw-tt-platform-requirements.html">supported browser</a></p>
+
+<ul>
+  <li>
+  	Go to <a href="https://trade.tt">https://trade.tt</a> and <a href="https://library.tradingtechnologies.com/trade/ttw-logging-in-to-tradett.html">log in</a> with your TT Account credentials.
+  </li>
+  <li>
+  	In the TT title bar, click <strong>Score</strong>.
+  	<p></p>
+  	The TT Score page opens.
+
+  	<p><img class="img-responsive" src="Content/score-dashboard.png"/></p>
+
+  </li>
+  <li>
+  	Start by <a href="us-selecting-data.html">selecting data</a>.
+  </li>
+</ul>
 
 
-the reply mode is 4
+<h2 id="admin">Administrator and User Permissions</h2>
+<p>In Setup, there are <a href="https://library.tradingtechnologies.com/user-setup/us-adding-a-new-user.html" target="_blank">administrator-level and user-level permission settings</a> on the <b>Users</b> | <b>Settings</b> tab:<p>
 
-the node does not have a return MPLS LSP path to the echo request source.
+<ul>
+    <li><strong>TT SCORE Admin</strong> &mdash; Allows an administrator to run TT Score for all accounts in their company. Check to enable this option, which can only be checked if <strong>TT SCORE Account Admin</strong> is unchecked. This setting cannot be modified until Customer Success has activated TT Score for your company.<p>
+             </li>
 
-<h2>MPLS LSP Ping</h2>
-<p>
-The MPLS LSP Ping feature is used to check the connectivity between Ingress LSR and egress LSRs along an LSP. MPLS LSP ping uses MPLS echo request and reply messages, similar to Internet Control Message Protocol (ICMP) echo request and reply messages, to validate an LSP. While ICMP echo request and reply messages validate IP networks, MPLS echo and reply messages validate MPLS networks. The MPLS echo request packet is sent to a target router through the use of the appropriate label stack associated with the LSP to be validated. Use of the label stack causes the packet to be forwarded over the LSP itself. The destination IP address of the MPLS echo request packet is different from the address used to select the label stack. The destination IP address is defined as a 127.x.y.z/8 address and it prevents the IP packet from being IP switched to its destination, if the LSP is broken.</p>
+            <li><strong>TT SCORE Account Admin</strong> &mdash; Allows an administrator to run TT Score for their own accounts only. Check to enable this option, which can only be checked if <strong>TT SCORE Admin</strong> is unchecked. This setting cannot be modified until Customer Success has activated TT Score for your company.
+              </li>
 
-<p>An MPLS echo reply is sent in response to an MPLS echo request. The reply is sent as an IP packet and it is forwarded using IP, MPLS, or a combination of both types of switching. The source address of the MPLS echo reply packet is an address obtained from the router generating the echo reply. The destination address is the source address of the router that originated the MPLS echo request packet. The MPLS echo reply destination port is set to the echo request source port.</p>
+       <li><strong>TT SCORE User</strong> &mdash; Allows an individual user to run TT Score for their own accounts. Check to enable this option.
+              </li>
 
-<p>The following figure shows MPLS LSP ping echo request and echo reply paths.</p>
-
-<p>Figure 1. MPLS LSP Ping Echo Request and Reply Paths</p>
-  <p><img class="img-responsive" src="Content/cisco-mpls.jpg"></p>
-
-<p>By default, the ping mpls ipv4 command tries to determine the Forwarding Equivalence Class (FEC) being used automatically. However, this is only applicable at head-end and works only if the FEC at the destination is same as the source. If the source and destination FEC types are not the same, the ping mpls ipv4 command may fail to identify the targeted FEC type. You can overcome this limitation by specifying the FEC type in MPLS LSP ping using the fec-type command option. If the user is not sure about the FEC type at the transit or the destination, or it may change through network, use of the generic FEC type command option is recommended. Generic FEC is not coupled to a particular control plane and allows path verification when the advertising protocol is unknown, or may change during the path of the echo request. If you are aware of the destination FEC type, specify the target FEC as BGP or LDP.</p>
+</ul>
 
 
 	</div> <!--- /fullarticle ttdoc-article-wrapper-->
@@ -851,12 +829,12 @@ The MPLS LSP Ping feature is used to check the connectivity between Ingress LSR 
 	<div class="ttdoc-lower-nav row">
 		<div class="lower-nav-left col-sm-5 col-md-4 col-lg-4">
 			
-			<a href="ovw-how-tt-score-works-c.html">
+			<a href=".html">
 				<div class="lower-nav-arrow-left">
 				</div>
 				<div class="lower-nav-text">
 					<h1>Previous:</h1>
-	  				<h2>How MPLS Works</h2>
+	  				<h2></h2>
 				</div>
 			</a>
 			
@@ -864,15 +842,6 @@ The MPLS LSP Ping feature is used to check the connectivity between Ingress LSR 
 		<div class="col-sm-2 col-md-4 col-lg-4">
 		</div>
 		<div class="lower-nav-right col-sm-5 col-md-4 col-lg-4">
-			
-			<a href="us-using-overview.html">
-				<div class="lower-nav-arrow-right">
-				</div>
-				<div class="lower-nav-text">
-					<h1>Next:</h1>
-					<h2>Workflow Summary</h2> 
-				</div>
-			</a>
 			
 		</div>  
 	</div>  <!-- /.ttdoc-lower-nav row-->
@@ -929,7 +898,7 @@ The MPLS LSP Ping feature is used to check the connectivity between Ingress LSR 
           </div>
            
            
-          <p class="footer__copyright">Copyright © 2022 Trading Technologies International, Inc. All rights reserved.</p>
+          <p class="footer__copyright">Copyright © 2023 Trading Technologies International, Inc. All rights reserved.</p>
         </div>
       </div>
     </div>

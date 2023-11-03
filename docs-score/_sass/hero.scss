@@ -1,0 +1,70 @@
+.ttdoc-hero {
+	width:100%;
+	background-position: center center;
+	height:200px;
+	margin: 0;
+}
+
+.ttdoc-article-hero {
+	background: url(../images/article-hero.png) no-repeat center center $bright-blue;
+ 
+ 	.vert-wrapper {
+    	top: 50%;
+
+	 	.ttdoc-hero-headline {
+	 		color: $white;
+	 		padding: 0;
+	 		padding-top: 56px;
+	 		text-align: center;
+		    text-transform: uppercase;
+		    font: 50px/56px "Avenir Next Pro Condensed", Arial, Helvetica Neue, Helvetica, sans-serif;
+		    letter-spacing: 2px;
+	 	}
+		
+		@media(min-width: 768px) and (max-width: 900px) {
+	 		.ttdoc-hero-headline {
+	 			padding-top:28px;
+	 		}
+	 	}
+
+	 	@media(min-width: 651px) and (max-width: 767px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:45px;
+	 			padding-top:31px;
+	 		}
+	 	}
+
+	 	@media(min-width: 551px) and (max-width: 650px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:38px;
+	 			padding-top:31px;
+	 		}
+	 	}
+
+	 	@media(max-width: 550px) {
+	 		.ttdoc-hero-headline {
+	 			font-size:32px;
+	 			padding-top:5px;
+	 		}
+	 	}
+
+	 	.ttdoc-hero-subheadline {
+	 		color: $white;
+	 		font-family: "Avenir Next Pro", Arial, Helvetica Neue, Helvetica, sans-serif;
+	 		padding: 0 40px;
+	 		text-align: center;
+	 	}
+	}
+}
+
+@media (max-width: 900px) {
+	.ttdoc-hero {
+		height:150px;
+	}
+}
+
+@media (max-width: 550px) {
+	.ttdoc-hero {
+		height:100px;
+	}
+}

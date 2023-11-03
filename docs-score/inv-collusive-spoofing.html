@@ -1,0 +1,138 @@
+---
+layout: default
+title: Collusive Spoofing
+---
+
+
+<p>Collusive spoofing represents an attempt by two or more traders to deceive the market into thinking that an instrument has more interest, liquidity, or depth. Multiple traders will play different roles in generating and profiting from spoofing the market. For example, one trader will work together with another trader by submitting large orders on one side for the purpose of having the other trader execute smaller orders on the opposite side. Once the intended orders are filled, the larger orders are canceled. </p>
+
+
+
+
+
+<h2>Collusive spoofing patterns</h2>
+<p>TT Score detects a variety of collective spoofing patterns, including:</p>
+<ul>
+
+  <li>
+  	Spoofing with layering: A trader places a small order on the intent side of the market and orders at multiple price levels on the spoof side of the market. These spoof-side orders are designed to create a false impression of liquidity so that other participants execute against the smaller intent-side order. Once filled, all spoof-side orders are canceled or modified to avoid execution.
+  </li>
+
+  <li>
+  	Collapsing of layers: A trader tries to create a false appearance of large volume by circumventing pre-trade individual order size limits. The trader places a small order on the intent side and several small orders at a variety of price levels on the spoof side. The small individual spoof-side orders are then modified to the same price level to imply more volume at that price level.
+  </li>
+  <li>
+  	Flipping: A trader places orders on one side of the market with the intent ot switch, or flip, to the other side of the market. In this pattern, a trader places a large spoof-side order at or near one side of the inside market to create a false impression of market depth, knowing that the other traders will place orders on the same side at the same price point. Then the trader simultaneous cancels the spoof-side orders and flips the order from buy to sell (or vice versa) to execute against the other participants.
+  </li>
+  <li>
+  	Spread squeezing: This spoofing pattern is unique to instruments with spreads that are multi-tick wide. A trader places order on the spoof-side at successively higher or lower prices with the spread to squeeze it one direction. Working together with other traders, these market participants join or beat the newly established top of book. The trader then switches sides and executes against those participants. After execution, the trader cancels the spoof-side orders, and the market returns to its previous state. The trader then uses the same squeeze technique on the opposite side of the trade to trade out of the established position at an advantageous price.
+  </li>
+</ul>
+
+<h2>Scoring methodology</h2>
+
+
+  <p>TT Score computes a <a href="ovw-how-tt-score-works.html#cluster">cluster</a> score based on how similar the activity in the cluster matches trading activity that has drawn regulatory attention in other situations. </p>
+<p>Higher scores indicate the trading activity within a cluster is more likely to risk regulatory concern. A company's risk monitors can use these scores to prioritize resources for investing which users' trading activity poses the most regulatory risk.</p>
+
+
+<h3>Score interpretation</h3>
+<p>For the collusive spoofing pattern, each cluster is assigned a risk score on a sliding scale between 0-100. This score represents the probability that spoofing occurred during the duration of the cluster's trading activity.</p>
+
+{% include score-method.html %}
+
+
+<h3>Scorecard metrics</h3>
+<p>
+The metrics for the Collusive Spoofing model combine the total activity of all traders. The ladder data aggregates volume from all the traders in the cluster.</p>  
+
+<p>The Scorecard Metrics section measures the following statistics related to collusive spoofing:</p>
+<ul>
+            <li>Placed Buy Volume</li>
+            <li>Placed Sell Volume</li>
+            <li>Filled Buy Volume</li>
+            <li>Filled Sell Volume</li>
+            <li>Ord Cancel/Placed</li>
+            <li>Ord Modify/Placed</li>
+            <li>Volume Cancel/Placed</li>
+            <li>Volume Modify/Placed</li>
+
+
+
+</ul>
+
+
+<!--
+<p>Scoring methodology - Each cluster is assigned a risk score.  The risk score is on a sliding scale of 0-100 and describes the probability that spoofing occurred within cluster of trading activity. TT Score computes this probability based upon the similarity that the Features in the clustered activity have to the Features in trading activity that has drawn regulatory attention in the past. </p>
+
+<p>Score interpretation - The score is indicating the probability that the trading activity will attract regulatory attention, thereby creating a workflow prioritization for users where they can focus their resources on investigating the highest scoring or “riskiest” activity first.</p>
+-->
+
+<h2>Identifying collusive spoofing</h2>
+
+<p>Use the <a href="cv-cluster-view-cluster-scorecard.html">Cluster Scorecard</a> to identify the specific trading activity that triggered the collusive spoofing score. The pressure chart in the scorecard shows the company level or aggregate trading activity for the trader IDs identified in the cluster.</p>
+
+<p>Click a trader ID in right side of the chart to display that individual trader's activity in relation to the aggregate trading activity for the "Company" shown in the top chart.</p>
+
+
+  <p><img class="img-responsive" src="Content/collusive-spoofing-traders.png" alt="" /></p>
+
+
+<h3>Collusive Spoofing Examples</h2>
+
+  <p>The chart contains visual clues about the collusive spoofing pattern. For example, the following chart shows a potential simple spoofing pattern involving two traders.</p>
+
+
+ <!-- <p><img class="img-responsive" src="Content/spoofing-pressure-chart-collusive2.png" alt="" /></p> -->
+ <p><img class="img-responsive" src="Content/collusive-spoofing-chart.png" alt="" /></p>
+
+
+<p>In this example:</p>
+
+  <ol>
+    <li>
+      One trader places small Buy orders on one side of the market.
+    </li>
+    <li>
+      A second trader in the same company adds a large Sell order opposite the first trader's Buy orders.
+    </li>
+    <li>
+      When the Buy order fills, the imbalance indicators show where the trader was filled on the small side of the imbalance.
+    </li>
+  </ol>
+
+
+
+
+<!--
+<h2>Collusive spoofing metrics</h2> -->
+
+
+
+<p>The chart shows activity based on order volume over time, but does not show the order prices and liquidity for all traders involved in the suspect trading activity. Looking at the prices for the potential spoofing orders can help you determine whether the trader was placing those orders far off the market in an attempt to deceive traders. From the Cluster Scorecard, you can click <a href="cv-cluster-view-cluster-scorecard.html#replay">Market Replay</a> to show how the orders interacted with the market at the various price levels.</p>
+
+
+
+
+<p>In this example, you can see when the one of the traders began submitting a large Sell side order to create the illusion of sell-side pressure, and then you can see the smaller bid orders getting filled on the opposite side of the market. As you continue replaying the market activity, you can observe the state of the market and the trader's activity at every point in time.</p>
+
+ <!-- <p><img class="img-responsive" src="Content/spoofing-ladder-replay-collusive.png" alt="" /></p> -->
+  <p><img class="img-responsive" src="Content/collusive-spoofing-replay.png" alt="" /></p>
+
+
+  <p>The replay shows the following:</p>
+  <ol>
+    <li>
+      The price ladder shows the prices and liquidity off the market during the potential spoofing activity.
+    </li>
+    <li>
+      The vertical line identifies the point of time during the market replay. The imbalance indicator shows where one of the traders was filled on the small side (Buy side) of the imbalance.
+    </li>
+    <li>
+      The Audit Trail shows the traders' orders and fills that occurred around the specified time during the market replay.
+    </li>
+  </ol>
+
+
+  {% include spoofing-indicators.html %}
+

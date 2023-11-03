@@ -1,0 +1,130 @@
+---
+layout: default
+title: Cluster View - Market Ladder Replay
+---
+<!--<ul>
+	<li>What this report tells you and how.</li>
+	<li>Report Interface - section by section breakdown</li>
+	<li>Example with interpretation</li>
+	<li>Table of definitions: Reference</li>
+</ul>-->
+<p>Market Ladder Replay is a research tool that provides users with a frame-by-frame replay of the trading activity overlaid with
+Level 2 market data on a ladder-style interface. The ladder is 10 ticks deep and displays all market data, including the orders for
+each relevant participant in the order book. Users can stop, start and rewind the playback of the activity within a given cluster in order to gain a precise understanding of the sequence of events that occurred in the order book and how the trader’s orders impacted the
+market.</p>
+
+<h2>Market Ladder Replay display</h2>
+<p><img class="img-responsive" src="Content/dv-ladder-replay-display.png" alt=""></p>
+<ol>
+	<li>Interactive display of the market ladder for the specified time frame.</li>
+	<li>List of Audit Trail messages that comprise the activity included in the Ladder Replay.</li>
+</ol>
+
+<h2>Replaying the ladder</h2>
+<p>Replaying the ladder lets you watch the market react as the order activity in the audit messages are replayed. You can start, stop and rewind the activity to help get a clearer picture of potentially problematic trading activity.</p>
+<p><img class="img-responsive" src="Content/dv-ladder-replay-example.png" alt=""></p>
+<ol>
+    <li>
+    	Information about the snapshot shown in the ladder, including:
+    	<ul>
+    	    <li>View shown in the ladder (Macro, ?)</li>
+    	    <li>Total number of frames in the replay and the frame number currently being displayed.</li>
+    	    <li>Time, with millisecond precision, when the activity snapshot shown in the ladder occurred.</li>
+    	</ul>
+    </li>
+    <li>
+    	State of the market at the indicated time.
+    </li>
+    <li>
+    	Interactive controls to play and rewind trading activity in the ladder.
+    </li>
+</ol>
+
+
+<h2>Audit Messages columns</h2>
+<p>The Audit Messages section lists all of the audit trail messages associated with the order-related activity in the current cluster. Each audit message represents a single transaction, such a submitting an order, receiving a fill, modifying an order, or canceling an order.,</p>
+<p><img class="img-responsive" src="Content/dv-ladder-replay-audit-messages.png" alt=""></p>
+<ol>
+	<li>
+		Summary of the messages related to the replay, including:
+		<ul>
+			<li>Instrument associated with the audit messages.</li>
+			<li>Risk score based on the audit messages.</li>
+			<li>Total number, and the number currently shown, of orders represented by the audit messages. </li>
+		</ul>
+	</li>
+	<li>
+		Individual audit trail messages that comprise the activity in the ladder replay.
+	</li>
+</ol>
+<table class="table table-striped table-bordered" border="1">
+	<thead>
+		<tr>
+			<th>Column</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Line #</td>
+			<td>Audit message line number.</td>
+		</tr>
+		<tr>
+			<td>Timestamp</td>
+			<td>Time the transaction occurred.</td>
+		</tr>
+		<tr>
+			<td>Order ID</td>
+			<td>TT-generated ID that uniquely identifies the order associated with the transaction.</td>
+		</tr>
+		<tr>
+			<td>Action</td>
+			<td>Action that occurred for the order (Add, Cancel, Partial or Full Fill).</td>
+		</tr>
+		<tr>
+			<td>Side</td>
+			<td>Whether the transaction represents a Buy or Sell order.</td>
+		</tr>
+		<tr>
+			<td>Ord</td>
+			<td>Total order quantity.</td>
+		</tr>
+		<tr>
+			<td>Ice</td>
+			<td>Qty submitted by an Iceberg order slice.</td>
+		</tr>
+		<tr>
+			<td>Position</td>
+			<td>Open position for the related instrument.</td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td>Price of the order or fill.</td>
+		</tr>
+		<tr>
+			<td>Type</td>
+			<td>Type of order associated with this transaction (e.g. Limit or Market).</td>
+		</tr>
+		<tr>
+			<td>TIF</td>
+			<td>Time In Force for the order.</td>
+		</tr>
+		<tr>
+			<td>Account</td>
+			<td>Account number associated with the transaction.</td>
+		</tr>
+		<tr>
+			<td>Exch time</td>
+			<td>Time the exchange acknowledged the order action.</td>
+		</tr>
+		<tr>
+			<td>Exch ID</td>
+			<td>Name of the exchange.</td>
+		</tr>
+		<tr>
+			<td>User ID</td>
+			<td>TT User ID of the person who submitted the order.</td>
+		</tr>
+	</tbody>
+</table>
+
